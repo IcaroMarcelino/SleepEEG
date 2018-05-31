@@ -18,7 +18,7 @@ import csv
 
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
-import pygraphviz as pgv
+#import pygraphviz as pgv
 
 
 
@@ -229,18 +229,18 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	info1 = open("INFO_GP.csv", 'a')
 	info1.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
 
-	nodes, edges, labels = gp.graph(hof[0])
+	# nodes, edges, labels = gp.graph(hof[0])
 
-	g = pgv.AGraph()
-	g.add_nodes_from(nodes)
-	g.add_edges_from(edges)
-	g.layout(prog="dot")
+	# g = pgv.AGraph()
+	# g.add_nodes_from(nodes)
+	# g.add_edges_from(edges)
+	# g.layout(prog="dot")
 
-	for i in nodes:
-		n = g.get_node(i)
-		n.attr["label"] = labels[i]
+	# for i in nodes:
+	# 	n = g.get_node(i)
+	# 	n.attr["label"] = labels[i]
 
-	g.draw("Grafos_Melhores/GRAPH_" + filename +  "_" + str(NEXEC + 1) + ".pdf")
+	# g.draw("Grafos_Melhores/GRAPH_" + filename +  "_" + str(NEXEC + 1) + ".pdf")
 	hof = []
 
 if __name__ == "__main__":

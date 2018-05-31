@@ -241,16 +241,16 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# 	n.attr["label"] = labels[i]
 
 	# g.draw("Grafos_Melhores/GRAPH_" + filename +  "_" + str(NEXEC + 1) + ".pdf")
-	# hof = []
+	hof = []
 
 if __name__ == "__main__":
-	NGEN = 300
+	NGEN = 3
 	CXPB = .8
 	MUTPB = .2
-	NPOP = 500
+	NPOP = 5
 	train_percent = 0.7
 	tam_max = 20
-	Ks = [15, 17]
+	Ks = [3, 5]
 
 
 	for K in Ks:
