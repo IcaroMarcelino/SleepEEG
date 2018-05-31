@@ -1,0 +1,1 @@
+mul(sub(F(ARG12), div(ARG20, ARG0)), psqrt(plog(F(ARG6))))
