@@ -256,7 +256,7 @@ if __name__ == "__main__":
 	for K in Ks:
 		filename = "GP_EEG_K" + str(K) + "_"
 	
-		for i in [1,2,3,4,5,6,7,8,9,10]:
+		for i in [0,1,2,3,4,5]:
 			main(	NEXEC = i,
 					K = K,
 					TAM_MAX = tam_max,
@@ -265,5 +265,5 @@ if __name__ == "__main__":
 					MUTPB = MUTPB,
 					NPOP = NPOP,
 					train_percent = train_percent, 
-					verb = True, 
+					verb = False, 
 					FILE_NAME = filename)

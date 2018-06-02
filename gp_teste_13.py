@@ -15,11 +15,9 @@ import numpy as np
 # from sympy import simplify, expand
 import time
 import csv
-
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 #import pygraphviz as pgv
-
 
 
 def import_data(file_path, rand, test_percent):
@@ -241,7 +239,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# 	n.attr["label"] = labels[i]
 
 	# g.draw("Grafos_Melhores/GRAPH_" + filename +  "_" + str(NEXEC + 1) + ".pdf")
-	# hof = []
+	hof = []
 
 if __name__ == "__main__":
 	NGEN = 300
@@ -250,13 +248,13 @@ if __name__ == "__main__":
 	NPOP = 500
 	train_percent = 0.7
 	tam_max = 20
-	Ks = [17]
+	Ks = [3]
 
 
 	for K in Ks:
 		filename = "GP_EEG_K" + str(K) + "_"
 	
-		for i in [0,1,2,3,4,5]:
+		for i in [6,7,8,9,10]:
 			main(	NEXEC = i,
 					K = K,
 					TAM_MAX = tam_max,

@@ -250,13 +250,13 @@ if __name__ == "__main__":
 	NPOP = 500
 	train_percent = 0.7
 	tam_max = 20
-	Ks = [3, 5]
+	Ks = [3]
 
 
 	for K in Ks:
 		filename = "GP_EEG_K" + str(K) + "_"
 	
-		for i in [1,2,3,4,5,6,7,8,9,10]:
+		for i in [0,1,2,3,4,5]:
 			main(	NEXEC = i,
 					K = K,
 					TAM_MAX = tam_max,

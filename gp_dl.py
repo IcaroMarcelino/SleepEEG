@@ -20,6 +20,39 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 #import pygraphviz as pgv
 
+import tflearn
+import tensorflow as tf
+from tflearn.layers.core import input_data, dropout, fully_connected
+from tflearn.layers.estimator import regression
+
+def neural_network_model(input_size, n_hidden, LR):
+
+	network = input_data(shape=[None, input_size, 1], name='input')
+
+	network = fully_connected(network, n_hidden, activation='tanh')
+	network = dropout(network, 0.8)
+	network = fully_connected(network, 128, activation='sigmoid')
+	network = dropout(network, 0.8)
+
+	network = fully_connected(network, 256, activation='relu')
+	network = dropout(network, 0.8)
+
+	network = fully_connected(network, 512, activation='relu')
+	network = dropout(network, 0.8)
+
+	# network = fully_connected(network, 256, activation='relu')
+	# network = dropout(network, 0.8)
+
+	# network = fully_connected(network, 128, activation='relu')
+	# network = dropout(network, 0.8)
+	# network = fully_connected(network, 128, activation='sigmoid')
+	# network = dropout(network, 0.8)
+
+	network = fully_connected(network, 2, activation='softmax')
+	network = regression(network, optimizer='adam', learning_rate=LR, loss='categorical_crossentropy', name='targets')
+	model = tflearn.DNN(network, tensorboard_dir='log')
+
+	return model
 
 
 def import_data(file_path, rand, test_percent):
@@ -48,7 +81,7 @@ def import_data(file_path, rand, test_percent):
 	return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test)
 
 
-def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME):
+def main(NEXEC, H, LR, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME):
 	def div(left, right):
 		try:
 			return left / right
@@ -82,7 +115,9 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 				break
 		return string[begin:end]
 
-	def eval_tree(individual, K, X_train, y_train, X_test, y_test, pset):
+	def eval_tree(individual, H, LR, X_train, y_train, X_test, y_test, pset):
+		tf.reset_default_graph()
+
 		# Transform the tree expression in a callable function
 		# f_approx = toolbox.compile(expr=individual)
 		# Evaluate the mean squared error between the expression and the real function
@@ -103,14 +138,16 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 			X_train_new.append([])
 			for feature in features:
 				X_train_new[i].append(feature(*x))
-			i += 1
-		# instantiate learning model (k = 3)
-		knn = KNeighborsClassifier(n_neighbors=K)
+			i += 1		
+
+
+		X = np.array([i for i in X_train_new]).reshape(-1,len(X_train_new[0]),1)
+		model = neural_network_model(input_size = len(X_train_new[0]), n_hidden = H, LR = LR)
 		# fitting the model
-		try:
-			knn.fit(X_train_new, y_train)
-		except:
-			return 0,
+		#try:
+		model.fit({'input': X}, {'targets': y_train}, n_epoch=1000, snapshot_step=100, show_metric=False, run_id='openai_learning')
+		#except:
+		#	return 0,
 		X_test_new = []
 		i = 0
 		for x in X_test:
@@ -119,7 +156,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 				X_test_new[i].append(feature(*x))
 			i += 1
 		# predict the response
-		pred = knn.predict(X_test_new)
+		X = np.array([i for i in X_test_new]).reshape(-1,len(X_test_new[0]),1)
+		pred = model.predict(X)
+		pred = [[round(i[0]), round(i[1])] for i in pred]
+		print(pred)
+		input()
 		# evaluate accuracy
 		#print accuracy_score(y_test, pred)
 		return accuracy_score(y_test, pred),
@@ -144,7 +185,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	toolbox.register("compile", gp.compile, pset=pset)
-	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_test = y_test, pset = pset)
+	toolbox.register("evaluate", eval_tree, H = H, LR = LR, X_train = X_train, y_train = y_train, X_test = X_test, y_test = y_test, pset = pset)
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mate", gp.cxOnePoint)
 	toolbox.register("expr_mut", gp.genFull, min_=1, max_=3)
@@ -241,29 +282,32 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# 	n.attr["label"] = labels[i]
 
 	# g.draw("Grafos_Melhores/GRAPH_" + filename +  "_" + str(NEXEC + 1) + ".pdf")
-	# hof = []
+	hof = []
 
 if __name__ == "__main__":
-	NGEN = 300
+	NGEN = 10
 	CXPB = .8
 	MUTPB = .2
-	NPOP = 500
+	NPOP = 50
 	train_percent = 0.7
 	tam_max = 20
-	Ks = [17]
+	Hs = [400, 300, 200, 100]
+	LRs = [1e-5, 1e-4, 1e-3, 1e-2, 1e-1]
 
 
-	for K in Ks:
-		filename = "GP_EEG_K" + str(K) + "_"
+	for H in Hs:
+		for LR in LRs:
+			filename = "GP_DL_EEG_H" + str(H) + "_LR" + str(LR) 
 	
-		for i in [0,1,2,3,4,5]:
-			main(	NEXEC = i,
-					K = K,
-					TAM_MAX = tam_max,
-					NGEN = NGEN,
-					CXPB = CXPB, 	
-					MUTPB = MUTPB,
-					NPOP = NPOP,
-					train_percent = train_percent, 
-					verb = False, 
-					FILE_NAME = filename)
+			for i in [1,2,3,4,5,6,7,8,9,10]:
+				main(	NEXEC = i,
+						H = H,
+						LR = LR,
+						TAM_MAX = tam_max,
+						NGEN = NGEN,
+						CXPB = CXPB, 	
+						MUTPB = MUTPB,
+						NPOP = NPOP,
+						train_percent = train_percent, 
+						verb = True, 
+						FILE_NAME = filename)

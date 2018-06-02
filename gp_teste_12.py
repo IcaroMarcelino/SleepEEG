@@ -265,5 +265,5 @@ if __name__ == "__main__":
 					MUTPB = MUTPB,
 					NPOP = NPOP,
 					train_percent = train_percent, 
-					verb = True, 
+					verb = False, 
 					FILE_NAME = filename)

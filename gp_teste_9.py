@@ -15,11 +15,9 @@ import numpy as np
 # from sympy import simplify, expand
 import time
 import csv
-
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 #import pygraphviz as pgv
-
 
 
 def import_data(file_path, rand, test_percent):
@@ -265,5 +263,5 @@ if __name__ == "__main__":
 					MUTPB = MUTPB,
 					NPOP = NPOP,
 					train_percent = train_percent, 
-					verb = True, 
+					verb = False, 
 					FILE_NAME = filename)
