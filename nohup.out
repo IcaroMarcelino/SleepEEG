@@ -765,3 +765,321 @@ gp_teste_2.py:54: RuntimeWarning: invalid value encountered in double_scalars
 >> Inicio (Execucao 5)
 >> Fim da execucao (12521.636410951614 segundos)
 
+gp_teste_9.py:52: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_9.py:52: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (11207.392510414124 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (13399.195186376572 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (17812.496483802795 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (20745.257386922836 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (21439.663759708405 segundos)
+
+gp_teste_5.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_5.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (16852.36302614212 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (8921.760171413422 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (19844.7523124218 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (16817.36435675621 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (6599.410806179047 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (20615.989181280136 segundos)
+
+gp_teste_15.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+gp_teste_15.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (47049.01473593712 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (12668.862437725067 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (8118.886059999466 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (9080.178982973099 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (13558.581223726273 segundos)
+
+gp_teste_1.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_1.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (16580.857340812683 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (8329.375661373138 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (27219.589579343796 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (9749.425523757935 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (13722.536754846573 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (16741.748160123825 segundos)
+
+gp_teste_10.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+gp_teste_10.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (15958.634664535522 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (27563.655841350555 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (34137.70044922829 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (10700.761462688446 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (16758.711745023727 segundos)
+
+gp_teste_6.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_6.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (12225.736424922943 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (17697.981899499893 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (22420.7641787529 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (19418.950899600983 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (27647.498200178146 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (10615.339144468307 segundos)
+
+gp_teste_11.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+gp_teste_11.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (18930.80796122551 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (6973.596497297287 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (49305.04828095436 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (17874.447457313538 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (18845.855309009552 segundos)
+
+gp_teste_7.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+gp_teste_7.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (10692.646394252777 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (33166.43062210083 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (15307.467890501022 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (18828.94628739357 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (8807.784969568253 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (31941.3663854599 segundos)
+
+gp_teste_4.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste_4.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (31672.5751247406 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (23477.898646831512 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (14187.837908506393 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (28042.370095968246 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (15967.579799413681 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (11486.478672981262 segundos)
+
+gp_teste_8.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+gp_teste_8.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (22319.03839302063 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (14014.99700164795 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (11111.651545286179 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (12203.009229660034 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (49424.67488241196 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (17927.314378023148 segundos)
+
