@@ -1,0 +1,767 @@
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+1   1
+1   2
+1   3
+1   4
+1   5
+1   6
+1   7
+1   8
+2   1
+2   2
+2   3
+2   4
+2   5
+2   6
+2   7
+2   8
+3   1
+3   2
+3   3
+3   4
+3   5
+3   6
+3   7
+3   8
+4   1
+4   2
+4   3
+4   4
+4   5
+4   6
+4   7
+4   8
+5   1
+5   2
+5   3
+5   4
+5   5
+5   6
+5   7
+5   8
+6   1
+6   2
+6   3
+6   4
+6   5
+6   6
+6   7
+6   8
+7   1
+7   2
+7   3
+7   4
+7   5
+7   6
+7   7
+7   8
+8   1
+8   2
+8   3
+8   4
+8   5
+8   6
+8   7
+8   8
+gp_teste_14.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste_14.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (5488.239223718643 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (10077.249866724014 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (18399.508043050766 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (9166.346305131912 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (11132.595270395279 segundos)
+
+gp_teste_13.py:52: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_13.py:52: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (11395.734282970428 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (11401.468716621399 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (13425.176352024078 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (8648.175402641296 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (19359.433235406876 segundos)
+
+gp_teste_3.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (13883.523880243301 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (9068.111692667007 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (5468.073999166489 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (18688.02124428749 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (5828.537981748581 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (14252.127651929855 segundos)
+
+gp_teste_16.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste_16.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (23813.58510494232 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (23986.106112957 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (8829.985834121704 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (8886.146293640137 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (6923.134078025818 segundos)
+
+gp_teste_12.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+gp_teste_12.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 6)
+>> Fim da execucao (17955.949845552444 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 7)
+>> Fim da execucao (19250.234844207764 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 8)
+>> Fim da execucao (9240.470814466476 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 9)
+>> Fim da execucao (19246.177390813828 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 10)
+>> Fim da execucao (14391.814836740494 segundos)
+
+gp_teste_2.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+gp_teste_2.py:54: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: 
+>> Inicio (Execucao 0)
+>> Fim da execucao (11361.28322649002 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 1)
+>> Fim da execucao (5740.837836742401 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 2)
+>> Fim da execucao (18491.255273103714 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 3)
+>> Fim da execucao (10502.781487464905 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 4)
+>> Fim da execucao (24176.921736478806 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 5)
+>> Fim da execucao (12521.636410951614 segundos)
+
