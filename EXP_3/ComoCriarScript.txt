@@ -1,0 +1,5 @@
+First, the most common is to write a file, make sure the first line is
+
+#!/bin/bash
+
+Then save the file. Next mark it executable using chmod +x file
