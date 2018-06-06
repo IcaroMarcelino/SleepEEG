@@ -178,7 +178,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 			newtree = exp.from_string(subtree, pset)
 			features.append(toolbox.compile(newtree))
 		if len(features) == 0:
-			return 0,
+			features.append(toolbox.compile(individual))
 		X_train_new = []
 		i = 0
 		for x in X_train:
@@ -192,7 +192,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		try:
 			knn.fit(X_train_new, y_train)
 		except:
-			return 0,
+			return 0, 0, 0
 		X_test_new = []
 		i = 0
 		for x in X_test:
