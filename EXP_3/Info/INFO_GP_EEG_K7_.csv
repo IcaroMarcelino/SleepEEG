@@ -1,3 +1,4 @@
 Altura Maxima,K,#Execucao,Precision_S,Precision_NS,Recall_S,Recall_NS,Fscore_S,Fscore_NS,Support_S,Support_NS,Acc (Melhor),Altura (Melhor),Tempo Execucao
 20,7,1,0.8935185185185185,20,88656.68032646179
 20,7,7,0.89212962963,20,107430.9950530529
+20,7,16,0.8458333333333333,2,16840.56436395645
