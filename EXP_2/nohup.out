@@ -1,1 +1,24 @@
-python3: can't open file 'gp_teste_4.py': [Errno 2] No such file or directory
+['gp_teste2_1.py', '300', '300', '20', '3', '0']
+['gp_teste2_1.py', '300', '300', '20', '5', '0']
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 346, in <module>
+    input()
+EOFError: EOF when reading a line
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 346, in <module>
+    input()
+EOFError: EOF when reading a line
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 332, in <module>
+    NGEN = int(sys.argv[1])
+IndexError: list index out of range
+['gp_teste2_1.py', '300', '300', '20', '3', '0']
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 346, in <module>
+    input()
+OSError: [Errno 9] Bad file descriptor
+['gp_teste2_1.py', '300', '300', '20', '3', '0']
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 346, in <module>
+    input()
+OSError: [Errno 9] Bad file descriptor

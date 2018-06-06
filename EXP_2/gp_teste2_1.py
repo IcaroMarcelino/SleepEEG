@@ -23,6 +23,10 @@ from sklearn.metrics import precision_recall_fscore_support
 
 #import pygraphviz as pgv
 
+import sys
+
+
+
 
 def import_all_data(files_paths, rand, test_percent):
 	total_x = []
@@ -226,7 +230,8 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mate", gp.cxOnePoint)
 	toolbox.register("expr_mut", gp.genFull, min_=1, max_=3)
-	toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+	#toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+	toolbox.register("mutate", gp.mutShrink)
 
 	toolbox.decorate("mate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
 	toolbox.decorate("mutate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
@@ -323,26 +328,30 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# hof = []
 
 if __name__ == "__main__":
-	NGEN = 300
+	# 300, 300, 20, K, execs
+	NGEN = int(sys.argv[1])
+	NPOP = int(sys.argv[2])
 	CXPB = .8
 	MUTPB = .2
-	NPOP = 500
 	train_percent = 0.7
-	tam_max = 20
-	Ks = [3]
+	tam_max = int(sys.argv[2])
+	K = int(sys.argv[3])
 
+	if sys.argv[4] == 0:
+		execs = [0,1,2,3,4]
+	else:
+		execs = [5,6,7,8,9]
 
-	for K in Ks:
-		filename = "GP_EEG_K" + str(K) + "_"
+	filename = "GP_EEG_K" + str(K) + "_"
 	
-		for i in [0,1,2,3,4,5]:
-			main(	NEXEC = i,
-					K = K,
-					TAM_MAX = tam_max,
-					NGEN = NGEN,
-					CXPB = CXPB, 	
-					MUTPB = MUTPB,
-					NPOP = NPOP,
-					train_percent = train_percent, 
-					verb = False, 
-					FILE_NAME = filename)
+	for i in execs:
+		main(	NEXEC = i,
+				K = K,
+				TAM_MAX = tam_max,
+				NGEN = NGEN,
+				CXPB = CXPB, 	
+				MUTPB = MUTPB,
+				NPOP = NPOP,
+				train_percent = train_percent, 
+				verb = False, 
+				FILE_NAME = filename)
