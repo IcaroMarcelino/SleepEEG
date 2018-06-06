@@ -304,8 +304,8 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	
 
 	info = open("Info/INFO_" + filename + ".csv", 'a')
-	if (NEXEC == 0):
-		info.write("Altura Maxima,K,#Execucao,Precision_S,Precision_NS,Recall_S,Recall_NS,Fscore_S,Fscore_NS,Support_S,Support_NS,Acc (Melhor),Altura (Melhor),Tempo Execucao\n")
+	# if (NEXEC == 0):
+	# 	info.write("Altura Maxima,K,#Execucao,Precision_S,Precision_NS,Recall_S,Recall_NS,Fscore_S,Fscore_NS,Support_S,Support_NS,Acc (Melhor),Altura (Melhor),Tempo Execucao\n")
 
 	info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
 
@@ -334,13 +334,13 @@ if __name__ == "__main__":
 	CXPB = .8
 	MUTPB = .2
 	train_percent = 0.7
-	tam_max = int(sys.argv[2])
-	K = int(sys.argv[3])
+	tam_max = int(sys.argv[3])
+	K = int(sys.argv[4])
 
-	if sys.argv[4] == 0:
-		execs = [0,1,2,3,4]
+	if sys.argv[5] == 0:
+		execs = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
 	else:
-		execs = [5,6,7,8,9]
+		execs = [15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]
 
 	filename = "GP_EEG_K" + str(K) + "_"
 	
