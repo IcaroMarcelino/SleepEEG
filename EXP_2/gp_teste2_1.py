@@ -319,11 +319,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# if (NEXEC == 0):
 	# 	info.write("Altura Maxima,K,#Execucao,Precision_S,Precision_NS,Recall_S,Recall_NS,Fscore_S,Fscore_NS,Support_S,Support_NS,Acc (Melhor),Altura (Melhor),Tempo Execucao\n")
 
-	info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[2]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
+	info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(toolbox.evaluate(hof[0])[1]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
 
 	acc1 = eval_tree1(hof[0], K, X_train, y_train, X_test, y_test, pset)
 	info1 = open("INFO_GP.csv", 'a')
-	info1.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[2]) + ',' + str(acc1[0][0]) + ',' + str(acc1[0][1]) + ',' + str(acc1[1][0])  + ',' + str(acc1[1][1]) + ',' + str(acc1[2][0]) + ',' + str(acc1[2][1]) + ',' + str(acc1[3][0]) + ',' + str(acc1[3][1]) + ','  + str(hof[0].height) + ',' + str(end-start) + '\n')
+	info1.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(toolbox.evaluate(hof[0])[1]) + ',' + str(acc1[0][0]) + ',' + str(acc1[0][1]) + ',' + str(acc1[1][0])  + ',' + str(acc1[1][1]) + ',' + str(acc1[2][0]) + ',' + str(acc1[2][1]) + ',' + str(acc1[3][0]) + ',' + str(acc1[3][1]) + ','  + str(hof[0].height) + ',' + str(end-start) + '\n')
 
 	# nodes, edges, labels = gp.graph(hof[0])
 

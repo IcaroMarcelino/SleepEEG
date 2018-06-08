@@ -1,1 +1,1 @@
-sub(ARG8, ARG13)
+add(plog(ARG13), add(ARG15, ARG15))
