@@ -1,1 +1,1 @@
-sub(div(ARG7, ARG17), ARG11)
+sub(ARG11, add(ARG7, ARG7))

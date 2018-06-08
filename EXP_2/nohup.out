@@ -1,0 +1,128 @@
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (5769.503042459488 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (5790.937557458878 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (5789.103451967239 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (5807.774095058441 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (5785.321204423904 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (5787.4036231040955 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (5783.590455770493 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (5806.055187225342 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (5782.237992048264 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (5780.599986791611 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (8819.05288553238 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (6925.956994533539 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (5796.800499677658 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (5801.028421640396 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (5789.783469676971 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (5532.900792360306 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (6307.42622256279 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (5550.50328707695 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (6305.131108045578 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (5550.543563604355 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (6307.82249045372 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (5553.096274614334 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (6309.651718378067 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (5552.320641517639 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (6529.88699221611 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (8696.270206212997 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (7003.465708971024 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (5562.011864185333 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (6319.9299659729 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (5558.832051992416 segundos)
+

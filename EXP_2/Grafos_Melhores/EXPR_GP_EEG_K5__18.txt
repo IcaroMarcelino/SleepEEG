@@ -1,0 +1,1 @@
+F(div(ARG1, ARG1))
