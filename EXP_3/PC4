@@ -1,5 +1,5 @@
 #!/bin/bash
-nohup python3 gp_teste3_1.py 500 300 20 13 1 &
-nohup python3 gp_teste3_1.py 500 300 20 15 1 &
-nohup python3 gp_teste3_1.py 500 300 20 17 1 &
-nohup python3 gp_teste3_1.py 500 300 20 11 1 &
+nohup python3 gp_teste3_1.py 500 200 20 13 1 &
+nohup python3 gp_teste3_1.py 500 200 20 15 1 &
+nohup python3 gp_teste3_1.py 500 200 20 17 1 &
+nohup python3 gp_teste3_1.py 500 200 20 11 1 &

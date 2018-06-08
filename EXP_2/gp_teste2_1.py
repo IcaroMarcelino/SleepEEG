@@ -134,7 +134,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 			newtree = exp.from_string(subtree, pset)
 			features.append(toolbox.compile(newtree))
 		if len(features) == 0:
-			return 0,
+			features.append(toolbox.compile(individual))
 		X_train_new = []
 		i = 0
 		for x in X_train:
@@ -148,7 +148,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		try:
 			knn.fit(X_train_new, y_train)
 		except:
-			return 0,
+			return 0, 0
 		X_test_new = []
 		i = 0
 		for x in X_test:
@@ -158,9 +158,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 			i += 1
 		# predict the response
 		pred = knn.predict(X_test_new)
+		acc1 = precision_recall_fscore_support(y_test, pred)
 		# evaluate accuracy
 		#print accuracy_score(y_test, pred)
-		return accuracy_score(y_test, pred),
+
+		return acc1[0][0], acc1[1][0]
 
 	def eval_tree1(individual, K, X_train, y_train, X_test, y_test, pset):
 		# Transform the tree expression in a callable function
@@ -176,7 +178,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 			newtree = exp.from_string(subtree, pset)
 			features.append(toolbox.compile(newtree))
 		if len(features) == 0:
-			return 0,
+			features.append(toolbox.compile(individual))
 		X_train_new = []
 		i = 0
 		for x in X_train:
@@ -190,7 +192,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		try:
 			knn.fit(X_train_new, y_train)
 		except:
-			return 0,
+			return 0, 0
 		X_test_new = []
 		i = 0
 		for x in X_test:
@@ -219,7 +221,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	pset.addPrimitive(div, 2)
 	#pset.addPrimitive(operator.neg, 1)
 	#################################################################
-	creator.create("FitnessMin", base.Fitness, weights=(1.0,))
+	creator.create("FitnessMin", base.Fitness, weights=(1.0,1.0))
 	creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMin)
 	toolbox = base.Toolbox()
 	toolbox.register("expr", gp.genHalfAndHalf, pset=pset, min_=1, max_=3)
@@ -229,9 +231,9 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_test = y_test, pset = pset)
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	toolbox.register("mate", gp.cxOnePoint)
-	toolbox.register("expr_mut", gp.genFull, min_=1, max_=3)
-	#toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
-	toolbox.register("mutate", gp.mutShrink)
+	toolbox.register("expr_mut", gp.genFull, min_=4, max_=7)
+	toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+	#toolbox.register("mutate", gp.mutShrink)
 
 	toolbox.decorate("mate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
 	toolbox.decorate("mutate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
@@ -240,13 +242,19 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	random.seed(318)
 
 	stats_fit = tools.Statistics(lambda ind: ind.fitness.values)
-	stats_size = tools.Statistics(lambda ind: ind.height)
-	mstats = tools.MultiStatistics(fitness=stats_fit, size=stats_size)
-	mstats.register("avg", numpy.mean)
-	mstats.register("std", numpy.std)
-	mstats.register("min", numpy.min)
-	mstats.register("max", numpy.max)
+	stats_fit.register("avg", numpy.mean, axis=0)
+	stats_fit.register("std", numpy.std, axis=0)
+	stats_fit.register("min", numpy.min, axis=0)
+	stats_fit.register("max", numpy.max, axis=0)
 
+	stats_size = tools.Statistics(lambda ind: ind.height)
+	stats_size.register("avg", numpy.mean)
+	stats_size.register("std", numpy.std)
+	stats_size.register("min", numpy.min)
+	stats_size.register("max", numpy.max)
+
+	mstats = tools.MultiStatistics(fitness=stats_fit, size=stats_size)
+	
 	pop = toolbox.population(NPOP)
 	
 	# pop, log = algorithms.eaSimple(population = pop, toolbox = toolbox, cxpb = CXPB, mutpb = MUTPB, ngen = NGEN, stats = mstats,
@@ -282,12 +290,15 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		hof = tools.selBest(pop, 1)
 		pop[:] = offspring + hof
 
+		#print(toolbox.evaluate(hof[0]))
+
 		log.record(gen = g, time = time.time() - geninit,**mstats.compile(pop))
 
 		if(verb == True):
 			print(log.stream)
 
 	end = time.time()
+
 
 	logfile = open("Log_Exec/LOG_" + filename + "_" + str(NEXEC + 1) + ".csv", 'w')
 	logfile.write(str(log))
@@ -296,6 +307,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 
 	# final_eq = expand(simplify(convertFunct(hof[0])))
 	# print("Resultado da regressao: %s\n" % final_eq)
+
 
 	tree = gp.PrimitiveTree(hof[0])
 	function = gp.compile(tree, pset)
@@ -307,11 +319,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	# if (NEXEC == 0):
 	# 	info.write("Altura Maxima,K,#Execucao,Precision_S,Precision_NS,Recall_S,Recall_NS,Fscore_S,Fscore_NS,Support_S,Support_NS,Acc (Melhor),Altura (Melhor),Tempo Execucao\n")
 
-	info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
+	info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[2]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
 
 	acc1 = eval_tree1(hof[0], K, X_train, y_train, X_test, y_test, pset)
 	info1 = open("INFO_GP.csv", 'a')
-	info1.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[0]) + ',' + str(acc1[0][0]) + ',' + str(acc1[0][1]) + ',' + str(acc1[1][0])  + ',' + str(acc1[1][1]) + ',' + str(acc1[2][0]) + ',' + str(acc1[2][1]) + ',' + str(acc1[3][0]) + ',' + str(acc1[3][1]) + ','  + str(hof[0].height) + ',' + str(end-start) + '\n')
+	info1.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[2]) + ',' + str(acc1[0][0]) + ',' + str(acc1[0][1]) + ',' + str(acc1[1][0])  + ',' + str(acc1[1][1]) + ',' + str(acc1[2][0]) + ',' + str(acc1[2][1]) + ',' + str(acc1[3][0]) + ',' + str(acc1[3][1]) + ','  + str(hof[0].height) + ',' + str(end-start) + '\n')
 
 	# nodes, edges, labels = gp.graph(hof[0])
 
