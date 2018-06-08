@@ -126,3 +126,21 @@
 >> Inicio (Execucao 29)
 >> Fim da execucao (5558.832051992416 segundos)
 
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste2_1.py:92: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste2_1.py:92: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (44676.496695518494 segundos)
+
+Traceback (most recent call last):
+  File "gp_teste2_1.py", line 369, in <module>
+    FILE_NAME = filename)
+  File "gp_teste2_1.py", line 322, in main
+    info.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC + 1) + ',' + str(toolbox.evaluate(hof[0])[2]) + ',' + str(hof[0].height) + ',' + str(end-start) + '\n')
+IndexError: tuple index out of range
