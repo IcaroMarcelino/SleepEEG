@@ -1,1 +1,1 @@
-F(F(ARG20))
+div(ARG16, ARG16)

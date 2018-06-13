@@ -1,0 +1,1 @@
+div(sub(div(ARG24, mul(sub(ARG24, sub(ARG21, add(sub(ARG24, ARG24), div(sub(ARG24, ARG3), F(sub(ARG24, ARG24)))))), ARG15)), psqrt(ARG0)), ARG24)

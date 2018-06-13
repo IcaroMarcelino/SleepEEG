@@ -1,1 +1,1 @@
-plog(ARG5)
+plog(plog(plog(psqrt(psqrt(plog(psqrt(psqrt(psqrt(ARG23)))))))))
