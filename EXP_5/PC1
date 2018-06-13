@@ -1,0 +1,6 @@
+#!/bin/bash
+nohup python3 gp_teste5_1.py 500 100 20 3 0 &
+nohup python3 gp_teste5_1.py 500 100 20 5 0 &
+nohup python3 gp_teste5_1.py 500 100 20 7 0 &
+nohup python3 gp_teste5_1.py 500 100 20 9 0 &
+htop
