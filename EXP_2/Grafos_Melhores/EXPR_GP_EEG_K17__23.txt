@@ -1,1 +1,1 @@
-F(ARG10)
+psqrt(add(mul(div(mul(psqrt(F(sub(ARG8, ARG6))), psqrt(ARG11)), mul(psqrt(F(sub(ARG11, ARG6))), sub(ARG4, plog(psqrt(F(mul(ARG23, ARG12))))))), plog(sub(F(sub(sub(ARG4, ARG5), div(sub(ARG10, ARG23), ARG8))), psqrt(mul(ARG4, ARG8))))), sub(sub(ARG6, ARG5), add(add(sub(ARG10, div(sub(ARG6, ARG12), add(ARG23, sub(ARG10, ARG5)))), sub(sub(ARG4, ARG5), div(sub(ARG10, ARG23), ARG8))), add(sub(ARG8, sub(sub(mul(sub(ARG8, ARG23), add(ARG1, ARG17)), plog(ARG23)), div(sub(ARG8, ARG6), add(plog(ARG12), ARG4)))), ARG4)))))
