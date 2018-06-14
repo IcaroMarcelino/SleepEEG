@@ -1,0 +1,1 @@
+plog(mul(mul(ARG19, mul(mul(mul(div(div(mul(ARG0, ARG19), plog(sub(ARG19, ARG19))), psqrt(ARG13)), mul(ARG19, ARG19)), ARG19), sub(ARG19, ARG19))), mul(sub(mul(mul(ARG19, ARG19), ARG19), mul(mul(div(ARG23, mul(ARG4, ARG19)), plog(sub(sub(ARG19, ARG19), mul(ARG0, sub(ARG2, ARG19))))), ARG19)), sub(ARG19, ARG19))))

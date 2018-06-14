@@ -1,0 +1,1 @@
+add(add(add(ARG22, mul(ARG22, ARG22)), F(plog(plog(plog(add(ARG22, mul(ARG22, F(ARG22)))))))), F(plog(plog(add(plog(sub(ARG22, plog(add(ARG22, ARG22)))), mul(ARG22, F(mul(ARG22, sub(ARG22, ARG22)))))))))
