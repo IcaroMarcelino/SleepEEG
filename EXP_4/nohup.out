@@ -1,0 +1,314 @@
+gp_teste4_1.py:104: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste4_1.py:104: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (6041.559355258942 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (13623.828485965729 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (6414.338624000549 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (22676.705993413925 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (26424.190945625305 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (6487.297107219696 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (12963.37121629715 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (6764.958540678024 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (12281.261973381042 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (10441.237446069717 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (17708.97855067253 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (6917.669607400894 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (7272.748172044754 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (6823.342148542404 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (8147.924580574036 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste4_1.py:104: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste4_1.py:104: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (5160.0619764328 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (15150.527392864227 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (6670.747914552689 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (5139.396742343903 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (6826.954407691956 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (17450.723610401154 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (21999.21518421173 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (6720.198876142502 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (27718.9798476696 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (6586.363631248474 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (25167.316070318222 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (23400.091429948807 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (17486.46195435524 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (6356.166362047195 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (21585.168355226517 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste4_1.py:104: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste4_1.py:104: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (9606.810117721558 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (7170.753457784653 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (25129.426226615906 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (9377.703067541122 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (22744.404675245285 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (13689.432378053665 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (18633.78266620636 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (9896.179120063782 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (6443.029884338379 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (6358.097048521042 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (20116.736041784286 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (18621.83323931694 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (5088.349840402603 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (20271.596038341522 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (24697.653131246567 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste4_1.py:104: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+gp_teste4_1.py:104: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (19595.5856153965 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (6707.939214706421 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (26782.38919401169 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (5087.101852178574 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (19226.722736120224 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (34251.177172899246 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (31570.08445930481 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (6446.634165287018 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (38129.6548936367 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (17327.979487895966 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (6840.100636482239 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (19316.825818538666 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (15910.310150623322 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (37881.34248876572 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (21273.218534469604 segundos)
+
