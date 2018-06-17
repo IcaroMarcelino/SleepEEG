@@ -263,6 +263,7 @@ box()
 ###################################################################################
 
 draw_ellipses_ACC <- function(infoGP, k_ind, pch, k){
+  require(plotrix)
   x = mean(infoGP$Acc[k_ind])
   y = mean(infoGP$Acc[k_ind])
   a = sd(infoGP$Acc[k_ind])
@@ -273,6 +274,7 @@ draw_ellipses_ACC <- function(infoGP, k_ind, pch, k){
 }
 
 draw_ellipses_ROC <- function(infoGP, k_ind, pch, k){
+  require(plotrix)
   x = mean(infoGP$TPR_S[k_ind])
   y = mean(infoGP$PPV_S[k_ind])
   a = sd(infoGP$TPR_S[k_ind])
@@ -290,6 +292,7 @@ draw_ellipses_ROC <- function(infoGP, k_ind, pch, k){
   text(x,y,k,pos=2)
 }
 
+library(readr)
 INFO_GP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/EXP_3/INFO_GP.csv", col_names = FALSE)
 colnames(INFO_GP) <- c("DEEP MAX","K","#Exec","Acc","PPV_S","PPV_NS","TPR_S","TPR_NS","F1_S","F1_NS","SUP_S","SUP_NS","Deep","Training Time")
 

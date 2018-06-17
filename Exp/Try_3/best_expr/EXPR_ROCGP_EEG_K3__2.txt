@@ -1,0 +1,1 @@
+plog(sub(add(add(ARG62, ARG41), mul(ARG19, ARG19)), mul(ARG19, ARG62)))

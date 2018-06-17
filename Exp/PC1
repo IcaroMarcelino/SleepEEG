@@ -1,5 +1,0 @@
-#!/bin/bash
-
-nohup python3 -verb main.py -gen 11 -pop 12 -depth 4 -k 6 -execs 3 7 -dataset 3 -path Try_2/ -fileID jjj -optmize 3 2 acc 3 f1_S 6 f1_NS &
-
-htop

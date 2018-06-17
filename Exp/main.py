@@ -90,10 +90,19 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	log = tools.Logbook()
 	hof = tools.selBest(pop, 1)
 
+	toolbar_width = 50
+	if NGEN < 50:
+		toolbar_width = NGEN
+
 	if verb >= 1:
 		print(">> (Exec " + str(NEXEC) + ") GP + KNN - Feature Selection and Classification")
 		print(">> NGEN = " + str(NGEN) + " | NPOP = " + str(NPOP) + " | MAX_DEPTH = " + str(TAM_MAX) + " | K = " + str(K))
 		print(">> Optimizing: " + str(opt_vars))
+		print(">> Weights:    " + str(wts_vars))
+		if verb == 1:
+			sys.stdout.write("[%s]" % (" " * toolbar_width))
+			sys.stdout.flush()
+			sys.stdout.write("\b" * (toolbar_width+1))
 
 	for g in range(NGEN):
 		geninit = time.time()
@@ -116,7 +125,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		pop[:] = offspring + hof
 		log.record(gen = g, time = time.time() - geninit,**mstats.compile(pop))
 
-		if(verb == 2):
+		if verb == 1:
+			if(g%int(NGEN/toolbar_width) == 0):
+				sys.stdout.write("-")
+				sys.stdout.flush()
+		elif verb == 2:
 			print(log.stream)
 
 	end = time.time()
@@ -125,11 +138,11 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 
 	if verb >= 1:
 		if total_time < 60:
-			print(">> End (" + str(round(total_time)) + " seconds)\n")
+			print("\n>> End (" + str(round(total_time)) + " seconds)\n")
 		elif total_time < 3600:
-			print(">> End (" + str(round(total_time/60)) + " minutes)\n")
+			print("\n>> End (" + str(round(total_time/60)) + " minutes)\n")
 		else:
-			print(">> End (" + str(math.floor(total_time/3600)) + " hours and " + str(round(abs(math.floor(total_time/3600)-total_time/3600)*60)) + " minutes)\n")
+			print("\n>> End (" + str(math.floor(total_time/3600)) + " hours and " + str(round(abs(math.floor(total_time/3600)-total_time/3600)*60)) + " minutes)\n")
 
 	logfile = open(path + "log/LOG_" + filename + "_" + str(NEXEC) + ".csv", 'w')
 	logfile.write(str(log))
