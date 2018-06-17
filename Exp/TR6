@@ -1,0 +1,10 @@
+#!/bin/bash
+nohup python3 main.py -v 0 -gen 500 -pop 100 -depth 40 -k 3 -execs 1 10 -dataset 4 -path Try_6/ -fileID MEN -optmize 3 1 TP -1 FN -1 FP &
+
+nohup python3 main.py -v 0 -gen 500 -pop 100 -depth 40 -k 5 -execs 1 10 -dataset 4 -path Try_6/ -fileID MEN -optmize 3 1 TP -1 FN -1 FP &
+
+nohup python3 main.py -v 0 -gen 500 -pop 100 -depth 40 -k 7 -execs 1 10 -dataset 4 -path Try_6/ -fileID MEN -optmize 3 1 TP -1 FN -1 FP &
+
+nohup python3 main.py -v 0 -gen 500 -pop 100 -depth 40 -k 9 -execs 1 10 -dataset 4 -path Try_6/ -fileID MEN -optmize 3 1 TP -1 FN -1 FP &
+
+htop

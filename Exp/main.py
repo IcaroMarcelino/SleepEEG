@@ -35,6 +35,12 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	files_wav75 = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
 					'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
 					'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
+
+	files_wav75_men = ['data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
+						'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex8.csv']
+
+	files_wav75_wom = ['data/wav_all_seg_ex1.csv', 'data/wav_all_seg_ex5.csv', 
+						'data/wav_all_seg_ex6.csv', 'data/wav_all_seg_ex7.csv']
 	
 	if dt_op == 1:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent)
@@ -42,6 +48,10 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent)
 	elif dt_op == 3:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent)
+	elif dt_op == 4:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent)
+	elif dt_op == 5:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
