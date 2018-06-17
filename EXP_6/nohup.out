@@ -1,0 +1,75 @@
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+gp_teste6_1.py:108: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMin' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+gp_teste6_1.py:108: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: 
+>> Inicio (Execucao 15)
+>> Fim da execucao (16909.125115394592 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 16)
+>> Fim da execucao (14707.13567852974 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 17)
+>> Fim da execucao (26184.08004140854 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 18)
+>> Fim da execucao (30255.344059944153 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 19)
+>> Fim da execucao (24806.326454877853 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 20)
+>> Fim da execucao (35118.03688955307 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 21)
+>> Fim da execucao (11065.15465593338 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 22)
+>> Fim da execucao (25478.53529214859 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 23)
+>> Fim da execucao (29964.93311738968 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 24)
+>> Fim da execucao (26496.270476341248 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 25)
+>> Fim da execucao (23425.158601284027 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 26)
+>> Fim da execucao (36764.181331157684 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 27)
+>> Fim da execucao (18622.321251392365 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 28)
+>> Fim da execucao (19513.992883443832 segundos)
+
+>> GP Feature Selection: 
+>> Inicio (Execucao 29)
+>> Fim da execucao (33351.08021950722 segundos)
+
