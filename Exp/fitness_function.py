@@ -1,6 +1,7 @@
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics import confusion_matrix
 from deap import gp
 
 def get_subtree(begin, string):
@@ -18,7 +19,7 @@ def get_subtree(begin, string):
 			break
 	return string[begin:end]
 
-def knn_feature_selection(individual, K, X_train, y_train, X_test, y_test, toolbox, pset):
+def knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset):
 	exp = gp.PrimitiveTree(individual)
 	string = str(exp)
 	ind = [i for i in range(len(string)) if string.startswith('F', i)]
@@ -51,45 +52,91 @@ def knn_feature_selection(individual, K, X_train, y_train, X_test, y_test, toolb
 			X_test_new[i].append(feature(*x))
 		i += 1
 
-	pred = knn.predict(X_test_new)
-	return pred
+	y_pred = knn.predict(X_test_new)
+	return y_pred
 
-def eval_tree(individual, K, X_train, y_train, X_test, y_test, toolbox, pset, opt_vars):
-	pred = knn_feature_selection(individual, K, X_train, y_train, X_test, y_test, toolbox, pset)
+def eval_function(opt_vars):
+	# prf = precision_recall_fscore_support(y_true, y_pred)
+	# acc = accuracy_score(y_true, y_pred)
+	# cfm = confusion_matrix(y_true, y_pred)
+	func = []
+	metr1 = []
+	metr2 = []
+	if 'acc' in opt_vars:
+		func.append(0)
+	if 'prec_S' in opt_vars:
+		func.append(1)
+		metr1.append((0,0))
+	if 'prec_NS' in opt_vars:
+		func.append(1)
+		metr1.append((0,1))
+	if 'rec_S' in opt_vars:
+		func.append(1)
+		metr1.append((1,0))
+	if 'rec_NS' in opt_vars:
+		func.append(1)
+		metr1.append((1,1))
+	if 'f1_S' in opt_vars:
+		func.append(1)
+		metr1.append((2,0))
+	if 'f1_NS' in opt_vars:
+		func.append(1)
+		metr1.append((2,1))
+	if 'TN' in opt_vars:
+		func.append(2)
+		metr2.append(0)
+	if 'FP' in opt_vars:
+		func.append(2)
+		metr2.append(1)
+	if 'FN' in opt_vars:
+		func.append(2)
+		metr2.append(2)
+	if 'TP' in opt_vars:
+		func.append(2)
+		metr2.append(3)
+	funcs = []
+	if 0 in func:
+		x = lambda y_true, y_pred: accuracy_score(y_true, y_pred)
+		funcs.append(x)
+	if 1 in func:
+		y = lambda y_true, y_pred: [precision_recall_fscore_support(y_true, y_pred)[i][j] for i,j in metr1]
+		funcs.append(y)
+	if 2 in func:
+		z = lambda y_true, y_pred: [confusion_matrix([j[0] for j in y_true], [k[0] for k in y_pred]).ravel()[i] for i in metr2]
+		funcs.append(z)
+	final_func = lambda y_true, y_pred: [f(y_true, y_pred) for f in funcs]
+	return final_func
 
-	if type(pred) == type(-1):
+def eval_tree(individual, K, X_train, y_train, X_test, y_true, toolbox, pset, opt_vars, eval_func):
+	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset)
+
+	if type(y_pred) == type(-1):
 		ret = tuple([0]*len(opt_vars))
 		return ret
-	
-	prf = precision_recall_fscore_support(y_test, pred)
-	acc = accuracy_score(y_test, pred)
-	
+
 	ret = []
-	for var in opt_vars:
-		if var == 'acc':
-			ret.append(acc)
-		elif var == 'f1_S':
-			ret.append(prf[2][0])
-		elif var == 'f1_NS':
-			ret.append(prf[2][1])
-		elif var == 'prec_S':
-			ret.append(prf[0][0])
-		elif var == 'rec_S':
-			ret.append(prf[0][1])
-		elif var == 'prec_NS':
-			ret.append(prf[1][0])
-		elif var == 'rec_NS':
-			ret.append(prf[1][1])
+	res = eval_func(y_true, y_pred)
+	for item in res:
+		if type(item) == list:
+			for i in item:
+				ret.append(i)
+		else:
+			ret.append(item)
 
 	return tuple(ret)
 
-def performance(individual, K, X_train, y_train, X_test, y_test, toolbox, pset):
-	pred = knn_feature_selection(individual, K, X_train, y_train, X_test, y_test, toolbox, pset)
+def performance(individual, K, X_train, y_train, X_test, y_true, toolbox, pset):
+	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset)
 
-	if type(pred) == type(-1):
+	if type(y_pred) == type(-1):
 		return [0]*8, 0
 	
-	prf = precision_recall_fscore_support(y_test, pred)
-	acc = accuracy_score(y_test, pred)
+	prf = precision_recall_fscore_support(y_true, y_pred)
+	acc = accuracy_score(y_true, y_pred)
 
-	return prf, acc
+	y_true = [i[0] for i in y_true]
+	y_pred = [i[0] for i in y_pred]
+	
+	cfm = confusion_matrix(y_true, y_pred).ravel()
+
+	return prf, acc, cfm

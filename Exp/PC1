@@ -1,6 +1,5 @@
 #!/bin/bash
-nohup python3 gp_teste6_1.py 500 100 10 3 0 &
-nohup python3 gp_teste6_1.py 500 100 10 5 0 &
-nohup python3 gp_teste6_1.py 500 100 10 7 0 &
-nohup python3 gp_teste6_1.py 500 100 10 9 0 &
+
+nohup python3 -verb main.py -gen 11 -pop 12 -depth 4 -k 6 -execs 3 7 -dataset 3 -path Try_2/ -fileID jjj -optmize 3 2 acc 3 f1_S 6 f1_NS &
+
 htop

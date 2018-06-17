@@ -51,4 +51,4 @@ boxplot(Ex3$`F-score (Não Spindle)`~Ex3$K, col = rgb(1,0,0,.3), border = 'red',
 legend('right',fill=c("green","red"),legend=c("Spindle","Non-Spindle"), inset=.02,bty = "n")
 
 boxplot(Ex3$Accuracy~Ex3$K, ylim = c(0,1), 
-        main = "Experimento 3\n Accuracy", ylab = "Accuracy", xlab = "K")
+        main = "Experimento 3\n Accuracy", ylab = "Accuracy", xlab = "K", add = T)

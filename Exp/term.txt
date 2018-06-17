@@ -1,0 +1,8 @@
+nohup python3 GP_KNN.py 500 100 35 3 0 K3 Try_2/ 1 acc prec_S rec_S &
+nohup python3 GP_KNN.py 500 100 35 5 0 K5 Try_2/ 1 acc prec_S rec_S &
+nohup python3 GP_KNN.py 500 100 35 7 0 K7 Try_2/ 1 acc prec_S rec_S &
+nohup python3 GP_KNN.py 500 100 35 9 0 K9 Try_2/ 1 acc prec_S rec_S &
+htop
+
+python3 -verb main.py -gen 11 -pop 12 -depth 4 -k 6 -execs 3 7 -dataset 3 -path Try_2/ -fileID jjj -optmize 3 2 acc 3 f1_S 6 f1_NS
+

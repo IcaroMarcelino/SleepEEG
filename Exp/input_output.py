@@ -3,6 +3,28 @@ import numpy
 import numpy as np
 import csv
 from deap import tools
+import os
+
+def verify_create_dir(path):
+	try:
+		os.stat(path)
+	except:
+		os.mkdir(path) 	
+
+	if(path[len(path) - 1] != '/'):
+		path += '/'
+
+	try:
+		os.stat(path + 'log')
+	except:
+		os.mkdir(path + 'log') 
+
+	try:
+		os.stat(path + 'best_expr')
+	except:
+		os.mkdir(path + 'best_expr')
+
+	return
 
 def init_stats():
 	stats_fit = tools.Statistics(lambda ind: ind.fitness.values)
