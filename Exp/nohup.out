@@ -202,3 +202,126 @@
 >> GP Feature Selection: Exec 9
 >> Fim da execucao (17007.034949064255 segundos)
 
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+>> GP Feature Selection: Exec 0
+>> Fim da execucao (29192.463407754898 segundos)
+
+>> GP Feature Selection: Exec 1
+>> Fim da execucao (22217.36041021347 segundos)
+
+>> GP Feature Selection: Exec 2
+>> Fim da execucao (19489.229095220566 segundos)
+
+>> GP Feature Selection: Exec 3
+>> Fim da execucao (32545.286916732788 segundos)
+
+>> GP Feature Selection: Exec 4
+>> Fim da execucao (32754.697500944138 segundos)
+
+>> GP Feature Selection: Exec 5
+>> Fim da execucao (39703.83560585976 segundos)
+
+>> GP Feature Selection: Exec 6
+>> Fim da execucao (22656.295218467712 segundos)
+
+>> GP Feature Selection: Exec 7
+>> Fim da execucao (19914.3021171093 segundos)
+
+>> GP Feature Selection: Exec 8
+>> Fim da execucao (29915.476652622223 segundos)
+
+>> GP Feature Selection: Exec 9
+>> Fim da execucao (25026.85054063797 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+>> GP Feature Selection: Exec 0
+>> Fim da execucao (19471.33069562912 segundos)
+
+>> GP Feature Selection: Exec 1
+>> Fim da execucao (33484.40147852898 segundos)
+
+>> GP Feature Selection: Exec 2
+>> Fim da execucao (24720.57141852379 segundos)
+
+>> GP Feature Selection: Exec 3
+>> Fim da execucao (27798.001477479935 segundos)
+
+>> GP Feature Selection: Exec 4
+>> Fim da execucao (8192.625239133835 segundos)
+
+>> GP Feature Selection: Exec 5
+>> Fim da execucao (35237.83488059044 segundos)
+
+>> GP Feature Selection: Exec 6
+>> Fim da execucao (29710.10217308998 segundos)
+
+>> GP Feature Selection: Exec 7
+>> Fim da execucao (33947.637263059616 segundos)
+
+>> GP Feature Selection: Exec 8
+>> Fim da execucao (42697.75817704201 segundos)
+
+>> GP Feature Selection: Exec 9
+>> Fim da execucao (31114.06981229782 segundos)
+
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+>> GP Feature Selection: Exec 0
+>> Fim da execucao (24936.914895296097 segundos)
+
+>> GP Feature Selection: Exec 1
+>> Fim da execucao (31245.975772857666 segundos)
+
+>> GP Feature Selection: Exec 2
+>> Fim da execucao (57092.89615941048 segundos)
+
+>> GP Feature Selection: Exec 3
+>> Fim da execucao (29669.262915611267 segundos)
+
+>> GP Feature Selection: Exec 4
+>> Fim da execucao (26618.671843767166 segundos)
+
+>> GP Feature Selection: Exec 5
+>> Fim da execucao (42170.66009259224 segundos)
+
+>> GP Feature Selection: Exec 6
+>> Fim da execucao (11122.936002969742 segundos)
+
+>> GP Feature Selection: Exec 7
+>> Fim da execucao (17721.461218833923 segundos)
+
+>> GP Feature Selection: Exec 8
+>> Fim da execucao (45768.2348780632 segundos)
+
+>> GP Feature Selection: Exec 9
+>> Fim da execucao (18596.735881090164 segundos)
+
