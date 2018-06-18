@@ -1,1 +1,1 @@
-plog(add(add(ARG21, add(ARG21, ARG21)), add(add(ARG21, ARG21), ARG55)))
+mul(psqrt(psqrt(plog(psqrt(plog(plog(plog(psqrt(plog(plog(plog(ARG12))))))))))), plog(psqrt(ARG12)))

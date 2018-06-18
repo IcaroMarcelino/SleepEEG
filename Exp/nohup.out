@@ -325,3 +325,261 @@
 >> GP Feature Selection: Exec 9
 >> Fim da execucao (18596.735881090164 segundos)
 
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'operator_set.cpython-35.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-35.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-35.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'operator_set.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'operator_set.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 478, in rmtree
+    onerror(os.rmdir, path, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 476, in rmtree
+    os.rmdir(path)
+FileNotFoundError: [Errno 2] No such file or directory: '__pycache__'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'operator_set.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc'
