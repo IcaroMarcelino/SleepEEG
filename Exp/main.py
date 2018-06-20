@@ -21,7 +21,7 @@ from operator_set import*
 from fitness_function import*
 from input_output import*
 
-def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars):
+def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs):
 	verify_create_dir(path)
 
 	files_pca 	= ['data/pca_ex1.csv', 			'data/pca_ex2.csv', 		'data/pca_ex3.csv',
@@ -73,11 +73,48 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	toolbox.register("compile", gp.compile, pset=pset)
 	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_true = y_test, pset = pset, toolbox = toolbox, opt_vars = opt_vars, eval_func = eval_func)
-	toolbox.register("select", tools.selTournament, tournsize=3)
-	toolbox.register("mate", gp.cxOnePoint)
-	toolbox.register("expr_mut", gp.genFull, min_=4, max_=7)
-	toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
-	#toolbox.register("mutate", gp.mutShrink)
+
+	################## HYPERPARAMETER ####################################
+	################## INITIALIZATION ####################################
+	if ini == 1:
+		toolbox.register("expr_mut", gp.genFull, min_=4, max_=7)
+	elif ini == 2:
+		toolbox.register("expr_mut", gp.genGrow, min_=4, max_=7)
+	elif ini == 3:
+		toolbox.register("expr_mut", gp.HalfAndHalf, min_=4, max_=7)
+	
+	################## HYPERPARAMETER ####################################
+	################## SELECTION      ####################################
+	if sel == 1:
+		toolbox.register("select", tools.selTournament, tournsize=3)
+	elif sel == 2:
+		toolbox.register("select", tools.selRoulette)
+	elif sel == 3:
+		toolbox.register("select", tools.selRandom)
+	
+	################## HYPERPARAMETER ####################################
+	################## CROSSOVER      ####################################
+	if crs == 1:
+		toolbox.register("mate", gp.cxOnePoint)
+	elif crs == 2:
+		toolbox.register("mate", gp.cxTwoPoint)
+	elif crs == 3:
+		toolbox.register("mate", gp.cxcxOnePointLeafBiased, termpb =.1)
+
+	################## HYPERPARAMETER ####################################
+	################## MUTATION       ####################################
+	if mut == 1:
+		toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr_mut, pset=pset)
+	elif mut == 2:
+		toolbox.register("mutate", gp.mutNodeReplacement, pset=pset)
+	elif mut == 3:
+		toolbox.register("mutate", gp.mutInsert, pset=pset)
+	elif mut == 4:
+		toolbox.register("mutate", gp.mutShrink)
+	elif mut == 5:
+		toolbox.register("mutate", gp.mutEphemeral, mode = 'all')
+
+
 
 	toolbox.decorate("mate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
 	toolbox.decorate("mutate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
@@ -190,6 +227,10 @@ if __name__ == "__main__":
 	path = "Default_Try/"
 	dt_op = 1
 	verb = 1
+	ini = 1
+	sel = 1
+	mut = 1
+	crs = 1
 
 	opt_vars = []
 	wts_vars = []
@@ -238,6 +279,18 @@ if __name__ == "__main__":
 		elif(sys.argv[i] == '-v'):
 			verb = int(sys.argv[i+1])
 
+		elif(sys.argv[i] == '-ini'):
+			verb = int(sys.argv[i+1])
+
+		elif(sys.argv[i] == '-sel'):
+			verb = int(sys.argv[i+1])
+
+		elif(sys.argv[i] == '-mut'):
+			verb = int(sys.argv[i+1])
+
+		elif(sys.argv[i] == '-crs'):
+			verb = int(sys.argv[i+1])												
+
 	CXPB = .8
 	MUTPB = .2
 	train_percent = 0.7
@@ -273,4 +326,8 @@ if __name__ == "__main__":
 				path = path,
 				dt_op = dt_op,
 				opt_vars = opt_vars,
-				wts_vars = wts_vars)
+				wts_vars = wts_vars,
+				ini = ini,
+				sel = sel,
+				mut = mut,
+				crs = crs)
