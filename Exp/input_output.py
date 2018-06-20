@@ -98,7 +98,7 @@ def import_data(file_path, rand, test_percent):
 	X_train = []
 	y_train = []
 	for row in data:
-		class_ind = len(row-1)
+		class_ind = len(row)-1
 		X_train.append([float(x) for x in row[0:class_ind]])
 		y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
 	csvfile.close()
