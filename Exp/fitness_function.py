@@ -19,7 +19,7 @@ def get_subtree(begin, string):
 			break
 	return string[begin:end]
 
-def knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset):
+def knn_feature_selection(individual, K, X_train, y_train, X_test, pset):
 	exp = gp.PrimitiveTree(individual)
 	string = str(exp)
 	ind = [i for i in range(len(string)) if string.startswith('F', i)]
@@ -29,14 +29,16 @@ def knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset
 		subtree = get_subtree(i,string)
 		if subtree not in hist:
 			newtree = exp.from_string(subtree, pset)
-			features.append(toolbox.compile(newtree))
+			features.append(gp.compile(newtree, pset))
 	if len(features) == 0:
-		features.append(toolbox.compile(individual))
+		features.append(gp.compile(individual, pset))
 	X_train_new = []
 	i = 0
 	for x in X_train:
 		X_train_new.append([])
 		for feature in features:
+			#print(x)
+			#str(features)
 			X_train_new[i].append(feature(*x))
 		i += 1
 	knn = KNeighborsClassifier(n_neighbors=K)
@@ -49,6 +51,7 @@ def knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset
 	for x in X_test:
 		X_test_new.append([])
 		for feature in features:
+			#print(x)
 			X_test_new[i].append(feature(*x))
 		i += 1
 
@@ -107,8 +110,8 @@ def eval_function(opt_vars):
 	final_func = lambda y_true, y_pred: [f(y_true, y_pred) for f in funcs]
 	return final_func
 
-def eval_tree(individual, K, X_train, y_train, X_test, y_true, toolbox, pset, opt_vars, eval_func):
-	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset)
+def eval_tree(individual, K, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func):
+	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, pset)
 
 	if type(y_pred) == type(-1):
 		ret = tuple([0]*len(opt_vars))
@@ -125,8 +128,8 @@ def eval_tree(individual, K, X_train, y_train, X_test, y_true, toolbox, pset, op
 
 	return tuple(ret)
 
-def performance(individual, K, X_train, y_train, X_test, y_true, toolbox, pset):
-	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, toolbox, pset)
+def performance(individual, K, X_train, y_train, X_test, y_true, pset):
+	y_pred = knn_feature_selection(individual, K, X_train, y_train, X_test, pset)
 
 	if type(y_pred) == type(-1):
 		return [0]*8, 0

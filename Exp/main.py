@@ -72,7 +72,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	toolbox.register("compile", gp.compile, pset=pset)
-	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_true = y_test, pset = pset, toolbox = toolbox, opt_vars = opt_vars, eval_func = eval_func)
+	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_true = y_test, pset = pset, opt_vars = opt_vars, eval_func = eval_func)
 
 	################## HYPERPARAMETER ####################################
 	################## INITIALIZATION ####################################
@@ -204,7 +204,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	if os.stat(info_file_name).st_size == 0:
 		infoGP.write("DEEP MAX,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,Deep,Training Time\n")
 	
-	prf, acc, cfm = performance(hof[0], K, X_train, y_train, X_test, y_test, toolbox, pset)
+	prf, acc, cfm = performance(hof[0], K, X_train, y_train, X_test, y_test, pset)
 
 	infoGP.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
 				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
