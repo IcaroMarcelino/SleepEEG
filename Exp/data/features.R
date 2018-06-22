@@ -41,7 +41,7 @@ generate_eeg_data <- function(excerpt, op, freq, freq_out){
   
   freq_factor = freq_out/freq
   
-  auto <- read_table2(paste("Automatic_detection_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
+  #auto <- read_table2(paste("Automatic_detection_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
   exp1 <- read_table2(paste("Visual_scoring1_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
   
   if(excerpt != 7 && excerpt != 8 ){
@@ -78,18 +78,19 @@ generate_eeg_data <- function(excerpt, op, freq, freq_out){
     d[,4] = excerpt_data$signal$FP1_A1$data
     d[,5] = 0
   }
-  for(i in 1:length(auto[,1,1])){
+  #for(i in 1:length(auto[,1,1])){
+  for(i in 1:length(exp1[,1,1])){
     if(op == 1){
-      a = which(d[,1] >= as.double(auto[i,1]))
-      b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
-      c1 = intersect(a,b)
+      #a = which(d[,1] >= as.double(auto[i,1]))
+      #b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
+      #c1 = intersect(a,b)
       
       a = which(d[,1] >= as.double(exp1[i,1]))
       b = which(d[,1] <= as.double(exp1[i,1]+as.double(exp1[i,2])))
       c2 = intersect(a,b)
       
-      c = union(c1, c2)
-      
+      #c = union(c1, c2)
+      c = c2
       if(excerpt != 7 && excerpt != 8 ){
         a = which(d[,1] >= as.double(exp2[i,1]))
         b = which(d[,1] <= as.double(exp2[i,1]+as.double(exp2[i,2])))
@@ -102,16 +103,16 @@ generate_eeg_data <- function(excerpt, op, freq, freq_out){
       
       d[c, 5] = 1
     }else{
-      a = which(d[,1] >= as.double(auto[i,1]))
-      b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
-      c1 = intersect(a,b)
+      #a = which(d[,1] >= as.double(auto[i,1]))
+      #b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
+      #c1 = intersect(a,b)
       
       a = which(d[,1] >= as.double(exp1[i,1]))
       b = which(d[,1] <= as.double(exp1[i,1]+as.double(exp1[i,2])))
       c2 = intersect(a,b)
       
-      c = union(c1, c2)
-      
+      #c = union(c1, c2)
+      c = c2
       if(excerpt != 7 && excerpt != 8 ){
         a = which(d[,1] >= as.double(exp2[i,1]))
         b = which(d[,1] <= as.double(exp2[i,1]+as.double(exp2[i,2])))
@@ -340,7 +341,7 @@ generate_features <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
       dt[,i] <- normalize.vector(dt[,i])
     }
   }
-  write.table(dt, file = paste("wav_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  write.table(dt, file = paste("wav1_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
   return(dt)
 }
 
@@ -445,7 +446,7 @@ generate_features_all <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
         dt[,i] <- normalize.vector(dt[,i])
       }
     }
-    write.table(dt, file = paste("wav_all_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+    write.table(dt, file = paste("wav1_all_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
     return(dt)
 }
 
@@ -519,7 +520,7 @@ data_PCA <- function(f, features, n_comp, excerpt){
   prin_comp <- prcomp(f[,features], scale. = T, center = T)
   temp = as.data.frame(prin_comp$x[,1:n_comp])
   temp[paste("PC",(n_comp+1),sep = "")] <- f1[,76]
-  write.table(temp, file = paste("pca_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  write.table(temp, file = paste("pca1_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
 }
 
 ##################################################################################
@@ -578,7 +579,7 @@ plot_PCA_all_excerpts <- function(f, comps, limit, name){
   return(n_comps)
 }
 
-data_PCA_all_excerpts <- function(f, comps, ncomp){
+data_PCA_all_excerpts <- function(f, comps, n_comp){
   data_PCA(f$f1, comps, n_comp, 1)
   data_PCA(f$f2, comps, n_comp, 2)
   data_PCA(f$f3, comps, n_comp, 3)
@@ -607,4 +608,21 @@ create_database <- function(){
 
 ##################################################################################
 
+predict_to_time <- function(pred){
+  vec <- matrix(nrow = sum(pred), ncol = 1)
+  count = 1
+  for(i in 1:length(pred)){
+    if(pred[i]){
+      vec[count,1] = i*2
+      count = count + 1
+    }
+  }
+  
+  ret <- NULL
+  ret$`[Spindles/C3-A1]` <- vec[,1]
+  ret$`[Spindles/CZ-A1]` <- vec[,1]
+  ret$Dur <- rep(2,length(vec))
+
+  return(ret)
+}
 

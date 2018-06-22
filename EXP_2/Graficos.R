@@ -292,12 +292,6 @@ draw_ellipses_ROC <- function(infoGP, k_ind, pch, k){
   text(x,y,k,pos=2)
 }
 
-get_ROC <- function(data){
-  out <- NULL
-  out$x <- data$FP/(data$TP+data$FN)
-  out$y <- data$TP/(data$TP+data$FN)
-  return(out)
-}
 
 library(readr)
 INFO_GP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/EXP_3/INFO_GP.csv", col_names = FALSE)
@@ -356,4 +350,143 @@ legend('bottomleft',fill=c("green","red"),legend=c("Spindle","Non-Spindle"), ins
 boxplot(INFO_GP$TPR_S~INFO_GP$K, ylim = c(.73,.84), col = rgb(0,1,0,0.35), border = 'darkgreen', main = "Experimento 8 (25 features, Deep = 35) \n Recall", ylab = 'Recall', xlab = 'K')
 boxplot(INFO_GP$TPR_NS~INFO_GP$K, ylim = c(.73,.84), col = rgb(1,0,0,0.35), border = 'red', add = TRUE)
 legend('bottomleft',fill=c("green","red"),legend=c("Spindle","Non-Spindle"), inset=.02,bty = "n")
+
+
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1 <- function(infoGP, k_ind, pch, k, pos, col){
+  require(plotrix)
+  x = mean(infoGP$FP[k_ind]/(infoGP$TP[k_ind]+infoGP$FN[k_ind]))
+  y = mean(infoGP$TP[k_ind]/(infoGP$TP[k_ind]+infoGP$FN[k_ind]))
+  a = sd(infoGP$FP[k_ind]/(infoGP$TP[k_ind]+infoGP$FN[k_ind]))
+  b = sd(infoGP$FP[k_ind]/(infoGP$TP[k_ind]+infoGP$FN[k_ind]))
+  draw.ellipse(x, y, a, b, col = col,border = col)
+  points(x, y, pch = pch, col = col)
+  text(x,y,k,pos=pos,col = col)
+}
+
+
+
+get_ROC <- function(data){
+  out <- NULL
+  out$x <- data$FP/(data$TP+data$FN)
+  out$y <- data$TP/(data$TP+data$FN)
+  return(out)
+}
+
+library(readr)
+KNN_AllExcerpt_Test_Fmeasure <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/KNN_Analysis/KNN_AllExcerpt_Test_Fmeasure.csv")
+
+infoGP = KNN_AllExcerpt_Test_Fmeasure
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+plot(0,0, type = 'l', ylim =c(0,1), xlim = c(0,.6), xlab = "FP/(TP+FN)", ylab = "TP/(TP+FN)")
+lines(c(0,1), c(0,1))
+
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k3, 19, 'K = 3    ', 2, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k5, 19, '    K = 5, 7, ..., 19', 4, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k7, 19, '', 2, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k9, 19, '', 1, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k11, 19, '', 1, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k13, 19, '', 1, rgb(1,0,0,.35))
+draw_ellipses_ROC1(KNN_AllExcerpt_Test_Fmeasure, k15, 19, '', 1, rgb(1,0,0,.35))
+
+text(mean(get_ROC(infoGP)$x), .76, 'KNN', col = rgb(1,0,0))
+
+infoGP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Try_3/infoGP.csv")
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1(infoGP, k3, 19, '', 4, rgb(0,1,0,.35))
+draw_ellipses_ROC1(infoGP, k5, 19, '', 2,rgb(0,1,0,.35))
+draw_ellipses_ROC1(infoGP, k7, 19, '', 2, rgb(0,1,0,.35))
+draw_ellipses_ROC1(infoGP, k9, 19, '', 1, rgb(0,1,0,.35))
+text(mean(get_ROC(infoGP)$x), .74, 'GP + KNN', col = rgb(0,1,0))
+
+
+infoGP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Try_4/infoGP.csv")
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1(infoGP, k3, 19, '', 4, rgb(0,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k5, 19, '', 2,rgb(0,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k7, 19, '', 2, rgb(0,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k9, 19, '', 1, rgb(0,0.65,0,.35))
+
+infoGP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Try_5/infoGP.csv")
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1(infoGP, k3, 19, '', 4, rgb(1,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k5, 19, '', 3,rgb(1,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k7, 19, '', 2, rgb(1,0.65,0,.35))
+draw_ellipses_ROC1(infoGP, k9, 19, '', 1, rgb(1,0.65,0,.35))
+text(mean(get_ROC(infoGP)$x), .9, 'GP + KNN', col = rgb(1,0.65,0))
+
+infoGP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Try_6/infoGP.csv")
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1(infoGP, k3, 19, '        K = 3, 5', 4, rgb(0,0,1,.35))
+draw_ellipses_ROC1(infoGP, k5, 19, '', 4,rgb(0,0,1,.35))
+draw_ellipses_ROC1(infoGP, k7, 19, '      K = 7', 4, rgb(0,0,1,.35))
+draw_ellipses_ROC1(infoGP, k9, 19, '      K = 9', 4, rgb(0,0,1,.35))
+text(mean(get_ROC(infoGP)$x), .6, 'GP + KNN\nHomens', col = rgb(0,0,1))
+
+
+infoGP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Try_7/infoGP.csv")
+k3 <- which(infoGP$K == 3)
+k5 <- which(infoGP$K == 5)
+k7 <- which(infoGP$K == 7)
+k9 <- which(infoGP$K == 9)
+k11 <- which(infoGP$K == 11)
+k13 <- which(infoGP$K == 13)
+k15 <- which(infoGP$K == 15)
+k17 <- which(infoGP$K == 17)
+
+draw_ellipses_ROC1(infoGP, k3, 19, 'K = 3  ', 1, rgb(.5,0.375,0.4,.65))
+draw_ellipses_ROC1(infoGP, k5, 19, 'K = 5', 4,rgb(.5,0.375,0.4,.65))
+draw_ellipses_ROC1(infoGP, k7, 19, 'K = 7', 4, rgb(.5,0.375,0.4,.65))
+draw_ellipses_ROC1(infoGP, k9, 19, 'K = 9', 4, rgb(.5,0.375,0.4,.65))
+text(.2, .3, 'GP + KNN\nMulheres', col = rgb(.5,.375,0.4))
+
+
 

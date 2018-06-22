@@ -6,32 +6,21 @@ import operator
 from fitness_function import get_subtree
 from operator_set import*
 
-def add(a,b):
-	return('({} + {})'.format(a,b))
+def sqrt(x):
+	return abs(x)**2
 
-def neg(a):
-	return('(-{})'.format(a))
 
-def plog(a):
-	return('log({})'.format(a))
+def div(left, right):
+	try:
+		return left / right
+	except ZeroDivisionError:
+		return 1
 
-def psqrt(a):
-	return('sqrt({})'.format(a))
-
-def sub(a,b):
-	return('({} - {})'.format(a,b))
-
-def pdiv(a,b):
-	return('({} / {})'.format(a,b))
-
-def div(a,b):
-	return('({} / {})'.format(a,b))
-
-def mul(a,b):
-	return('({} * {})'.format(a,b))
-
-def F(a):
-	return('{}'.format(a))
+def log(x):
+	try:
+		return math.log(abs(x))
+	except:
+		return 1
 
 def convertFunct(string):
 	ARG0 = 'ARG0'
