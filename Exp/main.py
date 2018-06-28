@@ -41,17 +41,28 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 
 	files_wav75_wom = ['data/wav_all_seg_ex1.csv', 'data/wav_all_seg_ex5.csv', 
 						'data/wav_all_seg_ex6.csv', 'data/wav_all_seg_ex7.csv']
+
+	files_wav75_exp1 = ['data/wav1_all_seg_ex1_exp1.csv', 	'data/wav1_all_seg_ex2_exp1.csv', 'data/wav1_all_seg_ex3_exp1.csv',
+					'data/wav1_all_seg_ex4_exp1.csv', 'data/wav1_all_seg_ex5_exp1.csv', 'data/wav1_all_seg_ex6_exp1.csv',
+					'data/wav1_all_seg_ex7_exp1.csv', 'data/wav1_all_seg_ex8_exp1.csv']
+
+	files_wav75_exp2 = ['data/wav1_all_seg_ex1_exp2.csv', 	'data/wav1_all_seg_ex2_exp2.csv', 'data/wav1_all_seg_ex3_exp2.csv',
+					'data/wav1_all_seg_ex4_exp2.csv', 'data/wav1_all_seg_ex5_exp2.csv', 'data/wav1_all_seg_ex6_exp2.csv']
 	
 	if dt_op == 1:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, 0)
 	elif dt_op == 2:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent, 0)
 	elif dt_op == 3:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, 0)
 	elif dt_op == 4:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent, 0)
 	elif dt_op == 5:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent, 0)
+	elif dt_op == 6:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, 0)
+	elif dt_op == 7:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, 0)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################

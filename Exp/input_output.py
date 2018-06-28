@@ -42,7 +42,7 @@ def init_stats():
 	mstats = tools.MultiStatistics(fitness=stats_fit, size=stats_size)
 	return mstats
 
-def import_all_data(files_paths, rand, test_percent):
+def import_all_data(files_paths, rand, test_percent, balance):
 	total_x = []
 	total_y = []
 	class_ind = 0
@@ -53,8 +53,13 @@ def import_all_data(files_paths, rand, test_percent):
 		y_S = []
 		X_NS = []
 		y_NS = []
+		X_train = []
+		y_train = []
 		for row in data:
 			class_ind = len(row)-1
+			X_train.append([float(x) for x in row[0:class_ind]])
+			y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
+			
 			if int(row[class_ind]):
 				X_S.append([float(x) for x in row[0:class_ind]])
 				y_S.append([int(row[class_ind]), int(not(int(row[class_ind])))])
@@ -62,15 +67,16 @@ def import_all_data(files_paths, rand, test_percent):
 				X_NS.append([float(x) for x in row[0:class_ind]])
 				y_NS.append([int(row[class_ind]), int(not(int(row[class_ind])))])
 		csvfile.close()
-		temp1 = []
-		temp2 = []
-		index_shuf = list(range(len(X_NS)))
-		random.shuffle(index_shuf)
-		for i in index_shuf:
-			temp1.append(X_NS[i])
-			temp2.append(y_NS[i])
-		X_train = temp1[0:len(X_S)] + X_S
-		y_train = temp2[0:len(X_S)] + y_S
+		if balance:
+			temp1 = []
+			temp2 = []
+			index_shuf = list(range(len(X_NS)))
+			random.shuffle(index_shuf)
+			for i in index_shuf:
+				temp1.append(X_NS[i])
+				temp2.append(y_NS[i])
+			X_train = temp1[0:len(X_S)] + X_S
+			y_train = temp2[0:len(X_S)] + y_S
 		if rand:
 			temp1 = []
 			temp2 = []

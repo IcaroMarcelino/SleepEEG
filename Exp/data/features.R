@@ -59,7 +59,7 @@ generate_eeg_data <- function(excerpt, op, freq, freq_out){
     sp1 <- spline(excerpt_data$signal$CZ_A1$t, excerpt_data$signal$CZ_A1$data, n=freq_factor*len, method = "fmm")
   }
   d = matrix(nrow = n_samples, ncol = 5)
-
+  
   if(freq_factor > 1){
     d[,1] = sp1$x
     d[,2] = sp1$y
@@ -120,6 +120,220 @@ generate_eeg_data <- function(excerpt, op, freq, freq_out){
         c3 = intersect(a,b)
         c = union(c, c3)
       }
+      d[c, 5] = 1
+    }
+  }
+  
+  #print(sum(d[,5])*100/length(d[,5]))
+  #write.table(d, file = paste("ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  
+  return(d)
+}
+
+##################################################################################
+# generate_eeg_data_exp1(excerpt, op, freq, freq_out)
+#
+# Lê os dados dos 3 canais EEG de um paciente para a base DREAMS Sleep Spindles. 
+# Diagnóstico do especialista 1.
+# Arquivos necessários no mesmo diretório do fonte:
+#   1. Automatic_detection_excerptX.txt -> X = {1,2,3,4,5,6,7,8}
+#   2. Visual_scoring1_excerptX.txt -> X = {1,2,3,4,5,6,7,8}
+#   4. excerptX -> X = {1,2,3,4,5,6,7,8}
+# 
+# Parâmetros:
+#   1. excerpt (int)    - Número do paciente (1 a 8)
+#   2. op (bool)        - 1 se o canal central for C3_A1, 0 se o canal for CZ_A1
+#   3. freq (float)     - Frequência de amostragem do sinal em Hz
+#   4. freq_out (float) - Frequência de amostragem desajada em Hz (oversampling)
+#
+# Retorno:
+# Matriz com 5 colunas representando o sinal: 
+#   d[,1] (float) = t
+#   d[,2] (float) = C3_A1 ou CZ_A1
+#   d[,3] (float) = 01_A1
+#   d[,4] (float) = FP1_A1
+#   d[,5] (bool)  = 1 para Spindle, 0 para não Spindle
+#
+# Exemplos:
+#   freq_out = 256
+#   d1 <- generate_eeg_data(1,1,100,freq_out)
+#   d2 <- generate_eeg_data(2,0,200,freq_out)
+#   d3 <- generate_eeg_data(3,1,50,freq_out)
+#   d4 <- generate_eeg_data(4,0,200,freq_out)
+#   d5 <- generate_eeg_data(5,0,200,freq_out)
+#   d6 <- generate_eeg_data(6,0,200,freq_out)
+#   d7 <- generate_eeg_data(7,0,200,freq_out)
+#   d8 <- generate_eeg_data(8,0,200,freq_out)
+#
+##################################################################################
+generate_eeg_data_exp1 <- function(excerpt, op, freq, freq_out){
+  require(edf)
+  require(readr)
+  require(ppls)
+  
+  freq_factor = freq_out/freq
+  
+  #auto <- read_table2(paste("Automatic_detection_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
+  exp1 <- read_table2(paste("Visual_scoring1_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
+
+  excerpt_data <- read.edf(paste("excerpt", excerpt, ".edf", sep = ""))
+  
+  if(op == 1){
+    len = length(excerpt_data$signal$C3_A1$t)
+    n_samples = len*freq_out/freq
+    sp1 <- spline(excerpt_data$signal$C3_A1$t, excerpt_data$signal$C3_A1$data, n=freq_factor*len, method = "fmm")
+  }else{
+    len = length(excerpt_data$signal$CZ_A1$t)
+    n_samples = len*freq_out/freq
+    sp1 <- spline(excerpt_data$signal$CZ_A1$t, excerpt_data$signal$CZ_A1$data, n=freq_factor*len, method = "fmm")
+  }
+  d = matrix(nrow = n_samples, ncol = 5)
+  
+  if(freq_factor > 1){
+    d[,1] = sp1$x
+    d[,2] = sp1$y
+    d[,3] = spline(excerpt_data$signal$O1_A1$t, excerpt_data$signal$O1_A1$data, n=freq_factor*len, method = "fmm")$y
+    d[,4] = spline(excerpt_data$signal$FP1_A1$t, excerpt_data$signal$FP1_A1$data, n=freq_factor*len, method = "fmm")$y
+    d[,5] = 0
+  }else{
+    if(op == 1){
+      d[,1] = excerpt_data$signal$C3_A1$t
+      d[,2] = excerpt_data$signal$C3_A1$data
+    }else{
+      d[,1] = excerpt_data$signal$CZ_A1$t
+      d[,2] = excerpt_data$signal$CZ_A1$data
+    }
+    d[,3] = excerpt_data$signal$O1_A1$data
+    d[,4] = excerpt_data$signal$FP1_A1$data
+    d[,5] = 0
+  }
+  #for(i in 1:length(auto[,1,1])){
+  for(i in 1:length(exp1[,1,1])){
+    if(op == 1){
+      #a = which(d[,1] >= as.double(auto[i,1]))
+      #b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
+      #c1 = intersect(a,b)
+      
+      a = which(d[,1] >= as.double(exp1[i,1]))
+      b = which(d[,1] <= as.double(exp1[i,1]+as.double(exp1[i,2])))
+      c2 = intersect(a,b)
+      
+      #c = union(c1, c2)
+      c = c2
+      d[c, 5] = 1
+    }else{
+      #a = which(d[,1] >= as.double(auto[i,1]))
+      #b = which(d[,1] <= as.double(auto[i,1]+as.double(auto[i,2])))
+      #c1 = intersect(a,b)
+      
+      a = which(d[,1] >= as.double(exp1[i,1]))
+      b = which(d[,1] <= as.double(exp1[i,1]+as.double(exp1[i,2])))
+      c2 = intersect(a,b)
+      
+      #c = union(c1, c2)
+      c = c2
+      d[c, 5] = 1
+    }
+  }
+  
+  #print(sum(d[,5])*100/length(d[,5]))
+  #write.table(d, file = paste("ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  
+  return(d)
+}
+
+##################################################################################
+# generate_eeg_data(excerpt, op, freq, freq_out)
+#
+# Lê os dados dos 3 canais EEG de um paciente para a base DREAMS Sleep Spindlesi
+# Diagnóstico do especialista 2.
+# Arquivos necessários no mesmo diretório do fonte:
+#   1. Automatic_detection_excerptX.txt -> X = {1,2,3,4,5,6,7,8}
+#   3. Visual_scoring2_excerptX.txt -> X = {1,2,3,4,5,6}
+#   4. excerptX -> X = {1,2,3,4,5,6,7,8}
+# 
+# Parâmetros:
+#   1. excerpt (int)    - Número do paciente (1 a 8)
+#   2. op (bool)        - 1 se o canal central for C3_A1, 0 se o canal for CZ_A1
+#   3. freq (float)     - Frequência de amostragem do sinal em Hz
+#   4. freq_out (float) - Frequência de amostragem desajada em Hz (oversampling)
+#
+# Retorno:
+# Matriz com 5 colunas representando o sinal: 
+#   d[,1] (float) = t
+#   d[,2] (float) = C3_A1 ou CZ_A1
+#   d[,3] (float) = 01_A1
+#   d[,4] (float) = FP1_A1
+#   d[,5] (bool)  = 1 para Spindle, 0 para não Spindle
+#
+# Exemplos:
+#   freq_out = 256
+#   d1 <- generate_eeg_data(1,1,100,freq_out)
+#   d2 <- generate_eeg_data(2,0,200,freq_out)
+#   d3 <- generate_eeg_data(3,1,50,freq_out)
+#   d4 <- generate_eeg_data(4,0,200,freq_out)
+#   d5 <- generate_eeg_data(5,0,200,freq_out)
+#   d6 <- generate_eeg_data(6,0,200,freq_out)
+#   d7 <- generate_eeg_data(7,0,200,freq_out)
+#   d8 <- generate_eeg_data(8,0,200,freq_out)
+#
+##################################################################################
+generate_eeg_data_exp2 <- function(excerpt, op, freq, freq_out){
+  require(edf)
+  require(readr)
+  require(ppls)
+  
+  freq_factor = freq_out/freq
+  
+  #auto <- read_table2(paste("Automatic_detection_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
+  exp2 <- read_table2(paste("Visual_scoring2_excerpt", excerpt, ".txt", sep = ""), col_types = cols(col_double(), col_double()))
+
+  excerpt_data <- read.edf(paste("excerpt", excerpt, ".edf", sep = ""))
+  
+  if(op == 1){
+    len = length(excerpt_data$signal$C3_A1$t)
+    n_samples = len*freq_out/freq
+    sp1 <- spline(excerpt_data$signal$C3_A1$t, excerpt_data$signal$C3_A1$data, n=freq_factor*len, method = "fmm")
+  }else{
+    len = length(excerpt_data$signal$CZ_A1$t)
+    n_samples = len*freq_out/freq
+    sp1 <- spline(excerpt_data$signal$CZ_A1$t, excerpt_data$signal$CZ_A1$data, n=freq_factor*len, method = "fmm")
+  }
+  d = matrix(nrow = n_samples, ncol = 5)
+  
+  if(freq_factor > 1){
+    d[,1] = sp1$x
+    d[,2] = sp1$y
+    d[,3] = spline(excerpt_data$signal$O1_A1$t, excerpt_data$signal$O1_A1$data, n=freq_factor*len, method = "fmm")$y
+    d[,4] = spline(excerpt_data$signal$FP1_A1$t, excerpt_data$signal$FP1_A1$data, n=freq_factor*len, method = "fmm")$y
+    d[,5] = 0
+  }else{
+    if(op == 1){
+      d[,1] = excerpt_data$signal$C3_A1$t
+      d[,2] = excerpt_data$signal$C3_A1$data
+    }else{
+      d[,1] = excerpt_data$signal$CZ_A1$t
+      d[,2] = excerpt_data$signal$CZ_A1$data
+    }
+    d[,3] = excerpt_data$signal$O1_A1$data
+    d[,4] = excerpt_data$signal$FP1_A1$data
+    d[,5] = 0
+  }
+  #for(i in 1:length(auto[,1,1])){
+  for(i in 1:length(exp2[,1,1])){
+    if(op == 1){
+        a = which(d[,1] >= as.double(exp2[i,1]))
+        b = which(d[,1] <= as.double(exp2[i,1]+as.double(exp2[i,2])))
+        c3 = intersect(a,b)
+        c = c3
+      
+      d[c, 5] = 1
+    }else{
+        a = which(d[,1] >= as.double(exp2[i,1]))
+        b = which(d[,1] <= as.double(exp2[i,1]+as.double(exp2[i,2])))
+        
+        c3 = intersect(a,b)
+        c = c3
       d[c, 5] = 1
     }
   }
@@ -287,7 +501,7 @@ curve_length <- function(x,y){
 #   f7 <- generate_features(d7, freq, n_dwt, seg_len, TRUE, 7)
 #   f8 <- generate_features(d8, freq, n_dwt, seg_len, TRUE, 8)
 ##################################################################################
-generate_features <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
+generate_features <- function(d, freq, n_dwt, seg_len, nrm, excerpt, id){
   require(psd)
   require(waveslim)
   require(e1071)
@@ -341,7 +555,7 @@ generate_features <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
       dt[,i] <- normalize.vector(dt[,i])
     }
   }
-  write.table(dt, file = paste("wav1_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  write.table(dt, file = paste("wav1_seg_ex", excerpt, "_", id, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
   return(dt)
 }
 
@@ -389,7 +603,7 @@ generate_features <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
 #   f7 <- generate_features_all(d7, freq, n_dwt, seg_len, TRUE, 7)
 #   f8 <- generate_features_all(d8, freq, n_dwt, seg_len, TRUE, 8)
 ##################################################################################
-generate_features_all <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
+generate_features_all <- function(d, freq, n_dwt, seg_len, nrm, excerpt, id){
   require(psd)
   require(waveslim)
   require(e1071)
@@ -446,7 +660,7 @@ generate_features_all <- function(d, freq, n_dwt, seg_len, nrm, excerpt){
         dt[,i] <- normalize.vector(dt[,i])
       }
     }
-    write.table(dt, file = paste("wav1_all_seg_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+    write.table(dt, file = paste("wav1_all_seg_ex", excerpt,"_", id, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
     return(dt)
 }
 
@@ -516,11 +730,11 @@ plot_PCA <- function(f, features, limit, title){
 #   data_PCA(f1, c(1:75), n_comp, "Paciente 1")
 #
 ##################################################################################
-data_PCA <- function(f, features, n_comp, excerpt){
+data_PCA <- function(f, features, n_comp, excerpt, id){
   prin_comp <- prcomp(f[,features], scale. = T, center = T)
   temp = as.data.frame(prin_comp$x[,1:n_comp])
   temp[paste("PC",(n_comp+1),sep = "")] <- f1[,76]
-  write.table(temp, file = paste("pca1_ex", excerpt, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
+  write.table(temp, file = paste("pca1_ex", excerpt,"_", id, ".csv", sep = ""), quote = FALSE, sep = ',', row.names = FALSE, col.names = FALSE)
 }
 
 ##################################################################################
@@ -538,16 +752,41 @@ generate_eeg_data_all_excerpts <- function(freq_out){
   return(d)
 }
 
-generate_features_all_excerpts <- function(d, freq, n_dwt, seg_len){
+generate_eeg_data_all_excerpts_exp1 <- function(freq_out){
+  d <- NULL
+  d$d1 <- generate_eeg_data_exp1(1,1,100,freq_out)
+  d$d2 <- generate_eeg_data_exp1(2,0,200,freq_out)
+  d$d3 <- generate_eeg_data_exp1(3,1,50,freq_out)
+  d$d4 <- generate_eeg_data_exp1(4,0,200,freq_out)
+  d$d5 <- generate_eeg_data_exp1(5,0,200,freq_out)
+  d$d6 <- generate_eeg_data_exp1(6,0,200,freq_out)
+  d$d7 <- generate_eeg_data_exp1(7,0,200,freq_out)
+  d$d8 <- generate_eeg_data_exp1(8,0,200,freq_out)
+  
+  return(d)
+}
+
+generate_eeg_data_all_excerpts_exp2 <- function(freq_out){
+  d <- NULL
+  d$d1 <- generate_eeg_data_exp2(1,1,100,freq_out)
+  d$d2 <- generate_eeg_data_exp2(2,0,200,freq_out)
+  d$d3 <- generate_eeg_data_exp2(3,1,50,freq_out)
+  d$d4 <- generate_eeg_data_exp2(4,0,200,freq_out)
+  d$d5 <- generate_eeg_data_exp2(5,0,200,freq_out)
+  d$d6 <- generate_eeg_data_exp2(6,0,200,freq_out)
+  return(d)
+}
+
+generate_features_all_excerpts <- function(d, freq, n_dwt, seg_len, id){
     f <- NULL
-    f$f1 <- generate_features_all(d$d1, freq, n_dwt, seg_len, TRUE, 1)
-    f$f2 <- generate_features_all(d$d2, freq, n_dwt, seg_len, TRUE, 2)
-    f$f3 <- generate_features_all(d$d3, freq, n_dwt, seg_len, TRUE, 3)
-    f$f4 <- generate_features_all(d$d4, freq, n_dwt, seg_len, TRUE, 4)
-    f$f5 <- generate_features_all(d$d5, freq, n_dwt, seg_len, TRUE, 5)
-    f$f6 <- generate_features_all(d$d6, freq, n_dwt, seg_len, TRUE, 6)
-    f$f7 <- generate_features_all(d$d7, freq, n_dwt, seg_len, TRUE, 7)
-    f$f8 <- generate_features_all(d$d8, freq, n_dwt, seg_len, TRUE, 8)
+    f$f1 <- generate_features_all(d$d1, freq, n_dwt, seg_len, TRUE, 1, id)
+    f$f2 <- generate_features_all(d$d2, freq, n_dwt, seg_len, TRUE, 2, id)
+    f$f3 <- generate_features_all(d$d3, freq, n_dwt, seg_len, TRUE, 3, id)
+    f$f4 <- generate_features_all(d$d4, freq, n_dwt, seg_len, TRUE, 4, id)
+    f$f5 <- generate_features_all(d$d5, freq, n_dwt, seg_len, TRUE, 5, id)
+    f$f6 <- generate_features_all(d$d6, freq, n_dwt, seg_len, TRUE, 6, id)
+    f$f7 <- generate_features_all(d$d7, freq, n_dwt, seg_len, TRUE, 7, id)
+    f$f8 <- generate_features_all(d$d8, freq, n_dwt, seg_len, TRUE, 8, id)
     return(f)
 }
 
@@ -579,15 +818,15 @@ plot_PCA_all_excerpts <- function(f, comps, limit, name){
   return(n_comps)
 }
 
-data_PCA_all_excerpts <- function(f, comps, n_comp){
-  data_PCA(f$f1, comps, n_comp, 1)
-  data_PCA(f$f2, comps, n_comp, 2)
-  data_PCA(f$f3, comps, n_comp, 3)
-  data_PCA(f$f4, comps, n_comp, 4)
-  data_PCA(f$f5, comps, n_comp, 5)
-  data_PCA(f$f6, comps, n_comp, 6)
-  data_PCA(f$f7, comps, n_comp, 7)
-  data_PCA(f$f8, comps, n_comp, 8)
+data_PCA_all_excerpts <- function(f, comps, n_comp, id){
+  data_PCA(f$f1, comps, n_comp, 1, id)
+  data_PCA(f$f2, comps, n_comp, 2, id)
+  data_PCA(f$f3, comps, n_comp, 3, id)
+  data_PCA(f$f4, comps, n_comp, 4, id)
+  data_PCA(f$f5, comps, n_comp, 5, id)
+  data_PCA(f$f6, comps, n_comp, 6, id)
+  data_PCA(f$f7, comps, n_comp, 7, id)
+  data_PCA(f$f8, comps, n_comp, 8, id)
 }
 
 create_database <- function(){
@@ -598,12 +837,31 @@ create_database <- function(){
   limit = .95
   name = "Paciente"
   
-  d <- generate_eeg_data_all_excerpts(freq_out)
-  f <- generate_features_all_excerpts(d, freq_out, n_dwt, seg_len)
-  n_comps <- plot_PCA_all_excerpts <- function(f, comps, limit, name)
+ # id = "exp1"
+#  d <- generate_eeg_data_all_excerpts_exp1(freq_out)
+#  f <- generate_features_all_excerpts(d, freq_out, n_dwt, seg_len, id)
+#  n_comps <- plot_PCA_all_excerpts(f, comps, limit, name)
   
-  n = max(n_comps)
-  data_PCA_all_excerpts(f, comps, n)
+#  n = max(n_comps)
+#  data_PCA_all_excerpts(f, comps, n, id)
+
+  id = "exp2"
+  d <- generate_eeg_data_all_excerpts_exp2(freq_out)
+  f <- generate_features_all_excerpts(d, freq_out, n_dwt, seg_len, id)
+ # n_comps <- plot_PCA_all_excerpts(f, comps, limit, name)
+  
+ # n = max(n_comps)
+#  data_PCA_all_excerpts(f, comps, n, id)
+  
+  id = ""
+  d <- generate_eeg_data_all_excerpts_exp(freq_out)
+  f <- generate_features_all_excerpts(d, freq_out, n_dwt, seg_len, id)
+ # n_comps <- plot_PCA_all_excerpts(f, comps, limit, name)
+  
+#  n = max(n_comps)
+ # data_PCA_all_excerpts(f, comps, n, id)
+  
+  
 }
 
 ##################################################################################
