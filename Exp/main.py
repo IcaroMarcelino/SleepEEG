@@ -50,19 +50,19 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 					'data/wav1_all_seg_ex4_exp2.csv', 'data/wav1_all_seg_ex5_exp2.csv', 'data/wav1_all_seg_ex6_exp2.csv']
 	
 	if dt_op == 1:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance)
 	elif dt_op == 2:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent, balance)
 	elif dt_op == 3:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, balance)
 	elif dt_op == 4:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent, balance)
 	elif dt_op == 5:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent, balance)
 	elif dt_op == 6:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, balance)
 	elif dt_op == 7:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, 0)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, balance)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
@@ -242,6 +242,7 @@ if __name__ == "__main__":
 	sel = 1
 	mut = 1
 	crs = 1
+	balance = 0
 
 	opt_vars = []
 	wts_vars = []
@@ -300,7 +301,10 @@ if __name__ == "__main__":
 			verb = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-crs'):
-			verb = int(sys.argv[i+1])												
+			verb = int(sys.argv[i+1])	
+
+		elif(sys.argv[i] == '-balance'):
+			balance = int(sys.argv[i+1])												
 
 	CXPB = .8
 	MUTPB = .2
@@ -341,4 +345,5 @@ if __name__ == "__main__":
 				ini = ini,
 				sel = sel,
 				mut = mut,
-				crs = crs)
+				crs = crs,
+				balance = balance)
