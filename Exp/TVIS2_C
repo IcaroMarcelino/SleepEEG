@@ -1,12 +1,13 @@
+
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 3 -execs 1 10 -dataset 7 -path Try_Vis1_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 3 -execs 1 10 -dataset 7 -path Try_Vis2_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 5 -execs 1 10 -dataset 7 -path Try_Vis1_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 5 -execs 1 10 -dataset 7 -path Try_Vis2_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 7 -execs 1 10 -dataset 7 -path Try_Vis1_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 7 -execs 1 10 -dataset 7 -path Try_Vis2_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 9 -execs 1 10 -dataset 7 -path Try_Vis1_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 9 -execs 1 10 -dataset 7 -path Try_Vis2_C/ -balance 1 -fileID Vis1 -optmize 3 10 TP -5 FP -2 FN &
 htop

@@ -21,7 +21,7 @@ from operator_set import*
 from fitness_function import*
 from input_output import*
 
-def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs):
+def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance):
 	verify_create_dir(path)
 
 	files_pca 	= ['data/pca_ex1.csv', 			'data/pca_ex2.csv', 		'data/pca_ex3.csv',
