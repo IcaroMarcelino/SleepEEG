@@ -1,0 +1,12 @@
+#!/bin/bash
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 3 -execs 1 10 -dataset 6 -path Try_Vis1_Dn/ -balance 0 -fileID Vis1 -optmize 2 1 TP 1 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 5 -execs 1 10 -dataset 6 -path Try_Vis1_Dn/ -balance 0 -fileID Vis1 -optmize 2 1 TP 1 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 7 -execs 1 10 -dataset 6 -path Try_Vis1_Dn/ -balance 0 -fileID Vis1 -optmize 2 1 TP 1 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -k 9 -execs 1 10 -dataset 6 -path Try_Vis1_Dn/ -balance 0 -fileID Vis1 -optmize 2 1 TP 1 f1_S &
+htop
