@@ -12,7 +12,7 @@ files = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_
 		'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
 		'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
 
-output = open('Analysis/NB.csv', 'w') 
+output = open('Analysis/KNN.csv', 'w') 
 output.write("K,Balanced,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC0,AUC1\n")
 
 for balance in [1,0]:
