@@ -1,0 +1,1 @@
+mul(add(ARG59, add(plog(mul(sub(ARG27, plog(psqrt(add(sub(ARG59, ARG5), ARG59)))), ARG53)), plog(mul(ARG29, add(sub(ARG59, ARG5), ARG59))))), sub(ARG59, ARG59))

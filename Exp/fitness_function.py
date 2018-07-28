@@ -2,6 +2,8 @@ from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import roc_curve, auc
+
 from deap import gp
 
 def get_subtree(begin, string):
@@ -137,9 +139,16 @@ def performance(individual, K, X_train, y_train, X_test, y_true, pset):
 	prf = precision_recall_fscore_support(y_true, y_pred)
 	acc = accuracy_score(y_true, y_pred)
 
+	fpr = dict()
+	tpr = dict()
+	AUC = dict()
+	for c in range(2):
+	    fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
+	    AUC[c] = auc(fpr[c], tpr[c])
+
 	y_true = [i[0] for i in y_true]
 	y_pred = [i[0] for i in y_pred]
 	
 	cfm = confusion_matrix(y_true, y_pred).ravel()
 
-	return prf, acc, cfm
+	return prf, acc, cfm, AUC[0]
