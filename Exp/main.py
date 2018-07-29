@@ -21,7 +21,7 @@ from operator_set import*
 from fitness_function import*
 from input_output import*
 
-def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance):
+def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance):
 	verify_create_dir(path)
 
 	files_pca 	= ['data/pca_ex1.csv', 			'data/pca_ex2.csv', 		'data/pca_ex3.csv',
@@ -83,7 +83,7 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 	toolbox.register("compile", gp.compile, pset=pset)
-	toolbox.register("evaluate", eval_tree, K = K, X_train = X_train, y_train = y_train, X_test = X_test, y_true = y_test, pset = pset, opt_vars = opt_vars, eval_func = eval_func)
+	toolbox.register("evaluate", eval_tree, clf = classifier, param = clf_param, X_train = X_train, y_train = y_train, X_test = X_test, y_true = y_test, pset = pset, opt_vars = opt_vars, eval_func = eval_func)
 
 	################## HYPERPARAMETER ####################################
 	################## INITIALIZATION ####################################
@@ -153,8 +153,8 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 		toolbar_width = NGEN
 
 	if verb >= 1:
-		print(">> (Exec " + str(NEXEC) + ") GP + KNN - Feature Selection and Classification")
-		print(">> NGEN = " + str(NGEN) + " | NPOP = " + str(NPOP) + " | MAX_DEPTH = " + str(TAM_MAX) + " | K = " + str(K))
+		print(">> (Exec " + str(NEXEC) + ") GP + " + classifier + " - Feature Selection and Classification")
+		print(">> NGEN = " + str(NGEN) + " | NPOP = " + str(NPOP) + " | MAX_DEPTH = " + str(TAM_MAX) + " | PARAM = " + str(clf_param))
 		print(">> Optimizing: " + str(opt_vars))
 		print(">> Weights:    " + str(wts_vars))
 		if verb == 1:
@@ -210,18 +210,44 @@ def main(NEXEC, K, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_N
 	expFILE = open(path + "best_expr/EXPR_" + filename + "_" +  str(NEXEC) + ".txt", 'w')
 	expFILE.write(str(tree))
 		
-	info_file_name = path + "infoGP.csv"
-	infoGP = open(info_file_name, 'a')
-	if os.stat(info_file_name).st_size == 0:
-		infoGP.write("DEEP MAX,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
-	
-	prf, acc, cfm, AUC = performance(hof[0], K, X_train, y_train, X_test, y_test, pset)
+	prf, acc, cfm, AUC = performance(hof[0], classifier, clf_param, X_train, y_train, X_test, y_test, pset)
 
-	infoGP.write(str(TAM_MAX) + ',' + str(K) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+	if classifier == 'knn':
+		info_file_name = path + "infoGP_knn.csv"
+		infoGP = open(info_file_name, 'a')
+		if os.stat(info_file_name).st_size == 0:
+			infoGP.write("DEEP MAX,classifier,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+	
+		infoGP.write(str(TAM_MAX) + ',' + classifier + ',' + str(clf_param) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
 				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
 				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
 				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
 				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
+	
+	elif classifier == 'mlp':
+		info_file_name = path + "infoGP_mlp.csv"
+		infoGP = open(info_file_name, 'a')
+		if os.stat(info_file_name).st_size == 0:
+			infoGP.write("DEEP MAX,classifier,#Neurons,Activation,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+	
+		infoGP.write(str(TAM_MAX) + ',' + classifier + ',' + str(clf_param[0]) + ',' + str(clf_param[1]) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
+				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
+				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
+				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
+	
+	else:
+		info_file_name = path + "infoGP_" + classifier + ".csv"
+		infoGP = open(info_file_name, 'a')
+		if os.stat(info_file_name).st_size == 0:
+			infoGP.write("DEEP MAX,classifier,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+	
+		infoGP.write(str(TAM_MAX) + ',' + classifier + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
+				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
+				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
+				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
+	
 
 	infoGP.close()
 
@@ -229,11 +255,13 @@ if __name__ == "__main__":
 	###########################################
 	# Default parameters
 	###########################################
-	NGEN = 100
+	NGEN = 10
 	NPOP = 20
-	tam_max = 10
-	K = 5
-	execs = [1,2,3,4,5,6,7,8,9,10]
+	tam_max = 5
+	clf = 'knn'
+	param = 5
+	param2 = 'relu'
+	execs = [1]
 	file_id = "Default_"
 	path = "Default_Try/"
 	dt_op = 1
@@ -260,8 +288,11 @@ if __name__ == "__main__":
 		elif(sys.argv[i] == '-depth'):
 			tam_max = int(sys.argv[i+1])
 
-		elif(sys.argv[i] == '-k'):
-			K = int(sys.argv[i+1])
+		elif(sys.argv[i] == '-param'):
+			param = int(sys.argv[i+1])
+
+		elif(sys.argv[i] == '-param2'):
+			param2 = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-execs'):
 			RANG_EXEC_1 = int(sys.argv[i+1])
@@ -275,6 +306,9 @@ if __name__ == "__main__":
 			path = sys.argv[i+1]
 
 		elif(sys.argv[i] == '-fileID'):
+			file_id = sys.argv[i+1]
+
+		elif(sys.argv[i] == '-clf'):
 			file_id = sys.argv[i+1]
 
 		elif(sys.argv[i] == '-optmize'):
@@ -310,7 +344,7 @@ if __name__ == "__main__":
 	MUTPB = .2
 	train_percent = 0.7
 	
-	filename = file_id + "GP_EEG_K" + str(K) + "_"	
+	filename = file_id + "GP_EEG_" + clf + str(param) + "_"	
 	
 	if len(opt_vars) == 0:
 		opt_vars = ['acc']
@@ -327,9 +361,13 @@ if __name__ == "__main__":
 	# print(opt_vars)
 	# print(wts_vars)
 
+	if clf == 'mlp':
+		param = [param, param2]
+
 	for i in execs:
 		main(	NEXEC = i,
-				K = K,
+				classifier = clf,
+				clf_param = param,
 				TAM_MAX = tam_max,
 				NGEN = NGEN,
 				CXPB = CXPB, 	
