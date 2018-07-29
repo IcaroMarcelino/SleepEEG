@@ -216,9 +216,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		info_file_name = path + "infoGP_knn.csv"
 		infoGP = open(info_file_name, 'a')
 		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balanced,DEEP MAX,classifier,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+			infoGP.write("balance,DEEP MAX,classifier,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
 	
-		infoGP.write(str(balanced) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
 				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
 				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
 				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
@@ -228,9 +228,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		info_file_name = path + "infoGP_mlp.csv"
 		infoGP = open(info_file_name, 'a')
 		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balanced,DEEP MAX,classifier,#Neurons,Activation,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+			infoGP.write("balance,DEEP MAX,classifier,#Neurons,Activation,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
 	
-		infoGP.write(str(balanced) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param[0]) + ',' + str(clf_param[1]) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param[0]) + ',' + str(clf_param[1]) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
 				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
 				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
 				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
@@ -240,9 +240,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		info_file_name = path + "infoGP_" + classifier + ".csv"
 		infoGP = open(info_file_name, 'a')
 		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balanced,DEEP MAX,classifier,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+			infoGP.write("balance,DEEP MAX,classifier,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
 	
-		infoGP.write(str(balanced) + ',' + str(TAM_MAX) + ',' + classifier + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
 				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
 				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
 				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
