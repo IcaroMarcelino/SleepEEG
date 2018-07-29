@@ -262,3 +262,7 @@ Traceback (most recent call last):
   File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
     os.unlink(name, dir_fd=topfd)
 FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc'
+Traceback (most recent call last):
+  File "main.py", line 295, in <module>
+    param2 = int(sys.argv[i+1])
+ValueError: invalid literal for int() with base 10: 'relu'

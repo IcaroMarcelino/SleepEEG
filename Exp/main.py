@@ -292,7 +292,7 @@ if __name__ == "__main__":
 			param = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-param2'):
-			param2 = int(sys.argv[i+1])
+			param2 = sys.argv[i+1]
 
 		elif(sys.argv[i] == '-execs'):
 			RANG_EXEC_1 = int(sys.argv[i+1])
