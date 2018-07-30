@@ -1,0 +1,12 @@
+#!/bin/bash
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf knn -param 3 -execs 1 10 -dataset 2 -balanced 1 -path T2b/ -fileID T2b -optmize 2 1 TP 2 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf knn -param 5 -execs 1 10 -dataset 2 -balanced 1 -path T2b/ -fileID T2b -optmize 2 1 TP 2 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf knn -param 7 -execs 1 10 -dataset 2 -balanced 1 -path T2b/ -fileID T2b -optmize 2 1 TP 2 f1_S &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf knn -param 9 -execs 1 10 -dataset 2 -balanced 1 -path T2b/ -fileID T2b -optmize 2 1 TP 2 f1_S &
+htop

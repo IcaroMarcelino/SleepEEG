@@ -212,42 +212,16 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		
 	prf, acc, cfm, AUC = performance(hof[0], classifier, clf_param, X_train, y_train, X_test, y_test, pset)
 
-	if classifier == 'knn':
-		info_file_name = path + "infoGP_knn.csv"
-		infoGP = open(info_file_name, 'a')
-		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balance,DEEP MAX,classifier,K,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
-	
-		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
-				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
-				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
-				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
-				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
-	
-	elif classifier == 'mlp':
-		info_file_name = path + "infoGP_mlp.csv"
-		infoGP = open(info_file_name, 'a')
-		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balance,DEEP MAX,classifier,#Neurons,Activation,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
-	
-		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param[0]) + ',' + str(clf_param[1]) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
-				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
-				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
-				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
-				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
-	
-	else:
-		info_file_name = path + "infoGP_" + classifier + ".csv"
-		infoGP = open(info_file_name, 'a')
-		if os.stat(info_file_name).st_size == 0:
-			infoGP.write("balance,DEEP MAX,classifier,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
-	
-		infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
-				+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
-				+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
-				+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
-				+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
-	
+	info_file_name = path + "infoGP.csv"
+	infoGP = open(info_file_name, 'a')
+	if os.stat(info_file_name).st_size == 0:
+		infoGP.write("balance,DEEP MAX,classifier,P1,P2,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC,Deep,Training Time\n")
+
+	infoGP.write(str(balance) + ',' + str(TAM_MAX) + ',' + classifier + ',' + str(clf_param[0]) + ',' + str(clf_param[1]) + ',' +  str(NEXEC) + ',' + str(prf[0][0]) + ',' 
+			+ str(prf[0][1]) + ',' + str(prf[1][0]) + ',' + str(prf[1][1]) + ',' + str(prf[2][0]) + ',' 
+			+ str(prf[2][1]) + ',' + str(prf[3][0]) + ',' + str(prf[3][1]) + ',' 
+			+ str(cfm[0]) + ',' + str(cfm[1]) + ',' + str(cfm[2]) + ',' + str(cfm[3]) + ',' 
+			+ str(acc) + ',' + str(AUC) + ',' + str(hof[0].height) + ',' + str(total_time) + '\n')
 
 	infoGP.close()
 
@@ -259,8 +233,8 @@ if __name__ == "__main__":
 	NPOP = 20
 	tam_max = 5
 	clf = 'knn'
-	param = 5
-	param2 = 'relu'
+	param = -1
+	param2 = '-'
 	execs = [1]
 	file_id = "Default_"
 	path = "Default_Try/"
@@ -309,7 +283,7 @@ if __name__ == "__main__":
 			file_id = sys.argv[i+1]
 
 		elif(sys.argv[i] == '-clf'):
-			file_id = sys.argv[i+1]
+			clf = sys.argv[i+1]
 
 		elif(sys.argv[i] == '-optmize'):
 			n_vars = int(sys.argv[i+1])
@@ -326,16 +300,16 @@ if __name__ == "__main__":
 			verb = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-ini'):
-			verb = int(sys.argv[i+1])
+			ini = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-sel'):
-			verb = int(sys.argv[i+1])
+			sel = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-mut'):
-			verb = int(sys.argv[i+1])
+			mut = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-crs'):
-			verb = int(sys.argv[i+1])	
+			crs = int(sys.argv[i+1])	
 
 		elif(sys.argv[i] == '-balance'):
 			balance = int(sys.argv[i+1])												
@@ -361,8 +335,7 @@ if __name__ == "__main__":
 	# print(opt_vars)
 	# print(wts_vars)
 
-	if clf == 'mlp':
-		param = [param, param2]
+	param = [param, param2]
 
 	for i in execs:
 		main(	NEXEC = i,
