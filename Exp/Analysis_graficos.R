@@ -1,11 +1,11 @@
 library(readr)
 DT  <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/DT.csv")
 KNN <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/KNN.csv")
-MLP <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP.csv")
+MLP <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP_13_2.csv")
 NB  <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/NB.csv")
 SVM <- read_csv("Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/SVM.csv")
 
-MLP1 <- MLP[which(MLP$Activattion == 'relu' & MLP$`#Neurons` == 100),]
+MLP1 <- MLP[which(MLP$Activattion == 'relu' & MLP$`#Neurons` == 15),]
 KNN1 <- KNN[which(KNN$K == 3),]
 
 SVM_B  <- SVM[which(SVM$Balanced == 1),]
@@ -29,7 +29,15 @@ KNN_NB<- KNN[which(KNN$Balanced == 0),]
 boxplot(KNN_B$AUC0~KNN_B$K, ylim = c(.55,.7),main = "Área abaixo da curva ROC\nKNN", ylab = "AUC", xlab = "K", col = rgb(0,1,0,.5), border = 'darkgreen')
 boxplot(KNN_NB$AUC0~KNN_NB$K, main = "Área abaixo da curva ROC\nKNN", ylab = "AUC", xlab = "K", col = rgb(1,0,0,.5), border = 'red', add = T)
 
-MLP_B <- MLP[which(MLP$Balanced == 1),]
-MLP_NB<- MLP[which(MLP$Balanced == 0),]
-boxplot(MLP_B$AUC0~MLP_B$`#Neurons`*MLP_B$Activattion, main = "Área abaixo da curva ROC\nMLP", ylab = "AUC", xlab = "Número de neurônios . Função de ativação", col = rgb(0,1,0,.5), border = 'darkgreen')
-boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`*MLP_NB$Activattion, main = "Área abaixo da curva ROC\nMLP", ylab = "AUC", xlab = "Número de neurônios . Função de ativação", col = rgb(1,0,0,.5), border = 'red', add = T)
+par(mfrow = c(1,2))
+MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'logistic'),]
+MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'logistic'),]
+boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, main = "Área abaixo da curva ROC\nMLP - Ativação: Função Logística", ylab = "AUC", xlab = "Número de neurônios", col = rgb(0,1,0,.5), border = 'darkgreen')
+boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+
+MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'relu'),]
+MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'relu'),]
+boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, main = "Área abaixo da curva ROC\nMLP - Ativação: ReLU", ylab = "AUC", xlab = "Número de neurônios", col = rgb(0,1,0,.5), border = 'darkgreen')
+boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+
+legend('bottomright', c('Classes balanceadas', 'Classes desbalanceadas'), fill = c('green', 'red'), inset = .0, bty = 'n')

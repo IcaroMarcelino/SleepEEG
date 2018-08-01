@@ -53,7 +53,7 @@ def feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
 	if clf == 'knn':
 		classifier = KNeighborsClassifier(n_neighbors=param[0])
 	elif clf == 'mlp':
-		classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 100)
+		classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 200)
 	elif clf == 'svm':
 		classifier = SVC()
 	elif clf == 'dt':
