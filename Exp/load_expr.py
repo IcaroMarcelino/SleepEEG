@@ -235,13 +235,7 @@ def init_pset(n_att):
 	return pset
 
 
-
-files_wav75 = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
-					'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
-					'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
-
-
-def individual_from_expr(n_att, file_name):
+def load_model(n_att, file_name):
 	pset = init_pset(n_att)
 	ind = txt_to_individual(file_name, pset)
 
@@ -251,7 +245,6 @@ def get_prediction_from_expr(n_att, classifier, param, file_name, files_train, f
 	pset = init_pset(n_att)
 	ind = txt_to_individual(file_name, pset)
 
-	
 	t, tt, xt, yt, ttt = import_all_data(files_train, 1, 0, 0)
 	t, tt, x1, y1, ttt = import_data(file_test, 0, 0)
 

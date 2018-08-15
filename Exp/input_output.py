@@ -42,23 +42,37 @@ def init_stats():
 	mstats = tools.MultiStatistics(fitness=stats_fit, size=stats_size)
 	return mstats
 
-def import_all_data(files_paths, rand, test_percent, balance):
+def import_all_data(files_paths, rand, test_percent, balance, train_type):
 	total_x = []
 	total_y = []
 	class_ind = 0
 	for file_path in files_paths:
 		csvfile = open(file_path,'r')
 		data = csv.reader(csvfile)
+		X_total = []
+		y_total = []
 		X_S = []
 		y_S = []
 		X_NS = []
 		y_NS = []
 		X_train = []
 		y_train = []
+		
 		for row in data:
-			class_ind = len(row)-1
+			class_ind = len(row)-2
 			X_train.append([float(x) for x in row[0:class_ind]])
 			y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
+
+			# if row[len(row) - 1] != row[len(row)-2]:
+			# 	print(row)
+			
+			samp = row[0:class_ind] + [row[class_ind+1]]
+			# if row[len(row) - 1] != row[len(row)-2]:
+			# 	print(samp)
+			# 	input()
+				
+			X_total.append([float(x) for x in samp[0:class_ind]])
+			y_total.append([int(samp[class_ind]), int(not(int(samp[class_ind])))])
 			
 			if int(row[class_ind]):
 				X_S.append([float(x) for x in row[0:class_ind]])
@@ -95,7 +109,20 @@ def import_all_data(files_paths, rand, test_percent, balance):
 	y_test = y_train[-int(test_percent*len(y_train)):]
 	X_train = X_train[:-int(test_percent*len(X_train))]
 	y_train = y_train[:-int(test_percent*len(y_train))]
-	return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
+
+	if train_type:
+		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
+	else:
+		X_total1 = X_total
+		y_total1 = y_total
+		for sample, label in zip(X_total1, y_total1):
+			if sample in X_train:
+				ind = X_total.index(sample)
+				X_total.remove(X_total[ind])
+				y_total.remove(y_total[ind])
+
+		return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), class_ind
+
 
 def import_data(file_path, rand, test_percent):
 	class_ind = 0
@@ -104,7 +131,7 @@ def import_data(file_path, rand, test_percent):
 	X_train = []
 	y_train = []
 	for row in data:
-		class_ind = len(row)-1
+		class_ind = len(row)-2
 		X_train.append([float(x) for x in row[0:class_ind]])
 		y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
 	csvfile.close()

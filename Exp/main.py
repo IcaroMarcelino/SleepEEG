@@ -21,7 +21,7 @@ from operator_set import*
 from fitness_function import*
 from input_output import*
 
-def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance):
+def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance, train_type):
 	verify_create_dir(path)
 
 	files_pca 	= ['data/pca_ex1.csv', 			'data/pca_ex2.csv', 		'data/pca_ex3.csv',
@@ -32,9 +32,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/wav_seg_ex4.csv', 	'data/wav_seg_ex5.csv', 	'data/wav_seg_ex6.csv', 
 					'data/wav_seg_ex7.csv', 	'data/wav_seg_ex8.csv']
 
-	files_wav75 = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
-					'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
-					'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
+	files_wav75 = ['data/wav_all_seg_ex1_.csv', 	'data/wav_all_seg_ex2_.csv', 'data/wav_all_seg_ex3_.csv',
+					'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
+					'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
 
 	files_wav75_men = ['data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
 						'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex8.csv']
@@ -50,19 +50,19 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/wav1_all_seg_ex4_exp2.csv', 'data/wav1_all_seg_ex5_exp2.csv', 'data/wav1_all_seg_ex6_exp2.csv']
 	
 	if dt_op == 1:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance, train_type)
 	elif dt_op == 2:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75,1, 1-train_percent, balance, train_type)
 	elif dt_op == 3:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, balance, train_type)
 	elif dt_op == 4:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_men,1, 1-train_percent, balance, train_type)
 	elif dt_op == 5:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_wom,1, 1-train_percent, balance, train_type)
 	elif dt_op == 6:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, balance, train_type)
 	elif dt_op == 7:
-		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, balance)
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, balance, train_type)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
@@ -233,17 +233,18 @@ if __name__ == "__main__":
 	NPOP = 20
 	tam_max = 5
 	clf = 'knn'
-	param = -1
+	param = 5
 	param2 = '-'
 	execs = [1]
 	file_id = "Default_"
 	path = "Default_Try/"
-	dt_op = 1
+	dt_op = 2
 	verb = 1
 	ini = 1
 	sel = 1
 	mut = 1
 	crs = 1
+	train_type = 1
 	balance = 0
 
 	opt_vars = []
@@ -312,7 +313,10 @@ if __name__ == "__main__":
 			crs = int(sys.argv[i+1])	
 
 		elif(sys.argv[i] == '-balance'):
-			balance = int(sys.argv[i+1])												
+			balance = int(sys.argv[i+1])
+
+		elif(sys.argv[i] == '-train_type'):
+			train_type = int(sys.argv[i+1])												
 
 	CXPB = .8
 	MUTPB = .2
@@ -357,4 +361,5 @@ if __name__ == "__main__":
 				sel = sel,
 				mut = mut,
 				crs = crs,
-				balance = balance)
+				balance = balance,
+				train_type = train_type)

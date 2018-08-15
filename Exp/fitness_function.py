@@ -170,5 +170,4 @@ def performance(individual, clf, param, X_train, y_train, X_test, y_true, pset):
 	y_pred = [i[0] for i in y_pred]
 	
 	cfm = confusion_matrix(y_true, y_pred).ravel()
-
 	return prf, acc, cfm, AUC[0]
