@@ -68,8 +68,8 @@ legend('bottomright', c('Balancead Classes', 'Unbalanced Classes'), fill = c('gr
 
 
 library(readr)
-BL  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T2b/infoGP.csv")
-NBL <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T2/infoGP.csv")
+BL  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T5b/infoGP.csv")
+NBL <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T5/infoGP.csv")
 
 boxplot(BL$AUC~BL$classifier, ylim = c(.7,.85),main = "Área abaixo da curva ROC\nClassificação de atributos GP", ylab = "AUC", xlab = "Classificador", col = rgb(0,1,0,.5), border = 'darkgreen')
 boxplot(NBL$AUC~NBL$classifier, col = rgb(1,0,0,.5), border = 'red', add = T)
@@ -109,3 +109,4 @@ KNN_B <- BL[which(BL$classifier == 'knn'),]
 KNN_NB<- NBL[which(NBL$classifier == 'knn'),]
 boxplot(KNN_B$AUC~KNN_B$P1, ylim = c(.7,.85),main = "Área abaixo da curva ROC\nKNN", ylab = "AUC", xlab = "K", col = rgb(0,1,0,.5), border = 'darkgreen', xlim = c(0.5,4.5))
 boxplot(KNN_NB$AUC~KNN_NB$P1, main = "Área abaixo da curva ROC\nKNN", ylab = "AUC", xlab = "K", col = rgb(1,0,0,.5), border = 'red', add = T)
+

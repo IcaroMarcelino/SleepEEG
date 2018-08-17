@@ -1,12 +1,12 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 2 -balance 0 -path T5/ -fileID T5 -train_type 1 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 5 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 2 -balance 0 -path T5/ -fileID T5 -train_type 1 -optmize 2 1 TP 2 f1_S &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 2 -balance 0 -path T5/ -fileID T5 -train_type 1 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 5 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 2 -balance 0 -path T5/ -fileID T5 -train_type 1 -optmize 2 1 TP 2 f1_S &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 2 -balance 1 -path T5b/ -fileID T5b -train_type 0 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 5 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 2 -balance 1 -path T5b/ -fileID T5b -train_type 0 -optmize 2 1 TP 2 f1_S &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 40 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 2 -balance 1 -path T5b/ -fileID T5b -train_type 0 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 5 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 2 -balance 1 -path T5b/ -fileID T5b -train_type 0 -optmize 2 1 TP 2 f1_S &
 htop
