@@ -1,0 +1,1 @@
+pdiv(pdiv(mul(ARG58, ARG58), mul(ARG58, sub(ARG58, ARG62))), mul(ARG59, mul(ARG59, ARG58)))

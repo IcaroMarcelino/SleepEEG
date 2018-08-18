@@ -1,0 +1,1 @@
+pdiv(plog(mul(ARG47, ARG47)), ARG0)

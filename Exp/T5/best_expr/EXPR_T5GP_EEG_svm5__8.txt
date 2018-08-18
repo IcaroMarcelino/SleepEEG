@@ -1,0 +1,1 @@
+pdiv(plog(sub(sub(sub(ARG36, ARG36), ARG36), sub(sub(ARG6, ARG6), plog(ARG36)))), sub(ARG6, ARG36))
