@@ -8,9 +8,9 @@ import random
 import numpy as np
 from input_output import*
 
-files = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
-		'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
-		'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
+files = ['data/wav_all_seg_ex1_.csv', 	'data/wav_all_seg_ex2_.csv', 'data/wav_all_seg_ex3_.csv',
+		'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
+		'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
 
 output = open('Analysis/MLP_13_2.csv', 'w') 
 output.write("Balanced,#Neurons,Activattion,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC0,AUC1\n")
@@ -19,9 +19,9 @@ for act in ['logistic', 'relu']:
 	for n_neurons in [5,10,13,15,50]:
 		for balance in [1,0]:
 			print(act, n_neurons, balance)
-			for i in range(100):
+			for i in range(10):
 				print(i)
-				X_train1, y_train1, X_test1, y_test1, clss = import_all_data(files,1,.3,balance)
+				X_train1, y_train1, X_test1, y_test1, clss = import_all_data(files,1,.3,balance,not(balance))
 				classifier = MLP(hidden_layer_sizes=(n_neurons, ), activation=act, max_iter = 200)
 				y_train1 = np.array([j[1] for j in y_train1])
 				y_test1 = np.array([j[1] for j in y_test1])

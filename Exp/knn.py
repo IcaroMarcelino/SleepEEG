@@ -8,22 +8,19 @@ import random
 import numpy as np
 from input_output import*
 
-files = ['data/wav_all_seg_ex1.csv', 	'data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
-		'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex5.csv', 'data/wav_all_seg_ex6.csv',
-		'data/wav_all_seg_ex7.csv', 'data/wav_all_seg_ex8.csv']
+files = ['data/wav1_all_seg_ex1_S05_W1.csv', 'data/wav1_all_seg_ex2_S05_W1.csv', 'data/wav1_all_seg_ex3_S05_W1.csv',
+		'data/wav1_all_seg_ex4_S05_W1.csv', 'data/wav1_all_seg_ex5_S05_W1.csv', 'data/wav1_all_seg_ex6_S05_W1.csv',
+		'data/wav1_all_seg_ex7_S05_W1.csv', 'data/wav1_all_seg_ex8_S05_W1.csv']
 
-output = open('Analysis/KNN_1.csv', 'w') 
+output = open('Analysis2/KNN_1.csv', 'w') 
 output.write("K,Balanced,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC0,AUC1\n")
 
 for balance in [1,0]:
 	for k in [3,5,7,9,11,13,15,17,19]:
 		print(k)
-		for i in range(100):
+		for i in range(10):
 			print(i)
-			X_train1, y_train1, X_test1, y_test1, clss = import_all_data(files,1,.3,balance)
-			if balance:
-				_, _, X_test1, y_test1, _ = import_all_data(files,1,.3,0)
-
+			X_train1, y_train1, X_test1, y_test1, clss = import_all_data(files,1,.3,balance,not(balance))
 			knn = KNeighborsClassifier(n_neighbors=k)
 			knn.fit(X_train1, y_train1)
 			pred = knn.predict(X_test1)

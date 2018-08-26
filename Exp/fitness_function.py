@@ -55,7 +55,7 @@ def feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
 	elif clf == 'mlp':
 		classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 200)
 	elif clf == 'svm':
-		classifier = SVC()
+		classifier = SVC(kernel = param[1])
 	elif clf == 'dt':
 		classifier = DT()
 	elif clf == 'nb':

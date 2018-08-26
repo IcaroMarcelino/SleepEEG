@@ -251,7 +251,7 @@ if __name__ == "__main__":
 	wts_vars = []
 
 	###########################################
-	# User's parameters (If exists)
+	# User's parameters (If exists) PYTHON FIRE
 	###########################################
 	for i in range(len(sys.argv)-1):  
 		if (sys.argv[i] == '-gen'):
