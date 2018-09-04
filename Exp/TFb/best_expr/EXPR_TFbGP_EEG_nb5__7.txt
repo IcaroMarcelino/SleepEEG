@@ -1,0 +1,1 @@
+pdiv(ARG17, plog(pdiv(mul(mul(sub(ARG26, mul(mul(sub(sub(ARG17, ARG59), pdiv(ARG12, ARG58)), ARG11), ARG11)), ARG6), ARG6), pdiv(sub(plog(plog(ARG13)), sub(plog(ARG37), mul(sub(ARG17, ARG59), mul(ARG11, ARG6)))), plog(sub(ARG17, ARG59))))))

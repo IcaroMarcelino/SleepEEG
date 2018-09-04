@@ -1,0 +1,1 @@
+mul(mul(add(mul(add(add(ARG6, add(ARG8, ARG12)), ARG12), add(mul(ARG8, add(add(add(add(ARG12, ARG12), add(ARG12, ARG12)), add(add(ARG12, ARG12), add(ARG12, ARG12))), add(ARG10, ARG12))), ARG12)), ARG12), add(ARG10, ARG12)), mul(psqrt(ARG10), ARG12))
