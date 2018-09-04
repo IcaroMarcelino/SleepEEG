@@ -12,17 +12,17 @@ files = ['data/wav_all_seg_ex1_.csv', 	'data/wav_all_seg_ex2_.csv', 'data/wav_al
 		'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
 		'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
 
-output = open('Analysis/MLP_13_2.csv', 'w') 
+output = open('Analysis/MLP_13_3.csv', 'w') 
 output.write("Balanced,#Neurons,Activattion,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC0,AUC1\n")
 
-for act in ['logistic', 'relu']:
-	for n_neurons in [5,10,13,15,50]:
+for act in ['relu', 'tanh']:
+	for n_neurons in [15,30,45,60,75]:
 		for balance in [1,0]:
 			print(act, n_neurons, balance)
 			for i in range(10):
 				print(i)
 				X_train1, y_train1, X_test1, y_test1, clss = import_all_data(files,1,.3,balance,not(balance))
-				classifier = MLP(hidden_layer_sizes=(n_neurons, ), activation=act, max_iter = 200)
+				classifier = MLP(hidden_layer_sizes=(n_neurons, ), activation=act, solver='adam', learning_rate = 'constant', learning_rate_init = 0.09,momentum = 0.65,max_iter = 200)
 				y_train1 = np.array([j[1] for j in y_train1])
 				y_test1 = np.array([j[1] for j in y_test1])
 

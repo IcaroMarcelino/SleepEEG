@@ -14,12 +14,13 @@ from deap import tools
 from deap import gp
 from deap import tools
 
+import random
 import time
 import sys
 
 from operator_set import*
-from fitness_function import*
-from input_output import*
+from fitness_function import performance, eval_function, eval_tree
+from input_output import import_all_data, import_data, verify_create_dir, init_stats
 
 def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_percent, verb, FILE_NAME, path, dt_op, opt_vars, wts_vars, ini, sel, mut, crs, balance, train_type):
 	verify_create_dir(path)
@@ -35,6 +36,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	files_wav75 = ['data/wav_all_seg_ex1_.csv', 	'data/wav_all_seg_ex2_.csv', 'data/wav_all_seg_ex3_.csv',
 					'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
 					'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
+	
+	files_wav75_filter = ['data/wav_all_seg_ex1_S05_W1_F.csv', 	'data/wav_all_seg_ex2_S05_W1_F.csv', 'data/wav_all_seg_ex3_S05_W1_F.csv',
+					'data/wav_all_seg_ex4_S05_W1_F.csv', 'data/wav_all_seg_ex5_S05_W1_F.csv', 'data/wav_all_seg_ex6_S05_W1_F.csv',
+					'data/wav_all_seg_ex7_S05_W1_F.csv', 'data/wav_all_seg_ex8_S05_W1_F.csv']
 
 	files_wav75_men = ['data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
 						'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex8.csv']
@@ -63,6 +68,8 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp1,1, 1-train_percent, balance, train_type)
 	elif dt_op == 7:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_exp2,1, 1-train_percent, balance, train_type)
+	elif dt_op == 8:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_filter,1, 1-train_percent, balance, train_type)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################

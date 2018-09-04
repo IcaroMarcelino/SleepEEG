@@ -114,15 +114,13 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type):
 		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
 	else:
 		X_total1 = X_total
-		y_total1 = y_total
-		for sample, label in zip(X_total1, y_total1):
+		for sample in X_total1:
 			if sample in X_train:
 				ind = X_total.index(sample)
 				X_total.remove(X_total[ind])
 				y_total.remove(y_total[ind])
 
 		return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), class_ind
-
 
 def import_data(file_path, rand, test_percent):
 	class_ind = 0

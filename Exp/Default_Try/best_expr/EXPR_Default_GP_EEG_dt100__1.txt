@@ -1,1 +1,0 @@
-mul(ARG2, ARG2)

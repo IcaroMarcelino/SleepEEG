@@ -124,6 +124,38 @@ plot_MLP <- function(eng){
   }
 }
 
+plot_MLP2 <- function(eng){
+  library(readr)
+  MLP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP_13_3.csv")
+  
+  if(!eng){
+    par(mfrow = c(1,2))
+    MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'tanh'),]
+    MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'tanh'),]
+    boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, ylim = c(.5,.8), main = "Área abaixo da curva ROC\nMLP - Ativação: Função tanh", ylab = "AUC", xlab = "Número de neurônios", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+    legend('topleft', c('Classes balanceadas', 'Classes desbalanceadas'), fill = c('green', 'red'), inset = .0, bty = 'n')
+    
+    MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'relu'),]
+    MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'relu'),]
+    boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, ylim = c(.5,.8), main = "Área abaixo da curva ROC\nMLP - Ativação: ReLU", ylab = "AUC", xlab = "Número de neurônios", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+  }
+  else{
+    par(mfrow = c(1,2))
+    MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'logistic'),]
+    MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'logistic'),]
+    boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, ylim = c(.5,.8), main = "Area Under ROC Curve\nMLP - Activation: Logistic", ylab = "AUC", xlab = "Number of Neurons", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+    legend('topleft', c('Balancead Classes', 'Unbalanced Classes'), fill = c('green', 'red'), inset = .0, bty = 'n')
+    
+    MLP_B <- MLP[which(MLP$Balanced == 1 & MLP$Activattion == 'relu'),]
+    MLP_NB<- MLP[which(MLP$Balanced == 0 & MLP$Activattion == 'relu'),]
+    boxplot(MLP_B$AUC0~MLP_B$`#Neurons`, ylim = c(.5,.8), main = "Area Under ROC Curve\nMLP - Activation: ReLU", ylab = "AUC", xlab = "Number of Neurons", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(MLP_NB$AUC0~MLP_NB$`#Neurons`, col = rgb(1,0,0,.5), border = 'red', add = T)
+  }
+}
+
 plot_performance <- function(deep_max, eng){
   library(readr)
   BL  <- read_csv(paste("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T", deep_max,"b/infoGP.csv", sep = ''))
@@ -170,4 +202,5 @@ plot_performance <- function(deep_max, eng){
     legend('topleft', c('Balanced Classes', 'Unbalanced Classes'), fill = c('green', 'red'), inset = .0, bty = 'n')
   }
 }
+
 

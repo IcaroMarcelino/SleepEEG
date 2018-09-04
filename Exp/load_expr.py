@@ -244,11 +244,12 @@ def load_model(n_att, file_name):
 def get_prediction_from_expr(n_att, classifier, param, file_name, files_train, file_test):
 	pset = init_pset(n_att)
 	ind = txt_to_individual(file_name, pset)
-
-	t, tt, xt, yt, ttt = import_all_data(files_train, 1, 0, 0)
+	t, tt, xt, yt, ttt = import_all_data(files_train, 1, 0, 1, 0)
 	t, tt, x1, y1, ttt = import_data(file_test, 0, 0)
-
 	pred = feature_construction(ind, classifier, param, xt, yt, x1, pset)
 	pred = [i[0] for i in pred]
-
 	return pred
+
+files_wav75 = ['data/wav_all_seg_ex1_.csv', 'data/wav_all_seg_ex3_.csv','data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex2_.csv', 'data/wav_all_seg_ex6_.csv','data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
+file_test = 'data/wav_all_seg_ex5_.csv'
+a = get_prediction_from_expr(75, 'nb', [-1,'rbf'], 'T10b/best_expr/EXPR_T10bGP_EEG_nb5__1.txt',files_wav75,file_test)
