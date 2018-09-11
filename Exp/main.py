@@ -37,9 +37,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
 					'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
 
-	files_wav75_rms = ['data/wav_all_seg_ex1_RMS.csv', 	'data/wav_all_seg_ex2_RMS.csv', 'data/wav_all_seg_ex3_RMS.csv',
-					'data/wav_all_seg_ex4_RMS.csv', 'data/wav_all_seg_ex5_RMS.csv', 'data/wav_all_seg_ex6_RMS.csv',
-					'data/wav_all_seg_ex7_RMS.csv', 'data/wav_all_seg_ex8_RMS.csv']
+	files_wav75_rms = ['data/wav1_all_seg_ex1_RMS.csv', 	'data/wav1_all_seg_ex2_RMS.csv', 'data/wav1_all_seg_ex3_RMS.csv',
+					'data/wav1_all_seg_ex4_RMS.csv', 'data/wav1_all_seg_ex5_RMS.csv', 'data/wav1_all_seg_ex6_RMS.csv',
+					'data/wav1_all_seg_ex7_RMS.csv', 'data/wav1_all_seg_ex8_RMS.csv']
 	
 	files_wav75_filter = ['data/wav1_all_seg_ex1_S05_W1_F.csv', 	'data/wav1_all_seg_ex2_S05_W1_F.csv', 'data/wav1_all_seg_ex3_S05_W1_F.csv',
 					'data/wav1_all_seg_ex4_S05_W1_F.csv', 'data/wav1_all_seg_ex5_S05_W1_F.csv', 'data/wav1_all_seg_ex6_S05_W1_F.csv',
