@@ -1,1 +1,0 @@
-plog(div(div(mul(add(sub(sub(sub(ARG17, ARG20), add(ARG5, ARG23)), ARG22), div(mul(ARG3, ARG17), plog(ARG17))), psqrt(ARG7)), add(div(add(psqrt(ARG17), ARG17), sub(ARG17, ARG17)), add(sub(psqrt(ARG17), psqrt(div(ARG22, ARG17))), ARG17))), add(ARG17, ARG0)))

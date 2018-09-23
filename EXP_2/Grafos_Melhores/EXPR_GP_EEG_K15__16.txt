@@ -1,1 +1,0 @@
-sub(add(ARG17, ARG5), plog(div(F(mul(F(mul(psqrt(ARG21), mul(ARG11, ARG5))), plog(psqrt(psqrt(ARG22))))), mul(div(mul(ARG22, add(div(add(div(ARG15, ARG21), ARG0), mul(ARG22, psqrt(ARG8))), ARG1)), plog(ARG11)), F(div(div(div(ARG11, plog(ARG0)), div(add(plog(ARG11), psqrt(ARG21)), mul(ARG17, ARG15))), mul(plog(plog(ARG0)), F(ARG0))))))))

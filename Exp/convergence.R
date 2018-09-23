@@ -114,19 +114,97 @@ print_args <- function(deep_max, b, classifier, param){
   barplot(as.numeric(args_counter[,2]))
 }
 
-ro
-deep_max = 10
-b = 'b'
-classifier = 'svm'
-param = ''
+print_args_all <- function(deep_max, b){
+  library(stringr)
+  classifiers = c('svm', 'knn', 'nb', 'dt', 'mlp')
+  
+  files = c()
+  for(i in 1:length(classifiers)){
+    folder = paste("T", deep_max, b, "/best_expr/",sep='')
+    name = paste("*", classifiers[i], "*",sep='')
+    files  = c(files, list.files(path = folder, pattern = name))
+  }
+  
+  args_counter <- matrix(nrow = 75, ncol = 2)
+  args_counter[,2] <- 0
+  for(i in 1:75){
+    args_counter[i,1] <- paste('ARG', i-1, sep = '')
+  }
+  for(j in 1:length(files)){
+    y <- read.table(paste(folder, files[j], sep = ''), header = FALSE, sep = '*')
+    
+    for(i in 1:75){
+      n = as.numeric(str_count(y[[1]],args_counter[i,1]))
+      args_counter[i,2] <-as.numeric(args_counter[i,2]) + n
+    }
+  }
+  #barplot(as.numeric(args_counter[,2]))
+  return(args_counter)
+}
 
+print_dims_all <- function(deep_max, b){
+  library(stringr)
+  classifiers = c('svm', 'knn', 'nb', 'dt', 'mlp')
+  
+  files = c()
+  for(i in 1:length(classifiers)){
+    folder = paste("T", deep_max, b, "/best_expr/",sep='')
+    name = paste("*", classifiers[i], "*",sep='')
+    files  = c(files, list.files(path = folder, pattern = name))
+  }
+  
+  args_counter <- matrix(nrow = 75, ncol = 2)
+  args_counter[,2] <- 0
+  for(i in 1:75){
+    args_counter[i,1] <- paste('ARG', i-1, sep = '')
+  }
+  for(j in 1:length(files)){
+    y <- read.table(paste(folder, files[j], sep = ''), header = FALSE, sep = '*')
+    n = as.numeric(str_count(y[[1]],'F'))
+    args_counter[n,2] <- as.numeric(args_counter[n,2]) + 1
+  }
+  return(args_counter)
+}
+
+print_dim <- function(deep_max, b, classifier, param){
+  library(stringr)
+  folder = paste("T", deep_max, b, "/best_expr/",sep='')
+  name = paste("*", classifier, param, "*",sep='')
+  files  = list.files(path = folder, pattern = name)
+  
+  balanced = 'Balanceadas)'
+  if(b==''){
+    balanced = 'Desbalanceadas)'
+  }
+  
+  args_counter <- matrix(nrow = 150, ncol = 2)
+  args_counter[,2] <- 0
+  args_counter[,1] <- 1:150
+  
+  for(j in 1:length(files)){
+    y <- read.table(paste(folder, files[j], sep = ''), header = FALSE, sep = '*')
+    n = as.numeric(str_count(y[[1]],'F'))
+    args_counter[n,2] <- as.numeric(args_counter[n,2]) + 1
+  }
+  barplot(as.numeric(args_counter[,2]))
+}
+
+deep_max = 10
+b = ''
+classifier = 'nb'
+param = ''
 print_convergence(deep_max,b,classifier,param)
 
 deep_max = 10
 b = 'b'
-classifier = 'mlp'
+classifier = 'nb'
 param = ''
 
+args = print_args_all(10,'b')
+dims = print_dims_all(10,'b')
+
+barplot(as.numeric(args[,2]), names.arg = args[,1], main = 'Atributos mais frequentes nos modelos', ylab = 'Ocorrências', las = 2)
+barplot(as.numeric(dims[,2][1:35]), names.arg = 1:35, xlim = c(1,40), main = 'Número de atributos gerados pelos modelos', ylab = 'Ocorrências')
 
 print_args(deep_max, b, classifier, param)
 print_dim(deep_max, b, classifier, param)

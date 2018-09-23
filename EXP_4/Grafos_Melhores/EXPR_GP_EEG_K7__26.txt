@@ -1,1 +1,0 @@
-plog(plog(div(sub(ARG13, ARG13), plog(div(ARG13, sub(ARG13, ARG13))))))

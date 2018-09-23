@@ -1,1 +1,0 @@
-F(div(sub(div(ARG6, ARG13), add(ARG24, ARG4)), F(plog(ARG24))))

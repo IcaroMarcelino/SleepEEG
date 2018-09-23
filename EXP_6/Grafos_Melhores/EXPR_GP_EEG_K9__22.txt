@@ -1,1 +1,0 @@
-add(mul(div(sub(plog(ARG9), ARG22), ARG22), ARG6), ARG22)

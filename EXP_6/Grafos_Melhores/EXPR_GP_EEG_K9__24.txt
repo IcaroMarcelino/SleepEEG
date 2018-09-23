@@ -1,1 +1,0 @@
-plog(mul(mul(F(psqrt(F(psqrt(F(F(ARG13)))))), F(mul(mul(F(mul(ARG13, mul(F(ARG13), ARG13))), mul(F(ARG13), mul(ARG13, F(ARG13)))), ARG13))), F(psqrt(psqrt(add(psqrt(psqrt(ARG1)), mul(sub(ARG16, ARG22), mul(ARG6, ARG19))))))))

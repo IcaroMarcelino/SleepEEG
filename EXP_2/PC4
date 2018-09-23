@@ -1,6 +1,0 @@
-#!/bin/bash
-nohup python3 gp_teste2_1.py 500 100 10 13 1 &
-nohup python3 gp_teste2_1.py 500 100 10 15 1 &
-nohup python3 gp_teste2_1.py 500 100 10 17 1 &
-nohup python3 gp_teste2_1.py 500 100 10 11 1 &
-htop

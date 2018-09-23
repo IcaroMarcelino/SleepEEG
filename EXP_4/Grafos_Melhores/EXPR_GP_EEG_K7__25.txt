@@ -1,1 +1,0 @@
-div(div(div(mul(div(ARG17, ARG17), sub(sub(div(ARG2, F(div(ARG17, ARG17))), ARG14), ARG23)), add(add(plog(psqrt(ARG4)), sub(add(ARG10, plog(F(sub(ARG17, ARG17)))), ARG16)), div(div(sub(ARG16, plog(sub(ARG17, ARG2))), div(ARG17, add(ARG17, sub(div(ARG2, ARG2), plog(ARG17))))), ARG17))), ARG3), ARG23)
