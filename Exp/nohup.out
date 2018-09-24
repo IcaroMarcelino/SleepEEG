@@ -1814,3 +1814,137 @@ FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36
   RuntimeWarning)
 /root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
   return left / right
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'fitness_function.cpython-36.pyc.140522297807712'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc.140522024198832'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'operator_set.cpython-36.pyc.140166870393392'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+Traceback (most recent call last):
+  File "main.py", line 381, in <module>
+    train_type = train_type)
+  File "main.py", line 81, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_rms,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/wav1_all_seg_ex1_RMS.csv'
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:428: RuntimeWarning: divide by zero encountered in log
+  n_ij = - 0.5 * np.sum(np.log(2. * np.pi * self.sigma_[i, :]))
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:430: RuntimeWarning: invalid value encountered in true_divide
+  (self.sigma_[i, :]), 1)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:428: RuntimeWarning: divide by zero encountered in log
+  n_ij = - 0.5 * np.sum(np.log(2. * np.pi * self.sigma_[i, :]))
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:430: RuntimeWarning: invalid value encountered in true_divide
+  (self.sigma_[i, :]), 1)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
