@@ -1,12 +1,12 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 9 -balance 0 -path TRMS/ -fileID TRMS -train_type 1 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 9 -balance 0 -path T10_2/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 9 -balance 0 -path TRMS/ -fileID TRMS -train_type 1 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 9 -balance 0 -path T10_2/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 9 -balance 1 -path TRMSb/ -fileID TRMSb -train_type 0 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 1 5 -dataset 9 -balance 1 -path T10_2b/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 9 -balance 1 -path TRMSb/ -fileID TRMSb -train_type 0 -optmize 2 1 TP 2 f1_S &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 10 -dataset 9 -balance 1 -path T10_2b/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
 htop

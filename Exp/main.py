@@ -29,13 +29,13 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/pca_ex4.csv', 		'data/pca_ex5.csv', 		'data/pca_ex6.csv',
 					'data/pca_ex7.csv',			'data/pca_ex8.csv']
 
-	files_wav25 = ['data/wav_seg_ex1.csv', 		'data/wav_seg_ex2.csv', 	'data/wav_seg_ex3.csv',
-					'data/wav_seg_ex4.csv', 	'data/wav_seg_ex5.csv', 	'data/wav_seg_ex6.csv', 
-					'data/wav_seg_ex7.csv', 	'data/wav_seg_ex8.csv']
+	files_wav25 = [	'data/data_25/wav25_ex1_.csv', 'data/data_25/wav25_ex2_.csv', 'data/data_25/wav25_ex3_.csv',
+					'data/data_25/wav25_ex4_.csv', 'data/data_25/wav25_ex5_.csv', 'data/data_25/wav25_ex6_.csv',
+					'data/data_25/wav25_ex7_.csv', 'data/data_25/wav25_ex8_.csv']
 
-	files_wav75 = ['data/wav_all_seg_ex1_.csv', 	'data/wav_all_seg_ex2_.csv', 'data/wav_all_seg_ex3_.csv',
-					'data/wav_all_seg_ex4_.csv', 'data/wav_all_seg_ex5_.csv', 'data/wav_all_seg_ex6_.csv',
-					'data/wav_all_seg_ex7_.csv', 'data/wav_all_seg_ex8_.csv']
+	files_wav75 = [	'data/data_75/wav75_ex1_.csv', 'data/data_75/wav75_ex2_.csv', 'data/data_75/wav75_ex3_.csv',
+					'data/data_75/wav75_ex4_.csv', 'data/data_75/wav75_ex5_.csv', 'data/data_75/wav75_ex6_.csv',
+					'data/data_75/wav75_ex7_.csv', 'data/data_75/wav75_ex8_.csv']
 
 	files_wav75_rms = ['data/wav1_all_seg_ex1_RMS.csv', 	'data/wav1_all_seg_ex2_RMS.csv', 'data/wav1_all_seg_ex3_RMS.csv',
 					'data/wav1_all_seg_ex4_RMS.csv', 'data/wav1_all_seg_ex5_RMS.csv', 'data/wav1_all_seg_ex6_RMS.csv',
@@ -45,8 +45,11 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/wav1_all_seg_ex4_S05_W1_F.csv', 'data/wav1_all_seg_ex5_S05_W1_F.csv', 'data/wav1_all_seg_ex6_S05_W1_F.csv',
 					'data/wav1_all_seg_ex7_S05_W1_F.csv', 'data/wav1_all_seg_ex8_S05_W1_F.csv']
 
-	files_wav75_men = ['data/wav_all_seg_ex2.csv', 'data/wav_all_seg_ex3.csv',
-						'data/wav_all_seg_ex4.csv', 'data/wav_all_seg_ex8.csv']
+	files_wav75_men = [	'data/data_75/wav75_ex2_.csv', 'data/data_75/wav75_ex3_.csv',
+						'data/data_75/wav75_ex4_.csv', 'data/data_75/wav75_ex8_.csv']
+
+	files_wav75_wom = [	'data/data_75/wav75_ex1_.csv', 'data/data_75/wav75_ex5_.csv', 
+						'data/data_75/wav75_ex6_.csv', 'data/data_75/wav75_ex7_.csv']
 
 	files_wav75_wom = ['data/wav_all_seg_ex1.csv', 'data/wav_all_seg_ex5.csv', 
 						'data/wav_all_seg_ex6.csv', 'data/wav_all_seg_ex7.csv']
@@ -338,7 +341,7 @@ if __name__ == "__main__":
 	filename = file_id + "GP_EEG_" + clf + str(param) + "_"	
 	
 	if len(opt_vars) == 0:
-		opt_vars = ['acc']
+		opt_vars = ['auc']
 		wts_vars = tuple([1])
 
 	# print(NGEN)

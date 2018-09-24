@@ -156,10 +156,10 @@ plot_MLP2 <- function(eng){
   }
 }
 
-  plot_performance <- function(deep_max, eng, subt){
+plot_performance <- function(deep_max, eng, subt){
   library(readr)
-  BL  <- read_csv(paste("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T", deep_max,"b/infoGP.csv", sep = ''))
-  NBL <- read_csv(paste("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/T", deep_max,"/infoGP.csv", sep = ''))
+  BL  <- read_csv(paste("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/T", deep_max,"b/infoGP.csv", sep = ''))
+  NBL <- read_csv(paste("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/T", deep_max,"/infoGP.csv", sep = ''))
 
   #BL <- BL[which(BL$`DEEP MAX` == deep_max),]
   #NBL <- NBL[which(NBL$`DEEP MAX` == deep_max),]
@@ -203,4 +203,15 @@ plot_MLP2 <- function(eng){
   }
 }
 
+precision <- function(tp, fp){
+  return(tp/(tp+fp))
+}
+
+recall <- function(tp, fn){
+  return(tp/(tp+fn))
+}
+
+f1_score <- function(tp, fp, fn){
+  return(2*tp/(2*tp+fn+fp))
+}
 

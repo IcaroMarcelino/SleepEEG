@@ -7,7 +7,7 @@ from sklearn.tree import DecisionTreeClassifier as DT
 
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import roc_curve, auc, roc_auc_score
 
 import numpy as np
 from deap import gp
@@ -89,6 +89,8 @@ def eval_function(opt_vars):
 	metr2 = []
 	if 'acc' in opt_vars:
 		func.append(0)
+	if 'auc' in opt_vars:
+		func.append(3)
 	if 'prec_S' in opt_vars:
 		func.append(1)
 		metr1.append((0,0))
@@ -120,6 +122,9 @@ def eval_function(opt_vars):
 		func.append(2)
 		metr2.append(3)
 	funcs = []
+	if 3 in func:
+		w = lambda y_true, y_pred: roc_auc_score(y_true, y_pred)
+		funcs.append(w)
 	if 0 in func:
 		x = lambda y_true, y_pred: accuracy_score(y_true, y_pred)
 		funcs.append(x)
