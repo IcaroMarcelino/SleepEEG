@@ -51,9 +51,6 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	files_wav75_wom = [	'data/data_75/wav75_ex1_.csv', 'data/data_75/wav75_ex5_.csv', 
 						'data/data_75/wav75_ex6_.csv', 'data/data_75/wav75_ex7_.csv']
 
-	files_wav75_wom = ['data/wav_all_seg_ex1.csv', 'data/wav_all_seg_ex5.csv', 
-						'data/wav_all_seg_ex6.csv', 'data/wav_all_seg_ex7.csv']
-
 	files_wav75_exp1 = ['data/wav1_all_seg_ex1_exp1.csv', 	'data/wav1_all_seg_ex2_exp1.csv', 'data/wav1_all_seg_ex3_exp1.csv',
 					'data/wav1_all_seg_ex4_exp1.csv', 'data/wav1_all_seg_ex5_exp1.csv', 'data/wav1_all_seg_ex6_exp1.csv',
 					'data/wav1_all_seg_ex7_exp1.csv', 'data/wav1_all_seg_ex8_exp1.csv']
