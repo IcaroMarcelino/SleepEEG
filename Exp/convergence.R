@@ -48,7 +48,7 @@ evolution <- function(folder,files, iter, cl){
 }
 
 get_evolution <- function(deep_max, b, classifier, param, iter, cl){
-  folder = paste("T", deep_max, b, "/log/",sep='')
+  folder = paste("SleepEEG/Exp/T", deep_max, b, "/log/",sep='')
   name = paste("*", classifier, param, "*",sep='')
   files  = list.files(path = folder, pattern = name)
   r <- evolution(folder, files, iter, cl)
@@ -65,9 +65,9 @@ print_convergence <- function(deep_max, b, classifier, param){
     balanced = 'Desbalanceadas)'
   }
   
-  par(mfrow=c(1,2))
-  yl = c(0,0.6)
-  metrica = 'F1 score'
+  #par(mfrow=c(1,2))
+  yl = c(0.5,0.9)
+  metrica = 'AUC'
   plot(0,0,type = "l", ylim = yl, xlim = c(0,300), main = paste("Treinamento do modelo\nGP + ", str_to_upper(classifier), "\n(Classes ", balanced ,sep = '') , xlab = "Gerações", ylab = metrica)
   polygon(c(1:300,rev(1:300)), c(d$desvpos, rev(d$desvneg)), col = "grey", border = 'grey')
   lines(0:299, d$custos, ylim =yl, xlim = c(0,299), type = "l", col = "red", lwd = 3)
@@ -75,16 +75,16 @@ print_convergence <- function(deep_max, b, classifier, param){
   lines(1:300, d$desvmax, col = "blue", pch = 2, lty = 6)
   lines(1:300, d$desvmin, col = "darkgreen", pch = 2, lty = 6)
   
-  cl = 2
-  d <- get_evolution(deep_max, b, classifier, param, iter, cl)
-  yl = c(0,120)
-  metrica = 'Verdadeiros Positivos'
-  plot(0,0,type = "l", ylim = yl, xlim = c(0,300), main = paste("Treinamento do modelo\nGP + ", str_to_upper(classifier), "\n(Classes ", balanced , sep = '') , xlab = "Gerações", ylab = metrica)
-  polygon(c(1:300,rev(1:300)), c(d$desvpos, rev(d$desvneg)), col = "grey", border = 'grey')
-  lines(0:299, d$custos, ylim =yl, xlim = c(0,299), type = "l", col = "red", lwd = 3)
-  box()
-  lines(1:300, d$desvmax, col = "blue", pch = 2, lty = 6)
-  lines(1:300, d$desvmin, col = "darkgreen", pch = 2, lty = 6)
+  #cl = 2
+  #d <- get_evolution(deep_max, b, classifier, param, iter, cl)
+  #yl = c(0,120)
+  #metrica = 'Verdadeiros Positivos'
+  #plot(0,0,type = "l", ylim = yl, xlim = c(0,300), main = paste("Treinamento do modelo\nGP + ", str_to_upper(classifier), "\n(Classes ", balanced , sep = '') , xlab = "Gerações", ylab = metrica)
+  #polygon(c(1:300,rev(1:300)), c(d$desvpos, rev(d$desvneg)), col = "grey", border = 'grey')
+  #lines(0:299, d$custos, ylim =yl, xlim = c(0,299), type = "l", col = "red", lwd = 3)
+  #box()
+  #lines(1:300, d$desvmax, col = "blue", pch = 2, lty = 6)
+  #lines(1:300, d$desvmin, col = "darkgreen", pch = 2, lty = 6)
 }
 
 print_args <- function(deep_max, b, classifier, param){
@@ -189,7 +189,7 @@ print_dim <- function(deep_max, b, classifier, param){
   barplot(as.numeric(args_counter[,2]))
 }
 
-deep_max = 10
+deep_max = '10_2'
 b = ''
 classifier = 'nb'
 param = ''

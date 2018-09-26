@@ -1,14 +1,14 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 5 -dataset 9 -balanced 0 -path T10_2/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 4 -balanced 0 -path T10_men/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 6 10 -dataset 9 -balanced 0 -path T10_2/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 4 -balanced 1 -path T10_menb/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 5 -dataset 9 -balanced 1 -path T10_2b/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 5 -balanced 0 -path T10_wom/ -fileID T10_2 -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 6 10 -dataset 9 -balanced 1 -path T10_2b/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 5 -balanced 1 -path T10_womb/ -fileID T10_2b -train_type 0 -optmize 1 1 auc &
 htop
 ~
 
