@@ -2460,3 +2460,73 @@ Traceback (most recent call last):
   File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
     " or a value too large for %r." % X.dtype)
 ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:428: RuntimeWarning: divide by zero encountered in log
+  n_ij = - 0.5 * np.sum(np.log(2. * np.pi * self.sigma_[i, :]))
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:430: RuntimeWarning: invalid value encountered in true_divide
+  (self.sigma_[i, :]), 1)
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 390, in <module>
+    train_type = train_type)
+  File "main.py", line 197, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 65, in predict
+    jll = self._joint_log_likelihood(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 424, in _joint_log_likelihood
+    X = check_array(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:428: RuntimeWarning: divide by zero encountered in log
+  n_ij = - 0.5 * np.sum(np.log(2. * np.pi * self.sigma_[i, :]))
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:430: RuntimeWarning: invalid value encountered in true_divide
+  (self.sigma_[i, :]), 1)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+<string>:1: RuntimeWarning: invalid value encountered in double_scalars
+Traceback (most recent call last):
+  File "main.py", line 390, in <module>
+    train_type = train_type)
+  File "main.py", line 197, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 65, in predict
+    jll = self._joint_log_likelihood(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 424, in _joint_log_likelihood
+    X = check_array(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
