@@ -120,6 +120,7 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type):
 				X_total.remove(X_total[ind])
 				y_total.remove(y_total[ind])
 
+		#return np.array(X_total), np.array(y_total), np.array(X_train), np.array(y_train), class_ind
 		return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), class_ind
 
 def import_data(file_path, rand, test_percent):

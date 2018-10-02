@@ -3096,3 +3096,7 @@ ValueError: not enough values to unpack (expected 4, got 2)
   RuntimeWarning)
 /root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
   RuntimeWarning)
+Traceback (most recent call last):
+  File "train_dbn.py", line 15, in <module>
+    X_train = np.array(X_train, dtype = 'float32')
+NameError: name 'np' is not defined
