@@ -1,0 +1,1 @@
+F(sub(sub(ARG12, plog(sub(psqrt(psqrt(add(plog(ARG51), plog(sub(ARG51, ARG74))))), add(plog(sub(sub(ARG51, ARG74), ARG74)), plog(add(plog(ARG51), ARG22)))))), F(mul(plog(sub(ARG70, ARG74)), add(plog(ARG51), plog(add(plog(ARG51), add(plog(ARG51), ARG22))))))))
