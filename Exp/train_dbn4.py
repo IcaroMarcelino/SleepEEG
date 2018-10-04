@@ -26,10 +26,10 @@ print(sum(y_test)/len(y_test))
 #[128, 256, 512, 256]
 #[128, 256, 512, 512]
 
-classifier = SupervisedDBNClassification(hidden_layers_structure=[32, 32, 32],
+classifier = SupervisedDBNClassification(hidden_layers_structure=[256, 512, 1024, 512, 256],
                                          learning_rate_rbm=0.05,
                                          learning_rate=0.01,
-                                         n_epochs_rbm=500,
+                                         n_epochs_rbm=1000,
                                          n_iter_backprop=10000,
                                          batch_size=16,
                                          activation_function='relu',
@@ -42,4 +42,4 @@ AUC = auc(fpr, tpr)
 print('Done.\nAccuracy: %f' % accuracy_score(y_test, Y_pred))
 print('Done.\nAUC:      %f' % AUC)
 
-classifier.save('model_4.pkl')
+classifier.save('model_6.pkl')

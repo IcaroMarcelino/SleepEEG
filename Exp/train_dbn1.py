@@ -25,7 +25,7 @@ y_test = np.array([y[0] for y in y_test])
 classifier = SupervisedDBNClassification(hidden_layers_structure=[128, 256, 512, 512],
                                          learning_rate_rbm=0.05,
                                          learning_rate=0.01,
-                                         n_epochs_rbm=500,
+                                         n_epochs_rbm=1000,
                                          n_iter_backprop=10000,
                                          batch_size=16,
                                          activation_function='relu',
