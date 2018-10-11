@@ -4,6 +4,13 @@ from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.metrics.classification import accuracy_score
 import numpy as np
 
+
+dbn = UnsupervisedDBN(hidden_layers_structure=[256, 512],
+                      batch_size=10,
+                      learning_rate_rbm=0.06,
+                      n_epochs_rbm=20,
+					  activation_function='sigmoid')
+
 train_percent = .8
 balance = 1
 train_type = 0
@@ -22,7 +29,7 @@ y_test = np.array([y[0] for y in y_test])
 #[128, 256, 512, 256]
 #[128, 256, 512, 512]
 
-classifier = SupervisedDBNClassification(hidden_layers_structure=[128, 256, 512, 512],
+classifier = SupervisedDBNClassification(hidden_layers_structure=[350,100,260],
                                          learning_rate_rbm=0.05,
                                          learning_rate=0.01,
                                          n_epochs_rbm=1000,

@@ -1,13 +1,12 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 10 -balance 0 -path T10_00/ -fileID T10_00 -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 8 -dataset 12 -balance 0 -path TFF/ -fileID TFF -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 10 -balance 1 -path T10_00b/ -fileID T10_00b -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 9 10 -dataset 12 -balance 0 -path TFF/ -fileID TFF -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 11 -balance 0 -path T10_01/ -fileID T10_01 -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 6 8 -dataset 12 -balance 1 -path TFFb/ -fileID TFFb -train_type 0 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 11 -balance 1 -path T10_01b/ -fileID T10_01b -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 9 10 -dataset 12 -balance 1 -path TFFb/ -fileID TFFb -train_type 0 -optmize 1 1 auc &
 htop
-~
