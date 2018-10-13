@@ -262,3 +262,185 @@ FileNotFoundError: [Errno 2] No such file or directory: 'data/data_75/wav75_ex1_
   RuntimeWarning)
 /root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
   RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/tree/tree.py", line 404, in predict
+    X = self._validate_X_predict(X, check_input)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/tree/tree.py", line 365, in _validate_X_predict
+    X = check_array(X, dtype=DTYPE, accept_sparse="csr")
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float32').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 65, in predict
+    jll = self._joint_log_likelihood(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py", line 424, in _joint_log_likelihood
+    X = check_array(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 478, in rmtree
+    onerror(os.rmdir, path, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 476, in rmtree
+    os.rmdir(path)
+OSError: [Errno 39] Directory not empty: '__pycache__'
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    shutil.rmtree("__pycache__")
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 474, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 432, in _rmtree_safe_fd
+    onerror(os.unlink, fullname, sys.exc_info())
+  File "/root/anaconda3/lib/python3.6/shutil.py", line 430, in _rmtree_safe_fd
+    os.unlink(name, dir_fd=topfd)
+FileNotFoundError: [Errno 2] No such file or directory: 'input_output.cpython-36.pyc.140354743755184'
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 934, in predict
+    y_pred = self._predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 658, in _predict
+    X = check_array(X, accept_sparse=['csr', 'csc', 'coo'])
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 934, in predict
+    y_pred = self._predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 658, in _predict
+    X = check_array(X, accept_sparse=['csr', 'csc', 'coo'])
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 934, in predict
+    y_pred = self._predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 658, in _predict
+    X = check_array(X, accept_sparse=['csr', 'csc', 'coo'])
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 934, in predict
+    y_pred = self._predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 658, in _predict
+    X = check_array(X, accept_sparse=['csr', 'csc', 'coo'])
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 573, in predict
+    y = super(BaseSVC, self).predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 310, in predict
+    X = self._validate_for_predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 459, in _validate_for_predict
+    X = check_array(X, accept_sparse='csr', dtype=np.float64, order="C")
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+Traceback (most recent call last):
+  File "main.py", line 414, in <module>
+    train_type = train_type)
+  File "main.py", line 189, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 573, in predict
+    y = super(BaseSVC, self).predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 310, in predict
+    X = self._validate_for_predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/svm/base.py", line 459, in _validate_for_predict
+    X = check_array(X, accept_sparse='csr', dtype=np.float64, order="C")
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
