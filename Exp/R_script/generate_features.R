@@ -421,8 +421,8 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
   #scan()
   if(nrm){
     for(i in 1:(n_dwt*natt*n_chs)){
-      #dt[,i] <- normalize.vector(dt[,i])
-      dt[,i] = (dt[,i]-min(dt[,i]))/(max(dt[,i])-min(dt[,i]))
+      dt[,i] <- normalize.vector(dt[,i])
+      #dt[,i] = (dt[,i]-min(dt[,i]))/(max(dt[,i])-min(dt[,i]))
     }
   }
     #View(dt)
@@ -672,7 +672,7 @@ create_database <- function(){
   scorer = 0
   chs = c(1,2,3)
   folder = 'data_75/'
-  id = "Filtered_Norm_STP"
+  id = "Filtered_Norm1_STP"
   nrm = T
   
   
