@@ -74,6 +74,14 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/data_75/wav_ex4_Filtered_Norm_STP.csv', 'data/data_75/wav_ex5_Filtered_Norm_STP.csv', 'data/data_75/wav_ex6_Filtered_Norm_STP.csv',
 					'data/data_75/wav_ex7_Filtered_Norm_STP.csv', 'data/data_75/wav_ex8_Filtered_Norm_STP.csv']
 
+	files_wav75_FNN =['data/data_75/wav_ex1_Filtered_N_Norm_STP.csv', 'data/data_75/wav_ex2_Filtered_N_Norm_STP.csv', 'data/data_75/wav_ex3_Filtered_N_Norm_STP.csv',
+					'data/data_75/wav_ex4_Filtered_N_Norm_STP.csv', 'data/data_75/wav_ex5_Filtered_N_Norm_STP.csv', 'data/data_75/wav_ex6_Filtered_N_Norm_STP.csv',
+					'data/data_75/wav_ex7_Filtered_N_Norm_STP.csv', 'data/data_75/wav_ex8_Filtered_N_Norm_STP.csv']
+
+	files_wav75_NormF =['data/data_75/wav_ex1_Norm.csv', 'data/data_75/wav_ex2_Norm.csv', 'data/data_75/wav_ex3_Norm.csv',
+					'data/data_75/wav_ex4_Norm.csv', 'data/data_75/wav_ex5_Norm.csv', 'data/data_75/wav_ex6_Norm.csv',
+					'data/data_75/wav_ex7_Norm.csv', 'data/data_75/wav_ex8_Norm.csv']
+
 	if dt_op == 1:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance, train_type)
 	elif dt_op == 2:
@@ -100,6 +108,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_FF,1, 1-train_percent, balance, train_type)
 	elif dt_op == 13:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_FN,1, 1-train_percent, balance, train_type)
+	elif dt_op == 14:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_FNN,1, 1-train_percent, balance, train_type)
+	elif dt_op == 15:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_NormF,1, 1-train_percent, balance, train_type)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
