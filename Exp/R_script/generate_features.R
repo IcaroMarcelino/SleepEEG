@@ -325,8 +325,9 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
   require(waveslim)
   require(e1071)
   require(ppls)
+  require(DescTools)
   
-  natt = 5
+  natt = 11
   
   n_seg = as.integer(length(d[,1])/(stp*freq))
   inc1 = as.integer(stp*freq)
@@ -365,18 +366,22 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
         energ = mean(spct$spec)
         skewn = skewness(wd[[j]])
         rms = sum((wd[[j]]^2)/length(wd[[j]]))^.5
+        kurt = kurtosis(wd[[j]])
         
-        # FFT_OSC <- fft(wd[[j]])
-        # magn <- Mod(FFT_OSC)
-        # phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
+        FFT_OSC <- fft(wd[[j]])
+        magn <- Mod(FFT_OSC)
+        phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
         
-        # x.axis <- 1:length(magn)
-        # teste <- matrix(nrow = length(x.axis), ncol = 2)
-        # teste[,1]<-x.axis
-        # teste[,2]<-magn
+        x.axis <- 1:length(magn)
+        teste <- matrix(nrow = length(x.axis), ncol = 2)
+        teste[,1]<-x.axis
+        teste[,2]<-magn
 
-        # mfreq = teste[which(teste[,2] == max(magn)),][1]
-        # mmagn = max(magn)
+        mfreq = teste[which(teste[,2] == max(magn)),][1]
+        mmagn = max(magn)
+        
+        unif = ks.test(wd[[j]], 'punif')$statistic[[1]]
+        entr = Entropy(wd[[j]], base = 10)
         
         #plot(teste,type="l", xlab = "Frequência (Hz)", ylab = "Magnitude")
         
@@ -396,9 +401,13 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
         dt[(i+1),(j-1)*natt + 3 + k*5*natt] <- energ
         dt[(i+1),(j-1)*natt + 4 + k*5*natt] <- curvlen
         dt[(i+1),(j-1)*natt + 5 + k*5*natt] <- skewn
-        # dt[(i+1),(j-1)*natt + 6 + k*5*natt] <- rms
-        # dt[(i+1),(j-1)*natt + 7 + k*5*natt] <- mfreq
-        # dt[(i+1),(j-1)*natt + 8 + k*5*natt] <- pmagn
+        dt[(i+1),(j-1)*natt + 6 + k*5*natt] <- rms
+        dt[(i+1),(j-1)*natt + 7 + k*5*natt] <- kurt
+        dt[(i+1),(j-1)*natt + 8 + k*5*natt] <- mfreq
+        dt[(i+1),(j-1)*natt + 9 + k*5*natt] <- mmagn
+        dt[(i+1),(j-1)*natt + 10 + k*5*natt] <- unif
+        dt[(i+1),(j-1)*natt + 11 + k*5*natt] <- entr
+        
         # dt[(i+1),(j-1)*natt + 9 + k*5*natt] <- ffreq
         # dt[(i+1),(j-1)*natt + 10 + k*5*natt] <- pffreq
         # View(dt)
@@ -665,14 +674,14 @@ create_database <- function(){
   freq_out = 256
   n_dwt = 5
   seg_len = 2
-  stp = 0.1
+  stp = 2
   comps = c(1:75)
   limit = .95
   name = "Paciente"
   scorer = 0
   chs = c(1,2,3)
   folder = 'data_75/'
-  id = "Filtered_Norm1_STP"
+  id = "Filtered_11F_Norm"
   nrm = T
   
   
