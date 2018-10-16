@@ -707,3 +707,29 @@ Traceback (most recent call last):
   File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
     " or a value too large for %r." % X.dtype)
 ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py:563: ConvergenceWarning: Stochastic Optimizer: Maximum iterations reached and the optimization hasn't converged yet.
+  % (), ConvergenceWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+Traceback (most recent call last):
+  File "main.py", line 420, in <module>
+    train_type = train_type)
+  File "main.py", line 227, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 141, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 78, in feature_construction
+    y_pred = classifier.predict(X_test_new)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 934, in predict
+    y_pred = self._predict(X)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/neural_network/multilayer_perceptron.py", line 658, in _predict
+    X = check_array(X, accept_sparse=['csr', 'csc', 'coo'])
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/root/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
