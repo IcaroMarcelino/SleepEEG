@@ -1,0 +1,17 @@
+#!/bin/bash
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 16 -balanced 0 -path TF11/ -fileID TF11 -train_type 1 -optmize 1 1 auc &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf dt -execs 1 10 -dataset 16 -balance 0 -path TF11/ -fileID TF11 -train_type 1 -optmize 1 1 auc &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 16 -balance 0 -path TF11/ -fileID TF11 -train_type 1 -optmize 1 1 auc &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf svm -param2 rbf -execs 1 10 -dataset 16 -balance 0 -path TF11/ -fileID TF11 -train_type 1 -optmize 1 1 auc &
+htop
+~
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf mlp -param 15 -param2 relu -execs 1 10 -dataset 16 -balance 0 -path TF11/ -fileID TF11 -train_type 1 -optmize 1 1 auc &
+htop
+~
+
