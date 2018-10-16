@@ -1,0 +1,1 @@
+add(add(plog(plog(mul(ARG38, ARG78))), ARG8), psqrt(add(pdiv(psqrt(psqrt(add(add(ARG8, ARG159), sub(add(psqrt(ARG139), ARG159), ARG114)))), psqrt(add(add(plog(mul(ARG38, ARG78)), add(add(ARG8, ARG159), ARG38)), sub(sub(add(psqrt(ARG139), plog(ARG159)), ARG114), ARG114)))), plog(psqrt(mul(ARG27, pdiv(psqrt(ARG38), sub(add(psqrt(ARG139), plog(ARG159)), ARG114))))))))
