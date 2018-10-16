@@ -82,9 +82,9 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/data_75/wav_ex4_Norm.csv', 'data/data_75/wav_ex5_Norm.csv', 'data/data_75/wav_ex6_Norm.csv',
 					'data/data_75/wav_ex7_Norm.csv', 'data/data_75/wav_ex8_Norm.csv']
 	
-	files_wav75_F11 =['data/data_75/wav_ex1_Filtered_11F_N_Norm_STP.csv', 'data/data_75/wav_ex2_Filtered_11F_N_Norm_STP.csv', 'data/data_75/wav_ex3_Filtered_11F_N_Norm_STP.csv',
-					'data/data_75/wav_ex4_Filtered_11F_N_Norm_STP.csv', 'data/data_75/wav_ex5_Filtered_11F_N_Norm_STP.csv', 'data/data_75/wav_ex6_Filtered_11F_N_Norm_STP.csv',
-					'data/data_75/wav_ex7_Filtered_11F_N_Norm_STP.csv', 'data/data_75/wav_ex8_Filtered_11F_N_Norm_STP.csv']
+	files_wav75_F11 =['data/data_75/wav_ex1_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex2_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex3_Filtered_11F_N_Norm.csv',
+					'data/data_75/wav_ex4_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex5_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex6_Filtered_11F_N_Norm.csv',
+					'data/data_75/wav_ex7_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex8_Filtered_11F_N_Norm.csv']
 
 	if dt_op == 1:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance, train_type)
