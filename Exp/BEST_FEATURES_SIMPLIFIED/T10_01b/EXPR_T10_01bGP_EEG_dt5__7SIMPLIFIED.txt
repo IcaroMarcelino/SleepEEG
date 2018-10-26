@@ -1,0 +1,14 @@
+ARG43/psqrt(ARG27) + plog(ARG34 - ARG58)/psqrt(ARG27)
+ARG11 + ARG5
+ARG7
+-ARG11 - ARG58 + psqrt(ARG27)
+ARG34
+-ARG27*psqrt(ARG27) - ARG62 - plog(0) - plog(ARG34)*psqrt(ARG27) + plog(-ARG27 - ARG4 + ARG43 + ARG46/psqrt(ARG27) + ARG58/psqrt(ARG27)) + psqrt(ARG7)
+ARG62
+psqrt(ARG7)
+ARG4
+ARG51*ARG64
+psqrt(ARG27)
+ARG27
+ARG46
+ARG46*ARG51

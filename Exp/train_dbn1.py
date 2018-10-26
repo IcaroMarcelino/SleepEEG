@@ -1,14 +1,15 @@
 from dbn import SupervisedDBNClassification
+from dbn import UnsupervisedDBN
 from input_output import import_all_data, import_data, verify_create_dir, init_stats
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 from sklearn.metrics.classification import accuracy_score
 import numpy as np
 
 
-dbn = UnsupervisedDBN(hidden_layers_structure=[256, 512],
+dbn = UnsupervisedDBN(hidden_layers_structure=[350,100,260],
                       batch_size=10,
                       learning_rate_rbm=0.06,
-                      n_epochs_rbm=20,
+                      n_epochs_rbm=1000,
 					  activation_function='sigmoid')
 
 train_percent = .8

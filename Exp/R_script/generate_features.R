@@ -681,8 +681,8 @@ create_database <- function(){
   scorer = 0
   chs = c(1,2,3)
   folder = 'data_75/'
-  id = "Filtered_11F_Norm"
-  nrm = T
+  id = "Filtered_11F_N_Norm"
+  nrm = F
   
   
   d <- generate_eeg_data_all_excerpts_filter(freq_out, scorer)

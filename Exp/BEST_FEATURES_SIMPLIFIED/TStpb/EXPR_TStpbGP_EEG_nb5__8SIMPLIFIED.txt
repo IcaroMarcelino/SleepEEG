@@ -1,0 +1,7 @@
+-plog(ARG12) + plog(-ARG12 + ARG68 - ARG74)
+plog(ARG6)
+ARG74
+-plog(ARG12) + plog(-ARG12 - ARG19 + ARG38 + ARG68)
+plog(plog(ARG19))
+plog(ARG12)
+ARG19

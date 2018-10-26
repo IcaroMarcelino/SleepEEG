@@ -4,6 +4,7 @@ from sklearn.neural_network import MLPClassifier as MLP
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier as DT
+from sklearn.cluster import KMeans
 
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import confusion_matrix
@@ -31,20 +32,28 @@ def feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
 	exp = gp.PrimitiveTree(individual)
 	string = str(exp)
 	ind = [i for i in range(len(string)) if string.startswith('F', i)]
+	if len(ind) == 0:
+		ind = [0]
 	features = []
 	hist = []
+	temp = []
 	for i in ind:
 		subtree = get_subtree(i,string)
-		if subtree not in hist:
+		if str(subtree) not in hist:
+			hist.append(str(subtree))
 			newtree = exp.from_string(subtree, pset)
+			temp.append(str(newtree))
 			features.append(gp.compile(newtree, pset))
 	if len(features) == 0:
 		features.append(gp.compile(individual, pset))
 	X_train_new = []
 	i = 0
+	#print(temp)
 	for x in X_train:
 		X_train_new.append([])
-		for feature in features:
+		for feature, t in zip(features,temp):
+			#print(t)
+			#print(t, feature(*x))
 			#print(x)
 			#str(features)
 			X_train_new[i].append(feature(*x))
@@ -60,8 +69,12 @@ def feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
 		classifier = DT()
 	elif clf == 'nb':
 		classifier = GaussianNB()
+	elif clf == 'kmeans':
+		classifier = KMeans(n_clusters=param[0])
 
 	y_train = np.array([j[0] for j in y_train])
+
+	X_train_new = np.array(X_train_new).astype(np.float)
 	try:
 		classifier.fit(X_train_new, y_train)
 	except:
@@ -74,7 +87,8 @@ def feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
 			#print(x)
 			X_test_new[i].append(feature(*x))
 		i += 1
-
+	
+	X_test_new = np.array(X_test_new).astype(np.float)
 	y_pred = classifier.predict(X_test_new)
 	y_pred = np.array([[j, int(not(j))] for j in y_pred])
 

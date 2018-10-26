@@ -42,7 +42,7 @@ def init_stats():
 	mstats = tools.MultiStatistics(fitness=stats_fit, size=stats_size)
 	return mstats
 
-def import_all_data(files_paths, rand, test_percent, balance, train_type):
+def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0):
 	total_x = []
 	total_y = []
 	class_ind = 0
@@ -61,7 +61,7 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type):
 		for row in data:
 			class_ind = len(row)-2
 			X_train.append([float(x) for x in row[0:class_ind]])
-			y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
+			y_train.append([int(row[class_ind+op]), int(not(int(row[class_ind+op])))])
 
 			# if row[len(row) - 1] != row[len(row)-2]:
 			# 	print(row)
@@ -132,7 +132,7 @@ def import_data(file_path, rand, test_percent):
 	for row in data:
 		class_ind = len(row)-2
 		X_train.append([float(x) for x in row[0:class_ind]])
-		y_train.append([int(row[class_ind]), int(not(int(row[class_ind])))])
+		y_train.append([int(row[class_ind+1]), int(not(int(row[class_ind+1])))])
 	csvfile.close()
 	if rand:
 		temp1 = []
