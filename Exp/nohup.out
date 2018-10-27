@@ -901,3 +901,41 @@ ValueError: Input contains NaN, infinity or a value too large for dtype('float32
   RuntimeWarning)
 /root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
   RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: invalid value encountered in double_scalars
+  return left / right
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
