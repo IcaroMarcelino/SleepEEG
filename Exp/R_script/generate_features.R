@@ -2,11 +2,11 @@
 
 # Variáveis globais
 # Diretórios de entrada
-PATH_IN_SCORE_EXPERTS <<- '/home/icaro/Desktop/TG/Dados_Sono/data/DREAMS_Sleep_Spindles/Labels/'
-PATH_IN_EDF_FILES     <<- '/home/icaro/Desktop/TG/Dados_Sono/data/DREAMS_Sleep_Spindles/EDF/'
+PATH_IN_SCORE_EXPERTS <<- '/home/icaro/Desktop/TG/Dados_Sono/data/Spindle/DREAMS_Sleep_Spindles/Labels/'
+PATH_IN_EDF_FILES     <<- '/home/icaro/Desktop/TG/Dados_Sono/data/Spindle/DREAMS_Sleep_Spindles/EDF/'
 
 # Diretórios de saída
-PATH_OUT_FEATURES     <<- '/home/icaro/Desktop/TG/Dados_Sono/SleepEEG/Exp/data/'
+PATH_OUT_FEATURES     <<- '/home/icaro/Desktop/TG/Dados_Sono/SleepEEG/Spindle/Exp/data/'
 ##################################################################################
 # generate_eeg_data(excerpt, op, freq, freq_out, scorer)
 #

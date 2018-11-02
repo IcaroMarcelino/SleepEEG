@@ -1,0 +1,1 @@
+plog(mul(mul(mul(ARG28, mul(mul(ARG28, ARG8), ARG8)), ARG28), mul(mul(ARG28, mul(mul(ARG28, mul(mul(mul(ARG28, mul(ARG8, ARG8)), mul(ARG11, ARG11)), psqrt(mul(mul(ARG11, ARG28), ARG28)))), mul(mul(mul(mul(ARG11, mul(ARG28, ARG8)), mul(ARG11, ARG11)), psqrt(ARG28)), ARG8))), mul(mul(ARG11, mul(ARG11, ARG45)), ARG8))))

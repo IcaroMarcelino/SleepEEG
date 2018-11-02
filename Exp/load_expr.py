@@ -1,4 +1,5 @@
 import pylab as pl
+import matplotlib.gridspec as gridspec
 from sklearn.cluster import KMeans
 from fitness_function import*
 from input_output import*
@@ -419,39 +420,61 @@ def data_set_transform(individual, pset, X):
 		i += 1
 	return list(np.array(X_new).astype(np.float))
 
-def elbow_method_kmeans(X, Y, max_Nc, clf, folder):
+def elbow_method_kmeans(X, Y, Y_pred, max_Nc, clf, folder, Xall = [], Yall = []):
 	Nc = range(1, max_Nc)
 	kmeans = [KMeans(n_clusters=i) for i in Nc]
 	score = [kmeans[i].fit(X).score(X) for i in range(len(kmeans))]
+
+	pl.figure(1)
 	pl.plot(Nc,score)
 	pl.xlabel('Número de Clusters')
 	pl.ylabel('Score')
-	pl.title('Método Elbow (dataset ' + folder + ')\nAtributos encontrados com GP + ' + clf.upper())
-	pl.show()
+	pl.title('Método Elbow (dataset ' + folder + ')\nAtributos GP + ' + clf.upper())
+
+	gs = gridspec.GridSpec(1, 3)
+	pl.figure(2)
+	ax = pl.subplot(gs[0, 0])
+	if(len(Xall) > 0):
+		print("TSNE 1")
+		tsne_all = TSNE(n_components=2)
+		X_2d_all = tsne_all.fit_transform(Xall)
+		target_ids = [0, 1]
+		#pl.figure(figsize=(6, 5))
+		colors = 'r', 'b'
+
+		for i, c, label in zip(target_ids, colors, [0, 1]):
+			pl.scatter(X_2d_all[Yall == i, 0], X_2d_all[Yall == i, 1], c=c, label=label)
+		
+		pl.title('(dataset original)\nClusters GP + ' + clf.upper() + '\n Predição')
+		pl.legend()
+		pl.xlim(np.array(X_2d_all).min(), np.array(X_2d_all).max())
+		pl.ylim(np.array(X_2d_all).min(), np.array(X_2d_all).max())
 
 	y = kmeans[1].fit(X).labels_
-	print("TSNE...")
-	tsne = TSNE(n_components=2, random_state=0, n_iter = 500, learning_rate = 1000)
-	print("Transform")
+	print("TSNE 2")
+	tsne = TSNE(n_components=2)
 	X_2d = tsne.fit_transform(X)
-	print("Transform finished")
 
+	ax = pl.subplot(gs[0, 1])
 	target_ids = [0, 1]
 	#pl.figure(figsize=(6, 5))
 	colors = 'r', 'b'
 	for i, c, label in zip(target_ids, colors, [0, 1]):
-		pl.scatter(X_2d[Y == i, 0], X_2d[Y == i, 1], c=c, label=label)
+		pl.scatter(X_2d[Y_pred == i, 0], X_2d[Y_pred == i, 1], c=c, label=label)
 		
-	pl.title('(dataset ' + folder + ')\nClusters encontrados pelas features obtidas com GP + ' + clf.upper())
+	pl.title('(dataset ' + folder + ')\nClusters GP + ' + clf.upper() + '\n Predição')
 	pl.legend()
 	pl.xlim(np.array(X_2d).min(), np.array(X_2d).max())
 	pl.ylim(np.array(X_2d).min(), np.array(X_2d).max())
-	pl.show()
 
+	if sum(Y) > sum(np.logical_not(Y)):
+		Y = np.array(np.logical_not(Y), dtype = 'int32')
+
+	ax = pl.subplot(gs[0, 2])
 	for i, c, label in zip(target_ids, colors, [0, 1]):
-		pl.scatter(X_2d[y == i, 0], X_2d[y == i, 1], c=c, label=label)
+		pl.scatter(X_2d[Y == i, 0], X_2d[Y == i, 1], c=c, label=label)
 		
-	pl.title('(dataset ' + folder + ')\nClusters encontrados pelas features obtidas com GP + ' + clf.upper())
+	pl.title('(dataset ' + folder + ')\nClusters GP + ' + clf.upper() + '\n Labels originais')
 	pl.legend()
 	pl.xlim(np.array(X_2d).min(), np.array(X_2d).max())
 	pl.ylim(np.array(X_2d).min(), np.array(X_2d).max())
@@ -520,52 +543,94 @@ files_wav75_F11 =['data/data_75/wav_ex1_Filtered_11F_N_Norm.csv', 'data/data_75/
 				'data/data_75/wav_ex4_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex5_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex6_Filtered_11F_N_Norm.csv',
 				'data/data_75/wav_ex7_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex8_Filtered_11F_N_Norm.csv']
 
+
+def media(M, X, K):
+	return M*(K-1)/K + X/K
+
+def desv_padrao(S, M, X, K):
+	return ((S**2 + ((M-X)**2)/(K+1))*K/(K+1))**.5
+
+d1 = []
+d2 = []
+d3 = []
+
+
 for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, files_wav75_00, files_wav75_FF], [75, 75, 75]):
+	d  = [[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+	 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]]]
+	
 	for file in os.listdir('BEST_FEATURES/' + folder):
+		print(file)
 		if 'dt' in file:
+			index1 = 0
 			clf = 'dt'
 			p1  = -1
 			p2  = ''
 		elif 'svm' in file:
+			index1 = 1
 			clf = 'svm'
 			p1  = -1
 			p2  = 'rbf'
-		elif 'nb' in file:
+		elif 'nb' in file:			
+			index1 = 2
 			clf = 'nb'
 			p1  = -1
 			p2  = ''
 		elif 'knn' in file:
+			index1 = 3
 			clf = 'knn'
 			p1  = 5
 			p2  = ''
 		elif 'mlp' in file:
+			index1 = 4			
 			clf = 'mlp'
 			p1  = 15
 			p2  = 'relu'
 
-		for clf_, param in zip(['dt', 'nb', 'knn', 'svm', 'mlp'], [[-1, ''], [-1, ''], [5, ''], [-1, 'rbf'], [15, 'relu']]):
+		for clf_, param, index2 in zip(['dt', 'nb', 'knn', 'svm', 'mlp'], [[-1, ''], [-1, ''], [5, ''], [-1, 'rbf'], [15, 'relu']], [0,1,2,3,4]):
 			pset = init_pset(n_att)
 			ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
 				
 			X_train, y_train, X_test, y_true, _ = import_all_data(dataset, 1, .7, 1, 0)
 			#X_train = data_set_transform(ind, pset, X_train)
 			#X_test  = data_set_transform(ind, pset, X_test)
-				
+
 			prf, acc, cfm, AUC = performance(ind, clf_, param, X_train, y_train, X_test, y_true, pset)
+
 			print("Dataset:", folder)
 			print("Classificador original:", clf)
 			print("Classificador teste   :", clf_)
 			print("F1 :", str(prf[2][0]))
 			print("AUC:", AUC)
 			print("ACC:", acc)
+
+			M = d[index1][index2][0]
+			S = d[index1][index2][1]
+			K = d[index1][index2][2]
+
+			d[index1][index2][0] = media(M, AUC, K)
+			d[index1][index2][1] = desv_padrao(S, M, AUC, K)
+			d[index1][index2][2] = K+1
+			
+			print(d[index1][index2])
 			print()
 
-#folder = 'T10_2b'
+	
+	print(np.array(d))
+	input()
+
+#folder = 'TKM'
 #dataset = files_wav75
-#clf = 'nb'
-#p1 = 1
+#clf = 'kmeans'
+#n_att = 75
+#p1 = 2
 #p2 = ''
-#file = os.listdir('BEST_FEATURES/' + folder)[0]
+#file_name = os.listdir('BEST_FEATURES/' + folder)[0]
+
+
 
 #y_pred,  y_true = get_prediction_from_expr(75, clf, [p1, p2], 'BEST_FEATURES/' + folder + '/' + file, dataset,'')
 #for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb', 'TF11b', 'TStpb'], [files_wav75, files_wav75_00, files_wav75_FF, files_wav75_F11, files_wav75_FN], [75, 75, 75, 165, 75]):
@@ -596,23 +661,47 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 #		#	p1  = 15
 #		#	p2  = 'relu'
 		
-# clf = 'dt'
+#clf = 'dt'
 # p1  = -1
 # p2  = ''
 # n_att = 75
 # folder = 'T10_2b'
 # file = 'EXPR_T10_2bGP_EEG_dt5__20.txt'
 # dataset = files_wav75
-# #y_pred,  y_true = get_prediction_from_expr(n_att, clf, [p1, p2], 'BEST_FEATURES/' + folder + '/' + file, dataset,'')
-# #print(np.array(y_pred)&np.array(y_true))
-# #print(sum(y_pred), sum(y_true), sum(np.array(y_pred)&np.array(y_true)))
-# #print(y_pred)
-# ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
 
-# pset = init_pset(n_att)
-# _, _, X, Y1, _ = import_all_data(dataset,0, 0, 0, 1)
-# _, _, _, Y2, _ = import_all_data(dataset,0, 0, 0, 1, 1)
-# k_pred = elbow_method_kmeans(X, np.array([y[0] for y in Y2], dtype= 'int'), 20, clf, folder)
+
+
+
+#y_pred,  y_true = get_prediction_from_expr(n_att, clf, [p1, p2], 'BEST_FEATURES/' + folder + '/' + file, dataset,'')
+#print(np.array(y_pred)&np.array(y_true))
+#print(sum(y_pred), sum(y_true), sum(np.array(y_pred)&np.array(y_true)))
+#print(y_pred)
+#ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
+
+#pset = init_pset(n_att)
+#X1, Y1, X2, Y2, _ = import_all_data(dataset,0, 0.0, 0, 1)
+##_, _, _, Y2, _ = import_all_data(dataset,0, 0, 0, 1, 1)
+
+#X1 = X2
+#Y1 = Y2
+#pset = init_pset(n_att)
+#file = open('BEST_FEATURES/' + folder + '/' +file_name, 'r')
+#string = file.read()
+#expr = gp.genFull(pset, min_=1, max_=3)
+#tree = gp.PrimitiveTree(expr)
+#ind  = tree.from_string(string, pset)
+#file.close()
+
+#X1t = data_set_transform(ind, pset, X1)
+#X2t = data_set_transform(ind, pset, X2)
+
+#y_pred = feature_construction(ind, clf, [2, ''], X1, Y2, X2, pset)
+#y_pred = [i[0] for i in y_pred]
+
+#k_pred = elbow_method_kmeans(X2t, np.array([y[0] for y in Y2], dtype= 'int'), np.array(y_pred, dtype= 'int'), 10, clf, folder, X1, np.array([y[0] for y in Y1]))
+
+
+
 
 # print(len(X), len(X[0]))
 # X = data_set_transform(ind, pset, X)

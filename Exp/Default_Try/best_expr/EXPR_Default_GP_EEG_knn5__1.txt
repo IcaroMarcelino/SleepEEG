@@ -1,1 +1,1 @@
-plog(pdiv(F(plog(plog(ARG21))), sub(sub(add(ARG17, ARG2), F(ARG32)), psqrt(F(ARG56)))))
+psqrt(ARG38)

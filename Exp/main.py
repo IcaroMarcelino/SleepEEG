@@ -86,6 +86,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/data_75/wav_ex4_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex5_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex6_Filtered_11F_N_Norm.csv',
 					'data/data_75/wav_ex7_Filtered_11F_N_Norm.csv', 'data/data_75/wav_ex8_Filtered_11F_N_Norm.csv']
 
+	files_wav75_KC = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
+					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
+					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
+
 	if dt_op == 1:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance, train_type)
 	elif dt_op == 2:
@@ -118,6 +122,8 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_NormF,1, 1-train_percent, balance, train_type)
 	elif dt_op == 16:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_F11,1, 1-train_percent, balance, train_type)
+	elif dt_op == 17:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC,1, 1-train_percent, balance, train_type)
 
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
@@ -126,6 +132,8 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	pset.addPrimitive(operator.sub, 2)
 	pset.addPrimitive(operator.mul, 2)
 	pset.addPrimitive(plog, 1)
+	pset.addPrimitive(math.sin, 1)
+	pset.addPrimitive(math.cos, 1)
 	pset.addPrimitive(psqrt, 1)
 	pset.addPrimitive(F, 1)
 	pset.addPrimitive(pdiv, 2)
@@ -179,8 +187,6 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		toolbox.register("mutate", gp.mutShrink)
 	elif mut == 5:
 		toolbox.register("mutate", gp.mutEphemeral, mode = 'all')
-
-
 
 	toolbox.decorate("mate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
 	toolbox.decorate("mutate", gp.staticLimit(key=operator.attrgetter("height"), max_value = TAM_MAX))
