@@ -2,18 +2,18 @@ plot_classifiers <- function(eng, type){
   library(readr)
   if(type == 1){
     subtitle = 'Janelas disjuntas de 2 s'
-    DT  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/DT.csv")
-    KNN <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/KNN_1.csv")
-    MLP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP_13_2.csv")
-    NB  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/NB.csv")
-    SVM <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/SVM.csv")
+    DT  <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/DT.csv")
+    KNN <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/KNN_1.csv")
+    MLP <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/MLP_13_2.csv")
+    NB  <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/NB.csv")
+    SVM <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/SVM.csv")
   }else{
     subtitle = 'Janelas de 1 s com superposição de 0.5 s'
-    DT  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/DT.csv")
-    KNN <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/KNN_1.csv")
-    MLP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/MLP_13_2.csv")
-    NB  <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/NB.csv")
-    SVM <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/SVM.csv")
+    DT  <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/DT.csv")
+    KNN <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/KNN_1.csv")
+    MLP <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/MLP_13_2.csv")
+    NB  <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/NB.csv")
+    SVM <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/SVM.csv")
   }
   MLP1 <- MLP[which(MLP$Activattion == 'relu' & MLP$`#Neurons` == 15),]
   KNN1 <- KNN[which(KNN$K == 5),]
@@ -47,10 +47,10 @@ plot_KNN <- function(eng, type){
   library(readr)
   if(!eng){
     if(type == 1){
-      KNN <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/KNN_1.csv")
+      KNN <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/KNN_1.csv")
       subtitle = 'Janelas disjuntas de 2 s'
     }else{
-      KNN <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/KNN_1.csv")
+      KNN <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/KNN_1.csv")
       subtitle = 'Janelas de 1 s com superposição de 0.5 s'
     }
     KNN_B <- KNN[which(KNN$Balanced == 1),]
@@ -71,10 +71,10 @@ plot_SVM <- function(eng, type){
   library(readr)
   
   if(type == 1){
-    SVM <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/SVM.csv")
+    SVM <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/SVM.csv")
     subtitle = 'Janelas disjuntas de 2 s'
   }else{
-    SVM <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis2/SVM.csv")
+    SVM <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis2/SVM.csv")
     subtitle = 'Janelas de 1 s com superposição de 0.5 s'
   }
   if(!eng){
@@ -94,7 +94,7 @@ plot_SVM <- function(eng, type){
 
 plot_MLP <- function(eng){
   library(readr)
-  MLP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP_13_2.csv")
+  MLP <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/MLP_13_2.csv")
 
   if(!eng){
     par(mfrow = c(1,2))
@@ -126,7 +126,7 @@ plot_MLP <- function(eng){
 
 plot_MLP2 <- function(eng){
   library(readr)
-  MLP <- read_csv("~/Downloads/Dados_Sono/GP/SleepEEG/Exp/Analysis/MLP_13_3.csv")
+  MLP <- read_csv("~/Desktop/TG/Dados_Sono/SleepEEG/Exp/Analysis/MLP_13_3.csv")
   
   if(!eng){
     par(mfrow = c(1,2))

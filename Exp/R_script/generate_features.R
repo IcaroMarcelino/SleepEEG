@@ -2,8 +2,8 @@
 
 # Variáveis globais
 # Diretórios de entrada
-PATH_IN_SCORE_EXPERTS <<- '/home/icaro/Desktop/TG/Dados_Sono/data/Spindle/DREAMS_Sleep_Spindles/Labels/'
-PATH_IN_EDF_FILES     <<- '/home/icaro/Desktop/TG/Dados_Sono/data/Spindle/DREAMS_Sleep_Spindles/EDF/'
+PATH_IN_SCORE_EXPERTS <<- '/home/icaro/Desktop/TG/Dados_Sono/data/DREAMS_Sleep_Spindles/Spindle/Labels/'
+PATH_IN_EDF_FILES     <<- '/home/icaro/Desktop/TG/Dados_Sono/data/DREAMS_Sleep_Spindles/Spindle/EDF/'
 
 # Diretórios de saída
 PATH_OUT_FEATURES     <<- '/home/icaro/Desktop/TG/Dados_Sono/SleepEEG/Spindle/Exp/data/'
@@ -327,7 +327,7 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
   require(ppls)
   require(DescTools)
   
-  natt = 11
+  natt = 5
   
   n_seg = as.integer(length(d[,1])/(stp*freq))
   inc1 = as.integer(stp*freq)
@@ -365,23 +365,23 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
         }
         energ = mean(spct$spec)
         skewn = skewness(wd[[j]])
-        rms = sum((wd[[j]]^2)/length(wd[[j]]))^.5
-        kurt = kurtosis(wd[[j]])
+        #rms = sum((wd[[j]]^2)/length(wd[[j]]))^.5
+        #kurt = kurtosis(wd[[j]])
         
-        FFT_OSC <- fft(wd[[j]])
-        magn <- Mod(FFT_OSC)
-        phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
+        #FFT_OSC <- fft(wd[[j]])
+        #magn <- Mod(FFT_OSC)
+        #phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
         
-        x.axis <- 1:length(magn)
-        teste <- matrix(nrow = length(x.axis), ncol = 2)
-        teste[,1]<-x.axis
-        teste[,2]<-magn
+        #x.axis <- 1:length(magn)
+        #teste <- matrix(nrow = length(x.axis), ncol = 2)
+        #teste[,1]<-x.axis
+        #teste[,2]<-magn
 
-        mfreq = teste[which(teste[,2] == max(magn)),][1]
-        mmagn = max(magn)
+        #mfreq = teste[which(teste[,2] == max(magn)),][1]
+        #mmagn = max(magn)
         
-        unif = ks.test(wd[[j]], 'punif')$statistic[[1]]
-        entr = Entropy(wd[[j]], base = 10)
+        #unif = ks.test(wd[[j]], 'punif')$statistic[[1]]
+        #entr = Entropy(wd[[j]], base = 10)
         
         #plot(teste,type="l", xlab = "Frequência (Hz)", ylab = "Magnitude")
         
@@ -401,12 +401,12 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
         dt[(i+1),(j-1)*natt + 3 + k*5*natt] <- energ
         dt[(i+1),(j-1)*natt + 4 + k*5*natt] <- curvlen
         dt[(i+1),(j-1)*natt + 5 + k*5*natt] <- skewn
-        dt[(i+1),(j-1)*natt + 6 + k*5*natt] <- rms
-        dt[(i+1),(j-1)*natt + 7 + k*5*natt] <- kurt
-        dt[(i+1),(j-1)*natt + 8 + k*5*natt] <- mfreq
-        dt[(i+1),(j-1)*natt + 9 + k*5*natt] <- mmagn
-        dt[(i+1),(j-1)*natt + 10 + k*5*natt] <- unif
-        dt[(i+1),(j-1)*natt + 11 + k*5*natt] <- entr
+        #dt[(i+1),(j-1)*natt + 6 + k*5*natt] <- rms
+        #dt[(i+1),(j-1)*natt + 7 + k*5*natt] <- kurt
+        #dt[(i+1),(j-1)*natt + 8 + k*5*natt] <- mfreq
+        #dt[(i+1),(j-1)*natt + 9 + k*5*natt] <- mmagn
+        #dt[(i+1),(j-1)*natt + 10 + k*5*natt] <- unif
+        #dt[(i+1),(j-1)*natt + 11 + k*5*natt] <- entr
         
         # dt[(i+1),(j-1)*natt + 9 + k*5*natt] <- ffreq
         # dt[(i+1),(j-1)*natt + 10 + k*5*natt] <- pffreq

@@ -1,13 +1,13 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 14 -balance 0 -path TStp/ -fileID TStp -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 11 -balance 0 -path TSin/ -fileID TSin -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 14 -balance 1 -path TStpb/ -fileID TStpb -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf nb -execs 1 10 -dataset 11 -balance 1 -path TSinb/ -fileID TSinb -train_type 0 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf svm -param2 rbf -execs 1 3 -dataset 14 -balance 0 -path TStp/ -fileID TStp -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf svm -param2 rbf -execs 1 10 -dataset 11 -balance 0 -path TSin/ -fileID TSin -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf svm -param2 rbf -execs 4 5 -dataset 14 -balance 0 -path TStp/ -fileID TStp -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf svm -param2 rbf -execs 1 10 -dataset 11 -balance 1 -path TSinb/ -fileID TSinb -train_type 0 -optmize 1 1 auc &
 htop
 ~

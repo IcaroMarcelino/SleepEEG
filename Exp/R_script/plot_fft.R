@@ -1,4 +1,4 @@
-plot_fft <- function(t, y, title_plot){
+plot_fft <- function(t, y, title_plot, xmin, xmax){
   FFT <- fft(y)
   magn <- Mod(FFT)
   phase <- Arg(FFT)
@@ -10,7 +10,7 @@ plot_fft <- function(t, y, title_plot){
   teste <- matrix(nrow = length(x.axis), ncol = 2)
   teste[,1]<-x.axis
   teste[,2]<-magn.1
-  plot(teste,type="l", xlab = "Frequency (Hz)", ylab = "Magnitude (dB)", main = title_plot)
+  plot(teste, col = 'black', type="l", xlim = c(xmin,xmax), xlab = "Frequency (Hz)", ylab = "Magnitude (dB)", main = title_plot)
   #plot(teste,type="l", xlab = "Frequency (Hz)", ylab = "Phase (°)", main = title_plot)
   
   teste[which(teste[,2] == max(magn.1)),]
