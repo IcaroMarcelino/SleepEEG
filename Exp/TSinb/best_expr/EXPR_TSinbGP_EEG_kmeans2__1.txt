@@ -1,0 +1,1 @@
+sub(pdiv(ARG27, pdiv(add(sub(ARG63, F(F(F(pdiv(ARG13, ARG6))))), ARG20), F(pdiv(ARG63, sub(pdiv(pdiv(ARG63, ARG6), ARG63), pdiv(F(plog(plog(ARG20))), F(pdiv(plog(ARG33), sub(ARG66, ARG63))))))))), mul(psqrt(psqrt(sin(sin(F(pdiv(ARG13, ARG66)))))), sin(mul(mul(psqrt(plog(ARG72)), mul(ARG52, sin(ARG70))), cos(add(psqrt(ARG54), ARG33))))))

@@ -1,0 +1,1 @@
+add(add(add(mul(ARG44, plog(ARG44)), ARG44), pdiv(pdiv(psqrt(add(psqrt(psqrt(plog(plog(ARG18)))), plog(plog(ARG44)))), ARG44), add(add(mul(ARG44, plog(ARG44)), F(add(ARG44, plog(plog(add(ARG44, ARG44)))))), F(add(ARG44, plog(plog(add(ARG44, ARG44)))))))), F(pdiv(ARG18, plog(ARG44))))

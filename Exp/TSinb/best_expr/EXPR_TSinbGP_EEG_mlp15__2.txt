@@ -1,0 +1,1 @@
+pdiv(sub(pdiv(add(psqrt(F(ARG6)), F(ARG6)), F(sin(pdiv(sub(cos(ARG12), F(F(ARG6))), psqrt(ARG37))))), F(mul(F(psqrt(ARG12)), sin(sin(add(F(sin(ARG36)), F(ARG6))))))), sub(psqrt(psqrt(sub(sub(mul(F(plog(psqrt(ARG9))), sin(add(ARG36, sin(ARG6)))), ARG12), F(psqrt(ARG12))))), pdiv(ARG36, psqrt(F(ARG6)))))
