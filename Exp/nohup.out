@@ -939,3 +939,56 @@ ValueError: Input contains NaN, infinity or a value too large for dtype('float32
   RuntimeWarning)
 /root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
   RuntimeWarning)
+Traceback (most recent call last):
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 18, in verify_create_dir
+    os.stat(path + 'log')
+FileNotFoundError: [Errno 2] No such file or directory: 'TSin/log'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 426, in <module>
+    train_type = train_type)
+  File "main.py", line 26, in main
+    verify_create_dir(path)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 20, in verify_create_dir
+    os.mkdir(path + 'log') 
+FileExistsError: [Errno 17] File exists: 'TSin/log'
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+Traceback (most recent call last):
+  File "main.py", line 426, in <module>
+    train_type = train_type)
+  File "main.py", line 233, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+  File "<string>", line 1, in <lambda>
+ValueError: math domain error
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:428: RuntimeWarning: divide by zero encountered in log
+  n_ij = - 0.5 * np.sum(np.log(2. * np.pi * self.sigma_[i, :]))
+/root/anaconda3/lib/python3.6/site-packages/sklearn/naive_bayes.py:430: RuntimeWarning: invalid value encountered in true_divide
+  (self.sigma_[i, :]), 1)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+Traceback (most recent call last):
+  File "main.py", line 426, in <module>
+    train_type = train_type)
+  File "main.py", line 233, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+  File "<string>", line 1, in <lambda>
+ValueError: math domain error
