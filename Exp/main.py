@@ -160,11 +160,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	elif dt_op == 21:
 		_, _, X_train, y_train, n_att = import_all_data(kf1,1, 1, 0, 1)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, 0, 1)
-		print(X_train.shape)
-		print(y_train.shape)
-		print(X_test.shape)
-		print(y_test.shape)
-		input()
+		#print(X_train.shape)
+		#print(y_train.shape)
+		#print(X_test.shape)
+		#print(y_test.shape)
 	elif dt_op == 22:
 		_, _, X_train, y_train, n_att = import_all_data(kf2,1, 1, 0, 1)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex2_0.csv'],1, 1, 0, 1)
