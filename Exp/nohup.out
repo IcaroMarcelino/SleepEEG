@@ -1144,3 +1144,22 @@ Traceback (most recent call last):
     X_train_new[i].append(feature(*x))
   File "<string>", line 1, in <lambda>
 ValueError: math domain error
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'FitnessMulti' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/anaconda3/lib/python3.6/site-packages/deap/creator.py:141: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  RuntimeWarning)
+/root/mpi_projects/icaro/SleepEEG/Exp/operator_set.py:5: RuntimeWarning: divide by zero encountered in double_scalars
+  return left / right
+/root/anaconda3/lib/python3.6/site-packages/numpy/core/_methods.py:32: RuntimeWarning: invalid value encountered in reduce
+  return umr_sum(a, axis, dtype, out, keepdims)
+Traceback (most recent call last):
+  File "main.py", line 426, in <module>
+    train_type = train_type)
+  File "main.py", line 233, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+  File "<string>", line 1, in <lambda>
+ValueError: math domain error
