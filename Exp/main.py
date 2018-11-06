@@ -159,34 +159,34 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC,1, 1-train_percent, balance, train_type)
 	elif dt_op == 21:
 		_, _, X_train, y_train, n_att = import_all_data(kf1,1, 1, 0, 1)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, 0, 1)
 		print(X_train.shape)
 		print(y_train.shape)
 		print(X_test.shape)
 		print(y_test.shape)
 		input()
 	elif dt_op == 22:
-		X_train, y_train, _, _, n_att = import_all_data(kf2,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex2_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf2,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex2_0.csv'],1, 1, 0, 1)
 	elif dt_op == 23:
-		X_train, y_train, _, _, n_att = import_all_data(kf3,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex3_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf3,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex3_0.csv'],1, 1, 0, 1)
 	elif dt_op == 24:
-		X_train, y_train, _, _, n_att = import_all_data(kf4,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex4_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf4,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex4_0.csv'],1, 1, 0, 1)
 	elif dt_op == 24:
-		X_train, y_train, _, _, n_att = import_all_data(kf5,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex5_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf5,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex5_0.csv'],1, 1, 0, 1)
 	elif dt_op == 26:
-		X_train, y_train, _, _, n_att = import_all_data(kf6,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex6_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf6,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex6_0.csv'],1, 1, 0, 1)
 	elif dt_op == 27:
-		X_train, y_train, _, _, n_att = import_all_data(kf7,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex7_0.csv'],1, 1, balance, train_type)
+		_, _, X_train, y_train, n_att = import_all_data(kf7,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex7_0.csv'],1, 1, 0, 1)
 	elif dt_op == 28:
-		X_train, y_train, _, _, n_att = import_all_data(kf8,1, 0, balance, train_type)
-		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex8_0.csv'],1, 1, balance, train_type)
-		
+		_, _, X_train, y_train, n_att = import_all_data(kf8,1, 1, 0, 1)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex8_0.csv'],1, 1, 0, 1)
+
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
 	pset = gp.PrimitiveSet("MAIN", n_att)
