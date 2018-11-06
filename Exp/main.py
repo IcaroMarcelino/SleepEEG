@@ -158,8 +158,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	elif dt_op == 17:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC,1, 1-train_percent, balance, train_type)
 	elif dt_op == 21:
+		input('ok')		
 		X_train, y_train, _, _, n_att = import_all_data(kf1,1, 0, balance, train_type)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, balance, train_type)
+		input('ok')	
 	elif dt_op == 22:
 		X_train, y_train, _, _, n_att = import_all_data(kf2,1, 0, balance, train_type)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex2_0.csv'],1, 1, balance, train_type)
@@ -438,7 +440,7 @@ if __name__ == "__main__":
 			train_type = int(sys.argv[i+1])		
 
 		elif(sys.argv[i] == '-kfold'):
-			kfold = int(sys.argv[i+1])												
+			kfold = 1											
 
 	CXPB = .8
 	MUTPB = .2
@@ -465,6 +467,7 @@ if __name__ == "__main__":
 
 	if kfold:
 		for i, dt_op in zip([1,2,3,4,5,6,7,8], [21,22,23,24,25,26,27,28]):
+			input('ok')
 			main(	NEXEC = i,
 					classifier = clf,
 					clf_param = param,
