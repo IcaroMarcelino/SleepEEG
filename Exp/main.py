@@ -90,6 +90,39 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
 					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
 
+	kf1 =['data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+
+	kf2 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+
+	kf3 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+
+	kf4 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+	
+	kf5 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+
+	kf6 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv',
+					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
+
+	kf7 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex8_0.csv']
+
+	kf8 =['data/data_75/wav75_ex1_0.csv', 'data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
+					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
+					'data/data_75/wav75_ex7_0.csv']
+
+
 	if dt_op == 1:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav25,1, 1-train_percent, balance, train_type)
 	elif dt_op == 2:
@@ -124,7 +157,31 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_F11,1, 1-train_percent, balance, train_type)
 	elif dt_op == 17:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC,1, 1-train_percent, balance, train_type)
-
+	elif dt_op == 21:
+		X_train, y_train, _, _, n_att = import_all_data(kf1,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 22:
+		X_train, y_train, _, _, n_att = import_all_data(kf2,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex2_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 23:
+		X_train, y_train, _, _, n_att = import_all_data(kf3,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex3_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 24:
+		X_train, y_train, _, _, n_att = import_all_data(kf4,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex4_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 24:
+		X_train, y_train, _, _, n_att = import_all_data(kf5,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex5_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 26:
+		X_train, y_train, _, _, n_att = import_all_data(kf6,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex6_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 27:
+		X_train, y_train, _, _, n_att = import_all_data(kf7,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex7_0.csv'],1, 1, balance, train_type)
+	elif dt_op == 28:
+		X_train, y_train, _, _, n_att = import_all_data(kf8,1, 0, balance, train_type)
+		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex8_0.csv'],1, 1, balance, train_type)
+		
 	eval_func = eval_function(opt_vars)
 	########## Operator Set #########################################
 	pset = gp.PrimitiveSet("MAIN", n_att)
@@ -307,6 +364,7 @@ if __name__ == "__main__":
 	crs = 1
 	train_type = 1
 	balance = 0
+	kfold = 0
 
 	opt_vars = []
 	wts_vars = []
@@ -377,7 +435,10 @@ if __name__ == "__main__":
 			balance = int(sys.argv[i+1])
 
 		elif(sys.argv[i] == '-train_type'):
-			train_type = int(sys.argv[i+1])												
+			train_type = int(sys.argv[i+1])		
+
+		elif(sys.argv[i] == '-kfold'):
+			kfold = int(sys.argv[i+1])												
 
 	CXPB = .8
 	MUTPB = .2
@@ -402,25 +463,49 @@ if __name__ == "__main__":
 
 	param = [param, param2]
 
-	for i in execs:
-		main(	NEXEC = i,
-				classifier = clf,
-				clf_param = param,
-				TAM_MAX = tam_max,
-				NGEN = NGEN,
-				CXPB = CXPB, 	
-				MUTPB = MUTPB,
-				NPOP = NPOP,
-				train_percent = train_percent, 
-				verb = verb, 
-				FILE_NAME = filename,
-				path = path,
-				dt_op = dt_op,
-				opt_vars = opt_vars,
-				wts_vars = wts_vars,
-				ini = ini,
-				sel = sel,
-				mut = mut,
-				crs = crs,
-				balance = balance,
-				train_type = train_type)
+	if kfold:
+		for i, dt_op in zip([1,2,3,4,5,6,7,8], [21,22,23,24,25,26,27,28]):
+			main(	NEXEC = i,
+					classifier = clf,
+					clf_param = param,
+					TAM_MAX = tam_max,
+					NGEN = NGEN,
+					CXPB = CXPB, 	
+					MUTPB = MUTPB,
+					NPOP = NPOP,
+					train_percent = train_percent, 
+					verb = verb, 
+					FILE_NAME = filename,
+					path = path,
+					dt_op = dt_op,
+					opt_vars = opt_vars,
+					wts_vars = wts_vars,
+					ini = ini,
+					sel = sel,
+					mut = mut,
+					crs = crs,
+					balance = balance,
+					train_type = train_type)		
+	else:
+		for i in execs:
+			main(	NEXEC = i,
+					classifier = clf,
+					clf_param = param,
+					TAM_MAX = tam_max,
+					NGEN = NGEN,
+					CXPB = CXPB, 	
+					MUTPB = MUTPB,
+					NPOP = NPOP,
+					train_percent = train_percent, 
+					verb = verb, 
+					FILE_NAME = filename,
+					path = path,
+					dt_op = dt_op,
+					opt_vars = opt_vars,
+					wts_vars = wts_vars,
+					ini = ini,
+					sel = sel,
+					mut = mut,
+					crs = crs,
+					balance = balance,
+					train_type = train_type)

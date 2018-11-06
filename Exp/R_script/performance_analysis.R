@@ -178,6 +178,8 @@ plot_performance <- function(deep_max, eng, subt){
   DT_NB<-NBL[which(NBL$classifier== 'dt'),]
   MLP_B <- BL[which(BL$classifier == 'mlp'),]
   MLP_NB<-NBL[which(NBL$classifier== 'mlp'),]
+  KMEANS_B <- BL[which(BL$classifier == 'kmeans'),]
+  KMEANS_NB<-NBL[which(NBL$classifier== 'kmeans'),]
   
   # if (!eng){
   #  boxplot(KNN_B$AUC~KNN_B$P1, ylim = c(.45,.85),main = "Área abaixo da curva ROC\nGP+KNN", ylab = "AUC", xlab = "K", col = rgb(0,1,0,.5), border = 'darkgreen')
@@ -191,14 +193,14 @@ plot_performance <- function(deep_max, eng, subt){
   KNN1_NB <- KNN_NB[which(KNN_NB$P1 == 5),]
   
   if (!eng){
-    boxplot(SVM_B$AUC, NB_B$AUC, KNN1_B$AUC, DT_B$AUC, MLP_B$AUC, ylim = c(0.5,.9), main = paste("Área abaixo da curva ROC - Construção de Atributos com GP\n",subt, sep = ''), ylab = "AUC", xlab = "Classificador", col = rgb(0,1,0,.5), border = 'darkgreen')
-    boxplot(SVM_NB$AUC, NB_NB$AUC, KNN1_NB$AUC, DT_NB$AUC, MLP_NB$AUC, ylim = c(0.5,.9), col = rgb(1,0,0,.5), border = 'red', add = T)
-    axis(1, at=1:5, labels=c('SVM', 'NB', 'KNN','DT', 'MLP'))
+    boxplot(SVM_B$AUC, NB_B$AUC, KNN1_B$AUC, DT_B$AUC, MLP_B$AUC, KMEANS_B$AUC, ylim = c(0.5,.9), main = paste("Área abaixo da curva ROC - Construção de Atributos com GP\n",subt, sep = ''), ylab = "AUC", xlab = "Classificador", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(SVM_NB$AUC, NB_NB$AUC, KNN1_NB$AUC, DT_NB$AUC, MLP_NB$AUC, KMEANS_NB$AUC, ylim = c(0.5,.9), col = rgb(1,0,0,.5), border = 'red', add = T)
+    axis(1, at=1:6, labels=c('SVM', 'NB', 'KNN','DT', 'MLP', 'K-means'))
     legend('bottom', c('Classes balanceadas', 'Classes desbalanceadas'), fill = c('green', 'red'), inset = .0, bty = 'n')
   }else{
-    boxplot(SVM_B$AUC, NB_B$AUC, KNN1_B$AUC, DT_B$AUC, MLP_B$AUC, ylim = c(0.5,.9), main =  paste("Area Under ROC Curve\nGP Feature Construction",subt, sep = ''), ylab = "AUC", xlab = "Classifier", col = rgb(0,1,0,.5), border = 'darkgreen')
-    boxplot(SVM_NB$AUC, NB_NB$AUC, KNN1_NB$AUC, DT_NB$AUC, MLP_NB$AUC, ylim = c(0.5,.9), col = rgb(1,0,0,.5), border = 'red', add = T)
-    axis(1, at=1:5, labels=c('SVM', 'NB', 'KNN','DT', 'MLP'))
+    boxplot(SVM_B$AUC, NB_B$AUC, KNN1_B$AUC, DT_B$AUC, MLP_B$AUC, KMEANS_B$AUC, ylim = c(0.5,.9), main =  paste("Area Under ROC Curve\nGP Feature Construction",subt, sep = ''), ylab = "AUC", xlab = "Classifier", col = rgb(0,1,0,.5), border = 'darkgreen')
+    boxplot(SVM_NB$AUC, NB_NB$AUC, KNN1_NB$AUC, DT_NB$AUC, MLP_NB$AUC, KMEANS_NB$AUC, ylim = c(0.5,.9), col = rgb(1,0,0,.5), border = 'red', add = T)
+    axis(1, at=1:6, labels=c('SVM', 'NB', 'KNN','DT', 'MLP', 'K-means'))
     legend('topleft', c('Balanced Classes', 'Unbalanced Classes'), fill = c('green', 'red'), inset = .0, bty = 'n')
   }
 }
