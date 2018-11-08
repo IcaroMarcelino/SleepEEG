@@ -173,7 +173,7 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	elif dt_op == 24:
 		_, _, X_train, y_train, n_att = import_all_data(kf4,1, 1, 0, 1)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex4_0.csv'],1, 1, 0, 1)
-	elif dt_op == 24:
+	elif dt_op == 25:
 		_, _, X_train, y_train, n_att = import_all_data(kf5,1, 1, 0, 1)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex5_0.csv'],1, 1, 0, 1)
 	elif dt_op == 26:
@@ -468,7 +468,7 @@ if __name__ == "__main__":
 	param = [param, param2]
 
 	if kfold:
-		for i, dt_op in zip([1,2,3,4,5,6,7,8], [21,22,23,24,25,26,27,28]):
+		for i, dt_op in zip([5,6,7,8], [25,26,27,28]):
 			main(	NEXEC = i,
 					classifier = clf,
 					clf_param = param,
