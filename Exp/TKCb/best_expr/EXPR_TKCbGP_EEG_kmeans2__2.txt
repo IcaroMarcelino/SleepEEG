@@ -1,0 +1,1 @@
+plog(add(add(sub(sub(plog(psqrt(ARG18)), psqrt(ARG7)), ARG53), sub(add(sub(plog(psqrt(ARG18)), psqrt(ARG7)), sub(ARG26, sub(plog(ARG9), plog(sub(ARG26, ARG32))))), sub(plog(ARG9), plog(sub(ARG9, ARG32))))), sub(ARG40, ARG29)))
