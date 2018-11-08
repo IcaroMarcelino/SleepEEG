@@ -622,13 +622,13 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 	print(np.array(d))
 	input()
 
-#folder = 'TKM'
-#dataset = files_wav75
-#clf = 'kmeans'
-#n_att = 75
-#p1 = 2
-#p2 = ''
-#file_name = os.listdir('BEST_FEATURES/' + folder)[0]
+folder = 'TKM'
+dataset = files_wav75
+clf = 'kmeans'
+n_att = 75
+p1 = 2
+p2 = ''
+file_name = os.listdir('BEST_FEATURES/' + folder)[0]
 
 
 
@@ -661,13 +661,13 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 #		#	p1  = 15
 #		#	p2  = 'relu'
 		
-#clf = 'dt'
-# p1  = -1
-# p2  = ''
-# n_att = 75
-# folder = 'T10_2b'
-# file = 'EXPR_T10_2bGP_EEG_dt5__20.txt'
-# dataset = files_wav75
+clf = 'dt'
+p1  = -1
+p2  = ''
+n_att = 75
+folder = 'T10_2b'
+file_name = 'EXPR_T10_2bGP_EEG_dt5__20_9.txt'
+dataset = files_wav75
 
 
 
@@ -678,27 +678,27 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 #print(y_pred)
 #ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
 
-#pset = init_pset(n_att)
-#X1, Y1, X2, Y2, _ = import_all_data(dataset,0, 0.0, 0, 1)
-##_, _, _, Y2, _ = import_all_data(dataset,0, 0, 0, 1, 1)
+pset = init_pset(n_att)
+X1, Y1, X2, Y2, _ = import_all_data(dataset,0, 0.0, 0, 1)
+#_, _, _, Y2, _ = import_all_data(dataset,0, 0, 0, 1, 1)
 
-#X1 = X2
-#Y1 = Y2
-#pset = init_pset(n_att)
-#file = open('BEST_FEATURES/' + folder + '/' +file_name, 'r')
-#string = file.read()
-#expr = gp.genFull(pset, min_=1, max_=3)
-#tree = gp.PrimitiveTree(expr)
-#ind  = tree.from_string(string, pset)
-#file.close()
+X1 = X2
+Y1 = Y2
+pset = init_pset(n_att)
+file = open('BEST_FEATURES/' + folder + '/' +file_name, 'r')
+string = file.read()
+expr = gp.genFull(pset, min_=1, max_=3)
+tree = gp.PrimitiveTree(expr)
+ind  = tree.from_string(string, pset)
+file.close()
 
-#X1t = data_set_transform(ind, pset, X1)
-#X2t = data_set_transform(ind, pset, X2)
+X1t = data_set_transform(ind, pset, X1)
+X2t = data_set_transform(ind, pset, X2)
 
-#y_pred = feature_construction(ind, clf, [2, ''], X1, Y2, X2, pset)
-#y_pred = [i[0] for i in y_pred]
+y_pred = feature_construction(ind, clf, [2, ''], X1, Y2, X2, pset)
+y_pred = [i[0] for i in y_pred]
 
-#k_pred = elbow_method_kmeans(X2t, np.array([y[0] for y in Y2], dtype= 'int'), np.array(y_pred, dtype= 'int'), 10, clf, folder, X1, np.array([y[0] for y in Y1]))
+k_pred = elbow_method_kmeans(X2t, np.array([y[0] for y in Y2], dtype= 'int'), np.array(y_pred, dtype= 'int'), 10, clf, folder, X1, np.array([y[0] for y in Y1]))
 
 
 

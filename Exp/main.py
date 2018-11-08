@@ -89,7 +89,13 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 	files_wav75_KC = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
 					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
 					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
+	
+	files_wav75_KC_men = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex6_.csv', 'data/KC/data_75/wav_ex9_.csv']
 
+	files_wav75_KC_wom = ['data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
+					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv',
+					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex10_.csv']
+	
 	kf1 =['data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
 					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
 					'data/data_75/wav75_ex7_0.csv', 'data/data_75/wav75_ex8_0.csv']
@@ -157,6 +163,10 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_F11,1, 1-train_percent, balance, train_type)
 	elif dt_op == 17:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC,1, 1-train_percent, balance, train_type)
+	elif dt_op == 18:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC_men,1, 1-train_percent, balance, train_type)
+	elif dt_op == 19:
+		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC_wom,1, 1-train_percent, balance, train_type)
 	elif dt_op == 21:
 		_, _, X_train, y_train, n_att = import_all_data(kf1,1, 1, 0, 1)
 		_, _, X_test, y_test, n_att = import_all_data(['data/data_75/wav75_ex1_0.csv'],1, 1, 0, 1)
