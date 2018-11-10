@@ -368,15 +368,15 @@ generate_features <- function(d, freq, n_dwt, seg_len, stp, nrm, excerpt, id, ch
         #rms = sum((wd[[j]]^2)/length(wd[[j]]))^.5
         #kurt = kurtosis(wd[[j]])
         
-        #FFT_OSC <- fft(wd[[j]])
-        #magn <- Mod(FFT_OSC)
-        #phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
-        
-        #x.axis <- 1:length(magn)
-        #teste <- matrix(nrow = length(x.axis), ncol = 2)
-        #teste[,1]<-x.axis
-        #teste[,2]<-magn
-
+        FFT_OSC <- fft(wd[[j]])
+        magn <- Mod(FFT_OSC)
+        phase <- Arg(FFT_OSC)[1:(length(FFT_OSC)/2)]
+        x.axis <- 1:length(magn)
+        teste <- matrix(nrow = length(x.axis), ncol = 2)
+        teste[,1]<-x.axis/1800
+        teste[,2]<-magn
+        plot(teste,type="l", xlab = "Frequência (Hz)", ylab = "Magnitude", main = 'Componentes em frequência do sinal original')
+  
         #mfreq = teste[which(teste[,2] == max(magn)),][1]
         #mmagn = max(magn)
         
@@ -686,7 +686,7 @@ create_database <- function(){
   
   
   d <- generate_eeg_data_all_excerpts_filter(freq_out, scorer)
-  # d <- generate_eeg_data_all_excerpts(freq_out, scorer)
+  d <- generate_eeg_data_all_excerpts(freq_out, scorer)
   
   f <- generate_features_all_excerpts(d, freq_out, n_dwt, seg_len, stp, id, chs, nrm, folder)
   

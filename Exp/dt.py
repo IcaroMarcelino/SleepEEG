@@ -8,9 +8,9 @@ import random
 import numpy as np
 from input_output import*
 
-files = ['data/wav1_all_seg_ex1_S05_W1.csv', 'data/wav1_all_seg_ex2_S05_W1.csv', 'data/wav1_all_seg_ex3_S05_W1.csv',
-		'data/wav1_all_seg_ex4_S05_W1.csv', 'data/wav1_all_seg_ex5_S05_W1.csv', 'data/wav1_all_seg_ex6_S05_W1.csv',
-		'data/wav1_all_seg_ex7_S05_W1.csv', 'data/wav1_all_seg_ex8_S05_W1.csv']
+files = ['data/data_75/wav75_ex1_.csv', 'data/data_75/wav75_ex2_.csv', 'data/data_75/wav75_ex3_.csv',
+		'data/data_75/wav75_ex4_.csv', 'data/data_75/wav75_ex5_.csv', 'data/data_75/wav75_ex6_.csv',
+		'data/data_75/wav75_ex7_.csv', 'data/data_75/wav75_ex8_.csv']
 
 output = open('Analysis2/DT.csv', 'w') 
 output.write("Balanced,#Exec,PPV_S,PPV_NS,TPR_S,TPR_NS,F1_S,F1_NS,SUP_S,SUP_NS,TN,FP,FN,TP,Acc,AUC0,AUC1\n")
