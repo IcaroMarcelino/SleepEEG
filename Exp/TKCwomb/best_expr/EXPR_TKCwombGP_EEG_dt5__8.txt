@@ -1,0 +1,1 @@
+plog(plog(mul(psqrt(add(sub(F(psqrt(add(ARG65, sub(ARG65, ARG25)))), add(ARG65, sub(add(ARG65, sub(ARG65, ARG16)), ARG25))), add(pdiv(add(ARG54, ARG16), add(add(ARG54, ARG16), ARG65)), sub(psqrt(psqrt(ARG16)), ARG16)))), plog(F(psqrt(add(add(add(ARG54, ARG16), ARG65), sub(psqrt(F(ARG16)), ARG25))))))))
