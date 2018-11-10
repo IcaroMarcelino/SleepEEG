@@ -90,11 +90,11 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
 					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
 	
-	files_wav75_KC_men = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex6_.csv', 'data/KC/data_75/wav_ex9_.csv']
+	files_wav75_KC_men = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex6_.csv', 'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex9_.csv']
 
 	files_wav75_KC_wom = ['data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
 					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv',
-					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex10_.csv']
+					'data/KC/data_75/wav_ex10_.csv']
 	
 	kf1 =['data/data_75/wav75_ex2_0.csv', 'data/data_75/wav75_ex3_0.csv',
 					'data/data_75/wav75_ex4_0.csv', 'data/data_75/wav75_ex5_0.csv', 'data/data_75/wav75_ex6_0.csv',
