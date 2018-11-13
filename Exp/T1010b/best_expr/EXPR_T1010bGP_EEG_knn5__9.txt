@@ -1,0 +1,1 @@
+mul(ARG8, sub(ARG3, mul(ARG8, sub(add(sub(ARG0, mul(ARG8, sub(ARG0, ARG8))), mul(ARG8, ARG8)), mul(ARG8, mul(pdiv(ARG2, ARG8), sub(sub(sub(ARG0, ARG8), ARG8), mul(sub(ARG8, ARG8), sub(ARG8, sub(ARG0, ARG8))))))))))

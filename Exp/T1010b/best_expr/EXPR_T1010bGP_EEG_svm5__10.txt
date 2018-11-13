@@ -1,0 +1,1 @@
+pdiv(sub(add(ARG0, pdiv(ARG1, ARG3)), add(ARG0, ARG0)), add(pdiv(sub(ARG4, pdiv(ARG1, ARG3)), F(add(F(pdiv(sub(ARG0, pdiv(ARG1, ARG3)), psqrt(add(ARG0, ARG0)))), psqrt(F(add(F(pdiv(ARG0, ARG5)), sub(ARG4, pdiv(ARG1, ARG3)))))))), ARG0))

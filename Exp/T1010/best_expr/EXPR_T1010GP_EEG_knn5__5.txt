@@ -1,0 +1,1 @@
+plog(plog(mul(add(mul(psqrt(F(F(mul(plog(ARG1), ARG2)))), mul(pdiv(ARG1, F(ARG3)), plog(sub(psqrt(ARG3), sub(pdiv(ARG3, ARG3), ARG1))))), mul(pdiv(F(F(ARG1)), pdiv(F(mul(plog(ARG1), ARG2)), F(ARG1))), F(mul(plog(pdiv(F(ARG1), ARG3)), F(psqrt(ARG2)))))), F(mul(plog(pdiv(F(mul(plog(ARG1), psqrt(ARG2))), ARG3)), psqrt(ARG2))))))

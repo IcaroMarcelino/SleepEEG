@@ -1,0 +1,1 @@
+psqrt(add(mul(mul(plog(mul(mul(psqrt(ARG6), mul(mul(plog(ARG1), plog(ARG6)), ARG6)), ARG6)), psqrt(mul(mul(psqrt(ARG6), mul(mul(plog(ARG1), plog(ARG6)), ARG6)), mul(mul(plog(ARG1), plog(ARG2)), ARG1)))), sub(psqrt(mul(psqrt(ARG6), add(ARG2, add(ARG2, ARG4)))), psqrt(sub(add(ARG2, psqrt(sub(add(ARG1, ARG9), psqrt(ARG6)))), mul(ARG1, psqrt(add(ARG1, ARG9))))))), psqrt(ARG8)))
