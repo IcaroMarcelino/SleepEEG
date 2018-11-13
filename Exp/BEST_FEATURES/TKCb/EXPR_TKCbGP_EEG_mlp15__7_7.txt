@@ -1,0 +1,1 @@
+F(mul(pdiv(ARG68, ARG43), pdiv(plog(sub(pdiv(mul(sub(plog(ARG68), mul(ARG59, ARG59)), ARG59), plog(ARG61)), add(add(sub(sub(ARG68, ARG20), ARG68), F(plog(ARG61))), pdiv(mul(sub(sub(ARG59, ARG20), ARG59), ARG68), pdiv(plog(ARG48), pdiv(ARG61, plog(ARG68))))))), plog(plog(plog(pdiv(plog(ARG48), pdiv(sub(sub(ARG48, ARG20), mul(ARG59, ARG59)), plog(ARG68)))))))))

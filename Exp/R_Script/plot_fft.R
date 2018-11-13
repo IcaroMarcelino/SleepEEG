@@ -20,11 +20,11 @@ plot_fft <- function(t, y, title_plot, xmin, xmax){
 # excerpt: Excerpt numeber
 # op:      1 for channel C3-A1, 0 for channel CZ-A1
 # leg_pos: Legend position
-plot_ch_central <- function(excerpt, op, leg_pos){
+plot_ch_central <- function(excerpt, op, leg_pos, ret){
   library(edf)
   library(readr)
   
-  Automatic_detection_excerpt1 <- read_table2(paste("Automatic_detection_excerpt", excerpt, ".txt", sep = ""))
+  Automatic_detection_excerpt1 <- ret
   Visual_scoring1_excerpt1 <- read_table2(paste("Visual_scoring1_excerpt", excerpt, ".txt", sep = ""))
   
   if(excerpt != 7 && excerpt != 8 ){
@@ -35,7 +35,7 @@ plot_ch_central <- function(excerpt, op, leg_pos){
   if(op == 1){
     par(mar=c(5,4,4,5)+.1)
     plot(excerpt1$signal$C3_A1$t,excerpt1$signal$C3_A1$data, type = 'l', xlab = "Tempo (s)", ylab = "Amplitude (uV)", main = paste("Fusos do Sono \n Paciente", excerpt,"- Canal C3-A1"), ylim = c(-300,300))
-    #segments(Automatic_detection_excerpt1$`[Spindles/C3-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
+    segments(Automatic_detection_excerpt1$`[Spindles/C3-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
     segments(Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
@@ -45,7 +45,7 @@ plot_ch_central <- function(excerpt, op, leg_pos){
   else{
     par(mar=c(5,4,4,5)+.1)
     plot(excerpt1$signal$CZ_A1$t,excerpt1$signal$CZ_A1$data, type = 'l', xlab = "Tempo (s)", ylab = "Amplitude (uV)", main = paste("Fusos do Sono \n Paciente", excerpt,"- Canal CZ-A1"), ylim = c(-300,300))
-    #segments(Automatic_detection_excerpt1$`[Spindles/CZ-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/CZ-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
+    segments(Automatic_detection_excerpt1$`[Spindles/CZ-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/CZ-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
     segments(Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
@@ -54,12 +54,12 @@ plot_ch_central <- function(excerpt, op, leg_pos){
   }
   
   par(new=TRUE)
-  #lines(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data*50, col = "red", lwd = 2)
-  plot(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
+  lines(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
+  #plot(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
   axis(4, col.axis="red", at = c(5,4,3,2,1,0), labels = c("Acordado", "REM", "S1", "S2", "S3","S4"), las =2)
   mtext("Estágio do Sono",side=4,line=3, col = "red")
   #legend(leg_pos,fill=c("orange","green", "blue"),legend=c("Automatic","Expert 1", "Expert 2"), inset=.02, title="Spindle Detection",bty = "n")
-  legend(leg_pos,fill=c("green", "blue"),legend=c("Especialista 1", "Especialista 2"), inset=.02, title="Detecção de Fusos do Sono",bty = "n")
+  legend(leg_pos,fill=c("orange","green", "blue"),legend=c("Automático", "Especialista 1", "Especialista 2"), inset=.02, title="Detecção de Fusos do Sono",bty = "n")
 }
 
 # excerpt: Excerpt numeber

@@ -384,9 +384,9 @@ def get_prediction_from_expr(n_att, classifier, param, file_name, files_train, f
 	tree = gp.PrimitiveTree(expr)
 	ind  = tree.from_string(string, pset)
 	file.close()
-	#t, tt, xt, yt, ttt = import_all_data(files_train, 1, 0, 0, 1)
-	#, tt, x1, y1, ttt = import_data(file_test, 0, 0)
-	xt, yt, x1, y1, n_att = import_all_data(files_train,1, .2, 1, 0)
+	t, tt, xt, yt, ttt = import_all_data(files_train, 1, 0, 1, 0)
+	t, tt, x1, y1, ttt = import_data(file_test, 0, 0)
+	#xt, yt, x1, y1, n_att = import_all_data(files_train,1, .2, 1, 0)
 	#print(str(ind))
 	pred = feature_construction(ind, classifier, param, xt, yt, x1, pset)
 	pred = [i[0] for i in pred]
@@ -554,8 +554,11 @@ d1 = []
 d2 = []
 d3 = []
 
+files_wav75_KC = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
+					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
+					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
 
-for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, files_wav75_00, files_wav75_FF], [75, 75, 75]):
+for folder, dataset, n_att in zip(['TKCb'], [files_wav75_KC], [75]):
 	d  = [[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
 	 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
 		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
@@ -621,7 +624,6 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 	
 	print(np.array(d))
 	input()
- print(d)
 
 folder = 'TKM'
 dataset = files_wav75

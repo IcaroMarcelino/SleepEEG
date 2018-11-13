@@ -182,7 +182,8 @@ def performance(individual, clf, param, X_train, y_train, X_test, y_true, pset):
 	    fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
 	    AUC[c] = auc(fpr[c], tpr[c])
 
-	#if AUC[0] < 0.5:
+	if AUC[0] < 0.5:
+		AUC[0] = 1 - AUC[0]
 	#	y_pred = [[i[1], i[0]] for i in y_pred]
 	#	fpr = dict()
 	#	tpr = dict()
