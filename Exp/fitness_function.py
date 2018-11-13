@@ -182,14 +182,14 @@ def performance(individual, clf, param, X_train, y_train, X_test, y_true, pset):
 	    fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
 	    AUC[c] = auc(fpr[c], tpr[c])
 
-	if AUC[0] < 0.5:
-		y_pred = [[i[1], i[0]] for i in y_pred]
-		fpr = dict()
-		tpr = dict()
-		AUC = dict()
-		for c in range(2):
-		    fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
-		    AUC[c] = auc(fpr[c], tpr[c])			
+	#if AUC[0] < 0.5:
+	#	y_pred = [[i[1], i[0]] for i in y_pred]
+	#	fpr = dict()
+	#	tpr = dict()
+	#	AUC = dict()
+	#	for c in range(2):
+	#	    fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
+	#	    AUC[c] = auc(fpr[c], tpr[c])			
 	prf = precision_recall_fscore_support(y_true, y_pred)
 	acc = accuracy_score(y_true, y_pred)
 

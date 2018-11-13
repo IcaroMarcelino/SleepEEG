@@ -341,7 +341,7 @@ def individual_pdf(file_path, individual, pset):
 	for i in nodes:
 		n = g.get_node(i)
 		n.attr['label'] = labels[i]
-	g.draw(file_path + '.pdf')
+	g.draw(file_path, format='png',prog='dot')
 	return
 
 def init_pset(n_att):
@@ -621,6 +621,7 @@ for folder, dataset, n_att in zip(['T10_2b', 'T10_01b', 'TFFb'], [files_wav75, f
 	
 	print(np.array(d))
 	input()
+ print(d)
 
 folder = 'TKM'
 dataset = files_wav75
@@ -666,7 +667,7 @@ p1  = -1
 p2  = ''
 n_att = 75
 folder = 'T10_2b'
-file_name = 'EXPR_T10_2bGP_EEG_dt5__20_9.txt'
+file_name = 'EXPR_T10_2bGP_EEG_svm5__25_20.txt'
 dataset = files_wav75
 
 
