@@ -1,0 +1,49 @@
+Traceback (most recent call last):
+  File "main.py", line 525, in <module>
+    train_type = train_type)
+  File "main.py", line 137, in main
+    X_train, y_train, X_test, y_test, n_att = import_all_data(files_pca,1, 1-train_percent, balance, train_type)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/input_output.py", line 50, in import_all_data
+    csvfile = open(file_path,'r')
+FileNotFoundError: [Errno 2] No such file or directory: 'data/pca_ex1.csv'
+Traceback (most recent call last):
+  File "main.py", line 525, in <module>
+    train_type = train_type)
+  File "main.py", line 272, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+TypeError: <lambda>() missing 65 required positional arguments: 'ARG10', 'ARG11', 'ARG12', 'ARG13', 'ARG14', 'ARG15', 'ARG16', 'ARG17', 'ARG18', 'ARG19', 'ARG20', 'ARG21', 'ARG22', 'ARG23', 'ARG24', 'ARG25', 'ARG26', 'ARG27', 'ARG28', 'ARG29', 'ARG30', 'ARG31', 'ARG32', 'ARG33', 'ARG34', 'ARG35', 'ARG36', 'ARG37', 'ARG38', 'ARG39', 'ARG40', 'ARG41', 'ARG42', 'ARG43', 'ARG44', 'ARG45', 'ARG46', 'ARG47', 'ARG48', 'ARG49', 'ARG50', 'ARG51', 'ARG52', 'ARG53', 'ARG54', 'ARG55', 'ARG56', 'ARG57', 'ARG58', 'ARG59', 'ARG60', 'ARG61', 'ARG62', 'ARG63', 'ARG64', 'ARG65', 'ARG66', 'ARG67', 'ARG68', 'ARG69', 'ARG70', 'ARG71', 'ARG72', 'ARG73', and 'ARG74'
+Traceback (most recent call last):
+  File "main.py", line 525, in <module>
+    train_type = train_type)
+  File "main.py", line 272, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+TypeError: <lambda>() missing 65 required positional arguments: 'ARG10', 'ARG11', 'ARG12', 'ARG13', 'ARG14', 'ARG15', 'ARG16', 'ARG17', 'ARG18', 'ARG19', 'ARG20', 'ARG21', 'ARG22', 'ARG23', 'ARG24', 'ARG25', 'ARG26', 'ARG27', 'ARG28', 'ARG29', 'ARG30', 'ARG31', 'ARG32', 'ARG33', 'ARG34', 'ARG35', 'ARG36', 'ARG37', 'ARG38', 'ARG39', 'ARG40', 'ARG41', 'ARG42', 'ARG43', 'ARG44', 'ARG45', 'ARG46', 'ARG47', 'ARG48', 'ARG49', 'ARG50', 'ARG51', 'ARG52', 'ARG53', 'ARG54', 'ARG55', 'ARG56', 'ARG57', 'ARG58', 'ARG59', 'ARG60', 'ARG61', 'ARG62', 'ARG63', 'ARG64', 'ARG65', 'ARG66', 'ARG67', 'ARG68', 'ARG69', 'ARG70', 'ARG71', 'ARG72', 'ARG73', and 'ARG74'
+Traceback (most recent call last):
+  File "main.py", line 525, in <module>
+    train_type = train_type)
+  File "main.py", line 272, in main
+    fitnesses = list(map(toolbox.evaluate, pop))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+TypeError: <lambda>() missing 65 required positional arguments: 'ARG10', 'ARG11', 'ARG12', 'ARG13', 'ARG14', 'ARG15', 'ARG16', 'ARG17', 'ARG18', 'ARG19', 'ARG20', 'ARG21', 'ARG22', 'ARG23', 'ARG24', 'ARG25', 'ARG26', 'ARG27', 'ARG28', 'ARG29', 'ARG30', 'ARG31', 'ARG32', 'ARG33', 'ARG34', 'ARG35', 'ARG36', 'ARG37', 'ARG38', 'ARG39', 'ARG40', 'ARG41', 'ARG42', 'ARG43', 'ARG44', 'ARG45', 'ARG46', 'ARG47', 'ARG48', 'ARG49', 'ARG50', 'ARG51', 'ARG52', 'ARG53', 'ARG54', 'ARG55', 'ARG56', 'ARG57', 'ARG58', 'ARG59', 'ARG60', 'ARG61', 'ARG62', 'ARG63', 'ARG64', 'ARG65', 'ARG66', 'ARG67', 'ARG68', 'ARG69', 'ARG70', 'ARG71', 'ARG72', 'ARG73', and 'ARG74'
+Traceback (most recent call last):
+  File "main.py", line 525, in <module>
+    train_type = train_type)
+  File "main.py", line 304, in main
+    fitnesses = list(map(toolbox.evaluate, offspring))
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 155, in eval_tree
+    y_pred = feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+  File "/root/mpi_projects/icaro/SleepEEG/Exp/fitness_function.py", line 59, in feature_construction
+    X_train_new[i].append(feature(*x))
+  File "<string>", line 1, in <lambda>
+KeyboardInterrupt

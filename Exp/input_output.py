@@ -115,7 +115,8 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0
 	y_train = y_train[:-int(test_percent*len(y_train))]
 
 	if train_type:
-		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
+		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), 10
+		#return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
 	else:
 		X_total1 = X_total
 		for sample in X_total1:

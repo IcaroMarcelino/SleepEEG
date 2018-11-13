@@ -1,0 +1,1 @@
+psqrt(add(add(add(add(plog(ARG6), plog(psqrt(mul(psqrt(ARG1), plog(ARG2))))), psqrt(plog(pdiv(plog(ARG6), psqrt(psqrt(ARG2)))))), plog(plog(psqrt(sub(add(psqrt(ARG1), mul(ARG1, plog(ARG6))), psqrt(plog(ARG6))))))), psqrt(psqrt(ARG6))))
