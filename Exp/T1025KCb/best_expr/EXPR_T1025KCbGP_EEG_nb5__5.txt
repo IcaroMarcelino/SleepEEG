@@ -1,0 +1,1 @@
+plog(plog(mul(plog(plog(plog(F(F(pdiv(psqrt(ARG5), add(ARG2, ARG18))))))), F(mul(mul(add(ARG5, add(ARG13, mul(add(ARG2, ARG5), ARG18))), ARG5), pdiv(ARG13, F(F(pdiv(ARG13, ARG16)))))))))

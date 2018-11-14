@@ -1,0 +1,1 @@
+mul(plog(pdiv(ARG2, plog(sub(mul(add(ARG19, ARG12), add(add(ARG12, mul(pdiv(ARG10, ARG19), psqrt(ARG14))), ARG18)), mul(mul(ARG12, ARG12), add(ARG19, ARG12)))))), add(ARG23, ARG18))

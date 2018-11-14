@@ -1,0 +1,1 @@
+F(sub(pdiv(F(pdiv(ARG3, ARG3)), mul(plog(F(sub(mul(sub(ARG1, ARG17), ARG12), plog(mul(sub(ARG11, ARG15), ARG6))))), mul(ARG23, ARG13))), ARG6))
