@@ -169,7 +169,7 @@ def main(NEXEC, classifier, clf_param, TAM_MAX, NGEN, CXPB, MUTPB, NPOP, train_p
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC_men,1, 1-train_percent, balance, train_type)
 	elif dt_op == 19:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_wav75_KC_wom,1, 1-train_percent, balance, train_type)
-	elif dt_op == 19:
+	elif dt_op == 20:
 		X_train, y_train, X_test, y_test, n_att = import_all_data(files_PCA,1, 1-train_percent, balance, train_type)
 	elif dt_op == 21:
 		_, _, X_train, y_train, n_att = import_all_data(kf1,1, 1, 0, 1)
