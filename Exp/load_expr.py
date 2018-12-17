@@ -356,7 +356,6 @@ def init_pset(n_att):
 	pset.addPrimitive(div, 2)
 	return pset
 
-
 def load_model(n_att, file_name):
 	pset = init_pset(n_att)
 	file = open(file_name, 'r')
@@ -482,6 +481,23 @@ def elbow_method_kmeans(X, Y, Y_pred, max_Nc, clf, folder, Xall = [], Yall = [])
 
 	return y
 
+clf = 'nb'
+p1  = -1
+p2  = 'rbf'
+n_att = 75
+folder = 'TKCb'
+file_name = 'BEST_FEATURES/TKCb/EXPR_TKCbGP_EEG_nb5__2_2.txt'
+ind = load_model(75, file_name)
+
+dataset =  files_wav75_KC = ['data/KC/data_75/wav_ex2_.csv', 'data/KC/data_75/wav_ex3_.csv',
+					'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
+					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
+
+
+y_pred,  y_true = get_prediction_from_expr(n_att, clf, [p1, p2], file_name, dataset,'data/KC/data_75/wav_ex4_.csv')
+
+
+
 files_pca 	= ['data/pca_ex1.csv', 			'data/pca_ex2.csv', 		'data/pca_ex3.csv',
 				'data/pca_ex4.csv', 		'data/pca_ex5.csv', 		'data/pca_ex6.csv',
 				'data/pca_ex7.csv',			'data/pca_ex8.csv']
@@ -558,72 +574,78 @@ files_wav75_KC = [	'data/KC/data_75/wav_ex1_.csv', 'data/KC/data_75/wav_ex2_.csv
 					'data/KC/data_75/wav_ex4_.csv', 'data/KC/data_75/wav_ex5_.csv', 'data/KC/data_75/wav_ex6_.csv',
 					'data/KC/data_75/wav_ex7_.csv', 'data/KC/data_75/wav_ex8_.csv']
 
-for folder, dataset, n_att in zip(['TKCb'], [files_wav75_KC], [75]):
-	d  = [[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
-	 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
-		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
-		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
-		[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]]]
+for clf_, param, index2 in zip(['dt', 'nb', 'knn', 'svm', 'mlp'], [[-1, ''], [-1, ''], [5, ''], [-1, 'rbf'], [15, 'relu']], [0,1,2,3,4]):
+	d = []
+	for folder, dataset, n_att in zip(['T10_2b'], [files_wav75], [75]):
+		# d  = [[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		#  	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		# 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		# 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+		# 	[[0,0,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]]]
 	
-	for file in os.listdir('BEST_FEATURES/' + folder):
-		print(file)
-		if 'dt' in file:
-			index1 = 0
-			clf = 'dt'
-			p1  = -1
-			p2  = ''
-		elif 'svm' in file:
-			index1 = 1
-			clf = 'svm'
-			p1  = -1
-			p2  = 'rbf'
-		elif 'nb' in file:			
-			index1 = 2
-			clf = 'nb'
-			p1  = -1
-			p2  = ''
-		elif 'knn' in file:
-			index1 = 3
-			clf = 'knn'
-			p1  = 5
-			p2  = ''
-		elif 'mlp' in file:
-			index1 = 4			
-			clf = 'mlp'
-			p1  = 15
-			p2  = 'relu'
+		for _ in range(0,10):
+			for file in os.listdir('BEST_FEATURES/' + folder):
+				#print(file)
+				if 'dt' in file:
+					index1 = 0
+					clf = 'dt'
+					p1  = -1
+					p2  = ''
+				#if 'svm' in file:
+				# 	index1 = 1
+				# 	clf = 'svm'
+				# 	p1  = -1
+				# 	p2  = 'rbf'
+				#if 'nb' in file:			
+				#	index1 = 2
+				#	clf = 'nb'
+				#	p1  = -1
+				#	p2  = ''
+				#if 'knn' in file:
+				# 	index1 = 3
+				# 	clf = 'knn'
+				# 	p1  = 5
+				# 	p2  = ''
+				#if 'mlp' in file:
+				#	index1 = 4			
+				#	clf = 'mlp'
+				#	p1  = 15
+				#	p2  = 'relu'
+				else:
+					continue
 
-		for clf_, param, index2 in zip(['dt', 'nb', 'knn', 'svm', 'mlp'], [[-1, ''], [-1, ''], [5, ''], [-1, 'rbf'], [15, 'relu']], [0,1,2,3,4]):
-			pset = init_pset(n_att)
-			ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
+				pset = init_pset(n_att)
+				ind = load_model(n_att, 'BEST_FEATURES/' + folder + '/' + file)
+					
+				X_train, y_train, X_test, y_true, _ = import_all_data(dataset, 1, .7, 1, 0)
+				#X_train = data_set_transform(ind, pset, X_train)
+				#X_test  = data_set_transform(ind, pset, X_test)
+
+				prf, acc, cfm, AUC = performance(ind, clf_, param, X_train, y_train, X_test, y_true, pset)
+
+				# print("Dataset:", folder)
+				# print("Classificador original:", clf)
+				# print("Classificador teste   :", clf_)
+				# print("F1 :", str(prf[2][0]))
+				# print("AUC:", AUC)
+				# print("ACC:", acc)
+
+				d.append(AUC)
+				# print(AUC)
+				# print()
+				# M = d[index1][index2][0]
+				# S = d[index1][index2][1]
+				# K = d[index1][index2][2]
+
+				# d[index1][index2][0] = media(M, AUC, K)
+				# d[index1][index2][1] = desv_padrao(S, M, AUC, K)
+				# d[index1][index2][2] = K+1
 				
-			X_train, y_train, X_test, y_true, _ = import_all_data(dataset, 1, .7, 1, 0)
-			#X_train = data_set_transform(ind, pset, X_train)
-			#X_test  = data_set_transform(ind, pset, X_test)
-
-			prf, acc, cfm, AUC = performance(ind, clf_, param, X_train, y_train, X_test, y_true, pset)
-
-			print("Dataset:", folder)
-			print("Classificador original:", clf)
-			print("Classificador teste   :", clf_)
-			print("F1 :", str(prf[2][0]))
-			print("AUC:", AUC)
-			print("ACC:", acc)
-
-			M = d[index1][index2][0]
-			S = d[index1][index2][1]
-			K = d[index1][index2][2]
-
-			d[index1][index2][0] = media(M, AUC, K)
-			d[index1][index2][1] = desv_padrao(S, M, AUC, K)
-			d[index1][index2][2] = K+1
+				# print(d[index1][index2])
+				# print()
 			
-			print(d[index1][index2])
-			print()
-
-	
-	print(np.array(d))
-	input()
+	print(d)
+	# input()
 
 folder = 'TKM'
 dataset = files_wav75
@@ -664,18 +686,7 @@ file_name = os.listdir('BEST_FEATURES/' + folder)[0]
 #		#	p1  = 15
 #		#	p2  = 'relu'
 		
-clf = 'dt'
-p1  = -1
-p2  = ''
-n_att = 75
-folder = 'T10_2b'
-file_name = 'EXPR_T10_2bGP_EEG_svm5__25_20.txt'
-dataset = files_wav75
 
-
-
-
-#y_pred,  y_true = get_prediction_from_expr(n_att, clf, [p1, p2], 'BEST_FEATURES/' + folder + '/' + file, dataset,'')
 #print(np.array(y_pred)&np.array(y_true))
 #print(sum(y_pred), sum(y_true), sum(np.array(y_pred)&np.array(y_true)))
 #print(y_pred)

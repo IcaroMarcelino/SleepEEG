@@ -60,8 +60,8 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0
 		
 		for row in data:
 			class_ind = len(row)-2
-			#X_train.append([float(x) for x in row[0:class_ind]])
-			X_train.append([float(x) for x in row[0:25]])
+			X_train.append([float(x) for x in row[0:class_ind]])
+			#X_train.append([float(x) for x in row[0:25]])
 			y_train.append([int(row[class_ind+op]), int(not(int(row[class_ind+op])))])
 
 			# if row[len(row) - 1] != row[len(row)-2]:
@@ -72,17 +72,17 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0
 			# 	print(samp)
 			# 	input()
 				
-			#X_total.append([float(x) for x in samp[0:class_ind]])
-			X_total.append([float(x) for x in samp[0:25]])
+			X_total.append([float(x) for x in samp[0:class_ind]])
+			#X_total.append([float(x) for x in samp[0:25]])
 			y_total.append([int(samp[class_ind]), int(not(int(samp[class_ind])))])
 			
 			if int(row[class_ind]):
-				#X_S.append([float(x) for x in row[0:class_ind]])
-				X_S.append([float(x) for x in row[0:25]])
+				X_S.append([float(x) for x in row[0:class_ind]])
+				#X_S.append([float(x) for x in row[0:25]])
 				y_S.append([int(row[class_ind]), int(not(int(row[class_ind])))])
 			else:
-				#X_NS.append([float(x) for x in row[0:class_ind]])
-				X_NS.append([float(x) for x in row[0:25]])
+				X_NS.append([float(x) for x in row[0:class_ind]])
+				#X_NS.append([float(x) for x in row[0:25]])
 				y_NS.append([int(row[class_ind]), int(not(int(row[class_ind])))])
 		csvfile.close()
 		if balance:
@@ -115,8 +115,8 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0
 	y_train = y_train[:-int(test_percent*len(y_train))]
 
 	if train_type:
-		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), 25
-		#return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
+		#return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), 25
+		return np.array(X_train), np.array(y_train), np.array(X_test), np.array(y_test), class_ind
 	else:
 		X_total1 = X_total
 		for sample in X_total1:
@@ -126,8 +126,8 @@ def import_all_data(files_paths, rand, test_percent, balance, train_type, op = 0
 				y_total.remove(y_total[ind])
 
 		#return np.array(X_total), np.array(y_total), np.array(X_train), np.array(y_train), class_ind
-		#return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), class_ind
-		return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), 25
+		return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), class_ind
+		#return np.array(X_train), np.array(y_train), np.array(X_total), np.array(y_total), 25
 
 def import_data(file_path, rand, test_percent):
 	class_ind = 0
@@ -137,7 +137,7 @@ def import_data(file_path, rand, test_percent):
 	y_train = []
 	for row in data:
 		class_ind = len(row)-2
-		X_train.append([float(x) for x in row[0:class_ind]])
+		X_train.append([float(x) for x in row[0:75]])
 		y_train.append([int(row[class_ind+1]), int(not(int(row[class_ind+1])))])
 	csvfile.close()
 	if rand:

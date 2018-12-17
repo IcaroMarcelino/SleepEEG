@@ -16,7 +16,6 @@ plot_fft <- function(t, y, title_plot, xmin, xmax){
   teste[which(teste[,2] == max(magn.1)),]
 }
 
-
 # excerpt: Excerpt numeber
 # op:      1 for channel C3-A1, 0 for channel CZ-A1
 # leg_pos: Legend position
@@ -35,31 +34,36 @@ plot_ch_central <- function(excerpt, op, leg_pos, ret){
   if(op == 1){
     par(mar=c(5,4,4,5)+.1)
     plot(excerpt1$signal$C3_A1$t,excerpt1$signal$C3_A1$data, type = 'l', xlab = "Tempo (s)", ylab = "Amplitude (uV)", main = paste("Fusos do Sono \n Paciente", excerpt,"- Canal C3-A1"), ylim = c(-300,300))
-    segments(Automatic_detection_excerpt1$`[Spindles/C3-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
-    segments(Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
+    segments(Automatic_detection_excerpt1$`[KComplexes/C3-A1]`, 0, Automatic_detection_excerpt1$`[KComplexes/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
+    segments(Visual_scoring1_excerpt1$`[vis1_KComplexes/C3-A1]`, 10, Visual_scoring1_excerpt1$`[vis1_KComplexes/C3-A1]`+Visual_scoring1_excerpt1$Dur, 10, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
-      segments(Visual_scoring2_excerpt1$`[vis2_Spindles/C3-A1]`, -20, Visual_scoring2_excerpt1$`[vis2_Spindles/C3-A1]`+Visual_scoring2_excerpt1$Dur, -20, col = "blue", lwd = 2)
+      segments(Visual_scoring2_excerpt1$`[vis2_KComplexes/C3-A1]`, -10, Visual_scoring2_excerpt1$`[vis2_KComplexes/C3-A1]`+Visual_scoring2_excerpt1$Dur, -10, col = "blue", lwd = 2)
     }
   }
   else{
     par(mar=c(5,4,4,5)+.1)
-    plot(excerpt1$signal$CZ_A1$t,excerpt1$signal$CZ_A1$data, type = 'l', xlab = "Tempo (s)", ylab = "Amplitude (uV)", main = paste("Fusos do Sono \n Paciente", excerpt,"- Canal CZ-A1"), ylim = c(-300,300))
+    plot(excerpt1$signal$CZ_A1$t,excerpt1$signal$CZ_A1$data, xlim = c(0,1800), type = 'l', xlab = "Tempo (s)", ylab = "Amplitude (uV)", main = paste("Complexos K \n Paciente", excerpt,"- Canal CZ-A1"), ylim = c(-300,300))
     segments(Automatic_detection_excerpt1$`[Spindles/CZ-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/CZ-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
-    segments(Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
+    segments(Visual_scoring2_excerpt1$`[Spindles/CZ-A1]`, -10, Visual_scoring2_excerpt1$`[Spindles/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -10, col = "blue", lwd = 2)
+    segments(Visual_scoring2_excerpt1$`[vis2_Kcomplexes/CZ-A1]`, -10, Visual_scoring2_excerpt1$`[vis2_Kcomplexes/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -10, col = "blue", lwd = 2)
+    legend(leg_pos,fill=c("orange", "blue"),legend=c("Automático", "Especialista 1 U Especialista 2"), inset=.02, title="Detecção de Complexos K",bty = "n")
+    
+    segments(Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`, 10, Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 10, col = "green", lwd = 2)
+    segments(Visual_scoring1_excerpt1$`[vis1_Kcomplexes/CZ-A1]`, 10, Visual_scoring1_excerpt1$`[vis1_Kcomplexes/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 10, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
-      segments(Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`, -20, Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -20, col = "blue", lwd = 2)
+      segments(Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`, -10, Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -10, col = "blue", lwd = 2)
     }
   }
   
   par(new=TRUE)
-  lines(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
-  #plot(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
+  #lines(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
+  plot(excerpt1$signal$hypnogram$t,excerpt1$signal$hypnogram$data, col = "red", lwd = 2, xaxt="n",yaxt="n",xlab="",ylab="", type = "l")
   axis(4, col.axis="red", at = c(5,4,3,2,1,0), labels = c("Acordado", "REM", "S1", "S2", "S3","S4"), las =2)
   mtext("Estágio do Sono",side=4,line=3, col = "red")
   #legend(leg_pos,fill=c("orange","green", "blue"),legend=c("Automatic","Expert 1", "Expert 2"), inset=.02, title="Spindle Detection",bty = "n")
-  legend(leg_pos,fill=c("orange","green", "blue"),legend=c("Automático", "Especialista 1", "Especialista 2"), inset=.02, title="Detecção de Fusos do Sono",bty = "n")
+  legend(leg_pos,fill=c("orange","green", "blue"),legend=c("Automático", "Especialista 1", "Especialista 2"), inset=.02, title="Detecção de Complexos K",bty = "n")
 }
 
 # excerpt: Excerpt numeber
@@ -79,22 +83,22 @@ plot_ch_central <- function(excerpt, op, leg_pos){
   
   if(op == 1){
     par(mar=c(5,4,4,5)+.1)
-    plot(excerpt1$signal$C3_A1$t,excerpt1$signal$C3_A1$data, xlim = c(540,545), type = 'l', xlab = "Time (s)", ylab = "Amplitude (uV)", main = paste("Sleep Spindles \nExcerpt", excerpt,"- Channel C3-A1"), ylim = c(-100,100))
-    #segments(Automatic_detection_excerpt1$`[Spindles/C3-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
-    segments(Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`, 5, Visual_scoring1_excerpt1$`[vis1_Spindles/C3-A1]`+Visual_scoring1_excerpt1$Dur, 5, col = "green", lwd = 2)
+    plot(excerpt1$signal$C3_A1$t,excerpt1$signal$C3_A1$data, xlim = c(540,545), type = 'l', xlab = "Time (s)", ylab = "Amplitude (uV)", main = paste("Sleep KComplexes \nExcerpt", excerpt,"- Channel C3-A1"), ylim = c(-100,100))
+    #segments(Automatic_detection_excerpt1$`[KComplexes/C3-A1]`, 0, Automatic_detection_excerpt1$`[KComplexes/C3-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
+    segments(Visual_scoring1_excerpt1$`[vis1_KComplexes/C3-A1]`, 5, Visual_scoring1_excerpt1$`[vis1_KComplexes/C3-A1]`+Visual_scoring1_excerpt1$Dur, 5, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
-      segments(Visual_scoring2_excerpt1$`[vis2_Spindles/C3-A1]`, -5, Visual_scoring2_excerpt1$`[vis2_Spindles/C3-A1]`+Visual_scoring2_excerpt1$Dur, -5, col = "blue", lwd = 2)
+      segments(Visual_scoring2_excerpt1$`[vis2_KComplexes/C3-A1]`, -5, Visual_scoring2_excerpt1$`[vis2_KComplexes/C3-A1]`+Visual_scoring2_excerpt1$Dur, -5, col = "blue", lwd = 2)
     }
   }
   else{
     par(mar=c(5,4,4,5)+.1)
-    plot(excerpt1$signal$CZ_A1$t,excerpt1$signal$CZ_A1$data, type = 'l', xlab = "Time (s)", ylab = "Amplitude (uV)", main = paste("Sleep Spindles \n Excerpt", excerpt,"- Channel CZ-A1"), ylim = c(-300,300))
-    #segments(Automatic_detection_excerpt1$`[Spindles/CZ-A1]`, 0, Automatic_detection_excerpt1$`[Spindles/CZ-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
-    segments(Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_Spindles/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
+    plot(excerpt1$signal$CZ_A1$t,excerpt1$signal$CZ_A1$data, type = 'l', xlab = "Time (s)", ylab = "Amplitude (uV)", main = paste("Sleep KComplexes \n Excerpt", excerpt,"- Channel CZ-A1"), ylim = c(-300,300))
+    #segments(Automatic_detection_excerpt1$`[KComplexes/CZ-A1]`, 0, Automatic_detection_excerpt1$`[KComplexes/CZ-A1]`+Automatic_detection_excerpt1$Dur, 0, col = "orange", lwd = 2)
+    segments(Visual_scoring1_excerpt1$`[vis1_KComplexes/CZ-A1]`, 20, Visual_scoring1_excerpt1$`[vis1_KComplexes/CZ-A1]`+Visual_scoring1_excerpt1$Dur, 20, col = "green", lwd = 2)
     
     if(excerpt != 7 && excerpt != 8 ){
-      segments(Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`, -20, Visual_scoring2_excerpt1$`[vis2_Spindles/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -20, col = "blue", lwd = 2)
+      segments(Visual_scoring2_excerpt1$`[vis2_KComplexes/CZ-A1]`, -20, Visual_scoring2_excerpt1$`[vis2_KComplexes/CZ-A1]`+Visual_scoring2_excerpt1$Dur, -20, col = "blue", lwd = 2)
     }
   }
   

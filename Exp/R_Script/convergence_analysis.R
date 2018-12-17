@@ -125,21 +125,21 @@ print_args_all <- function(deep_max, b){
     files  = c(files, list.files(path = folder, pattern = name))
   }
   
-  args_counter <- matrix(nrow = 75, ncol = 2)
+  args_counter <- matrix(nrow = 25, ncol = 2)
   args_counter[,2] <- 0
-  for(i in 1:75){
+  for(i in 1:25){
     args_counter[i,1] <- paste('ARG', i-1, sep = '')
   }
   for(j in 1:length(files)){
     y <- read.table(paste(folder, files[j], sep = ''), header = FALSE, sep = '*')
     
-    for(i in 1:75){
+    for(i in 1:25){
       n = as.numeric(str_count(y[[1]],args_counter[i,1]))
       args_counter[i,2] <-as.numeric(args_counter[i,2]) + n
     }
   }
   
-  barplot(as.numeric(args_counter[,2]), main = 'Frequência dos atributos após a redução de dimensinalidade com GP', ylim = c(0,1050), ylab = 'Número de ocorrências', names = args_counter[,1], las = 2)
+  barplot(as.numeric(args_counter[,2]), main = 'Frequência dos atributos após a redução de dimensinalidade com GP\nComplexos K - Classificação com canal EEG central', ylim = c(0,1200), ylab = 'Número de ocorrências', names = args_counter[,1], las = 2)
   abline(v=0, lty = 1, col = 'green')
   abline(v=6, lty = 2, col = 'blue')
   abline(v=12, lty = 2, col = 'blue')
@@ -156,14 +156,14 @@ print_args_all <- function(deep_max, b){
   abline(v=78, lty = 2, col = 'blue')
   abline(v=84, lty = 2, col = 'blue')
   abline(v=90, lty = 1, col = 'green')
-  text(15, 1000, "Canal Central", font =2, col = 'blue')
+  text(15, 1150, "Canal Central", font =2, col = 'blue')
   text(45, 1000, "O1-A1", font =2, col = 'blue')
   text(75, 1000, "FP1-A1", font =2, col = 'blue')
-  text(3, 900, "D1", font =2, col = 'blue')
-  text(9, 900, "D2", font =2, col = 'blue')
-  text(15, 900, "D3", font =2, col = 'blue')
-  text(21, 900, "D4", font =2, col = 'blue')
-  text(27, 900, "D5", font =2, col = 'blue')
+  text(3, 1050, "D1", font =2, col = 'blue')
+  text(9, 1050, "D2", font =2, col = 'blue')
+  text(15, 1050, "D3", font =2, col = 'blue')
+  text(21, 1050, "D4", font =2, col = 'blue')
+  text(27, 1050, "D5", font =2, col = 'blue')
   text(33, 900, "D1", font =2, col = 'blue')
   text(39, 900, "D2", font =2, col = 'blue')
   text(45, 900, "D3", font =2, col = 'blue')
