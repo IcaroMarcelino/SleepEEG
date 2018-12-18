@@ -1,0 +1,1 @@
+psqrt(add(sub(sub(plog(F(ARG19)), pdiv(pdiv(mul(add(ARG2, plog(plog(ARG19))), mul(ARG7, ARG14)), psqrt(plog(ARG2))), plog(F(plog(mul(psqrt(ARG9), psqrt(ARG9))))))), pdiv(mul(F(plog(pdiv(ARG2, psqrt(ARG8)))), pdiv(plog(pdiv(ARG2, psqrt(ARG8))), ARG19)), plog(plog(F(plog(mul(psqrt(ARG9), pdiv(ARG2, ARG19)))))))), plog(F(add(ARG2, ARG22)))))

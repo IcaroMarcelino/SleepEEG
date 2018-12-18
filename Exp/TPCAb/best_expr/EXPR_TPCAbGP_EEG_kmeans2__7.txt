@@ -1,1 +1,0 @@
-pdiv(mul(pdiv(sub(psqrt(sub(ARG36, psqrt(sub(psqrt(mul(ARG36, ARG7)), psqrt(psqrt(ARG36)))))), sub(ARG36, psqrt(sub(psqrt(sub(ARG7, psqrt(ARG68))), psqrt(sub(ARG7, psqrt(ARG68))))))), sub(ARG68, sub(ARG68, psqrt(ARG68)))), ARG66), ARG68)

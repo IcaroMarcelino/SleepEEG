@@ -1,1 +1,0 @@
-pdiv(sub(sub(sub(sub(ARG12, pdiv(pdiv(psqrt(plog(plog(ARG8))), plog(ARG8)), sub(ARG12, pdiv(plog(ARG8), ARG8)))), ARG8), plog(psqrt(plog(plog(ARG8))))), plog(plog(psqrt(pdiv(plog(sub(plog(ARG2), ARG17)), plog(ARG3)))))), ARG8)

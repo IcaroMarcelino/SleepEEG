@@ -1,13 +1,13 @@
 #!/bin/bash
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -kfold -execs 1 10 -dataset 20 -balanced 0 -path TPCA/ -fileID TPCA -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 20 -balanced 0 -path TPCA/ -fileID TPCA -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -kfold -execs 1 10 -dataset 20 -balanced 1 -path TPCAb/ -fileID TPCAb -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf knn -param 5 -execs 1 10 -dataset 20 -balanced 1 -path TPCAb/ -fileID TPCAb -train_type 0 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf dt -execs 1 10 -kfold -dataset 20 -balance 0 -path TPCA/ -fileID TPCA -train_type 1 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf dt -execs 1 10 -dataset 20 -balance 0 -path TPCA/ -fileID TPCA -train_type 1 -optmize 1 1 auc &
 htop
 ~
-nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf dt -execs 1 10 -kfold -dataset 20 -balance 1 -path TPCAb/ -fileID TPCAb -train_type 0 -optmize 1 1 auc &
+nohup python3 main.py -v 0 -gen 300 -pop 100 -depth 10 -clf dt -execs 1 10 -dataset 20 -balance 1 -path TPCAb/ -fileID TPCAb -train_type 0 -optmize 1 1 auc &
 htop
 ~
