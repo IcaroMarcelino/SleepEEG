@@ -1,1 +1,0 @@
-pdiv(plog(ARG47), ARG32)

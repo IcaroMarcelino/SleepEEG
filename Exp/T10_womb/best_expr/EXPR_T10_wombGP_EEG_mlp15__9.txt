@@ -1,1 +1,0 @@
-sub(sub(sub(pdiv(ARG61, ARG58), ARG12), ARG46), add(pdiv(sub(ARG46, ARG12), ARG41), mul(psqrt(ARG71), psqrt(add(ARG71, add(pdiv(plog(mul(sub(ARG46, ARG12), ARG46)), pdiv(pdiv(sub(ARG46, ARG12), add(ARG12, ARG71)), add(ARG71, ARG58))), pdiv(ARG61, ARG58)))))))

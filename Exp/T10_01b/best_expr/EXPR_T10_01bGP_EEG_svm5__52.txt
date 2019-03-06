@@ -1,1 +1,0 @@
-F(add(F(psqrt(add(pdiv(pdiv(ARG6, ARG37), F(pdiv(ARG37, F(ARG6)))), pdiv(ARG11, F(pdiv(F(F(ARG6)), ARG6)))))), add(F(plog(pdiv(F(F(F(ARG6))), F(F(F(F(ARG6))))))), plog(ARG16))))

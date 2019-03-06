@@ -1,1 +1,0 @@
-mul(mul(add(F(add(ARG61, ARG58)), mul(ARG58, psqrt(ARG36))), F(add(plog(ARG61), ARG58))), pdiv(F(plog(ARG61)), F(mul(plog(ARG58), psqrt(ARG36)))))

@@ -1,1 +1,0 @@
-pdiv(ARG23, mul(pdiv(add(F(F(pdiv(ARG22, ARG15))), ARG15), sub(mul(ARG24, pdiv(F(ARG23), plog(ARG23))), pdiv(ARG22, F(F(ARG23))))), mul(pdiv(add(F(pdiv(F(ARG23), plog(sub(mul(ARG4, ARG2), ARG15)))), F(F(sub(pdiv(ARG22, ARG15), ARG15)))), ARG15), psqrt(mul(F(F(sub(pdiv(ARG22, ARG15), sub(mul(ARG4, ARG2), ARG15)))), psqrt(F(sub(F(pdiv(ARG22, ARG15)), ARG15))))))))

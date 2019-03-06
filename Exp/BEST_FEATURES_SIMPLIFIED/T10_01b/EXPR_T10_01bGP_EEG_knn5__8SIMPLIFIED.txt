@@ -1,8 +1,0 @@
-ARG53
-ARG26*ARG56
-plog(plog(-ARG55 + psqrt(ARG50)))
-ARG16
-plog(-ARG55 + psqrt(ARG50))
-psqrt(ARG14*ARG53 + ARG16 - ARG40)
-plog(-ARG63 + psqrt(ARG50))
-ARG12

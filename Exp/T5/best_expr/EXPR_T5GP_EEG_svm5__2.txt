@@ -1,1 +1,0 @@
-pdiv(plog(mul(mul(ARG58, mul(ARG58, ARG58)), mul(ARG47, ARG36))), ARG36)

@@ -1,1 +1,0 @@
-add(plog(plog(plog(add(add(ARG12, ARG13), psqrt(ARG19))))), mul(ARG15, mul(F(ARG17), F(ARG20))))

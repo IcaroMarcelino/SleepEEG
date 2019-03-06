@@ -1,1 +1,0 @@
-F(F(sub(sub(pdiv(pdiv(plog(plog(ARG3)), ARG3), ARG3), plog(pdiv(pdiv(psqrt(pdiv(plog(ARG3), ARG74)), sub(ARG3, pdiv(ARG34, ARG22))), ARG74))), pdiv(sub(psqrt(pdiv(ARG64, ARG3)), plog(plog(ARG3))), pdiv(psqrt(pdiv(ARG74, pdiv(psqrt(pdiv(ARG3, ARG3)), sub(ARG74, pdiv(ARG34, ARG22))))), sub(ARG56, pdiv(ARG34, ARG22)))))))

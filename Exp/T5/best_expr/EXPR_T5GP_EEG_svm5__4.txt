@@ -1,1 +1,0 @@
-pdiv(plog(mul(sub(ARG2, ARG0), sub(ARG2, sub(ARG2, ARG0)))), ARG0)

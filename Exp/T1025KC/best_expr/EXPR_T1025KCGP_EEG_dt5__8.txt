@@ -1,1 +1,0 @@
-sub(add(add(pdiv(plog(F(F(ARG14))), plog(F(ARG23))), pdiv(pdiv(ARG14, F(F(ARG14))), add(F(ARG23), sub(plog(ARG14), ARG14)))), F(F(F(F(F(ARG14)))))), add(F(F(F(add(F(ARG14), ARG14)))), plog(plog(F(ARG23)))))

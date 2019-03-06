@@ -1,5 +1,0 @@
-ARG46*psqrt(plog(ARG59)/ARG68)
-ARG6
-ARG59*plog(ARG1)
-2*plog(ARG1) + psqrt(ARG68)
-psqrt(ARG29*ARG8)

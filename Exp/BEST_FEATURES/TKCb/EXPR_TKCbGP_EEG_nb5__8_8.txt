@@ -1,1 +1,0 @@
-add(F(F(F(psqrt(sub(sub(ARG65, psqrt(psqrt(psqrt(ARG68)))), psqrt(ARG69)))))), F(plog(mul(psqrt(psqrt(ARG68)), plog(plog(mul(ARG69, psqrt(ARG24))))))))

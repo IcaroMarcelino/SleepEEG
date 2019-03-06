@@ -1,7 +1,0 @@
-plog(plog(ARG23))
-ARG83
--ARG117*ARG66*ARG77 + ARG22*ARG66 - ARG66**2 - ARG66*psqrt(ARG12**2 + 2*ARG12*ARG98 + ARG98**2)
--ARG117*ARG77 + ARG22 - ARG66
-plog(plog(plog(ARG35*ARG66)))
-plog(plog(plog(ARG23)))
-plog(plog(ARG35*ARG66))

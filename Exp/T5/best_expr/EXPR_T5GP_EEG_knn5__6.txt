@@ -1,1 +1,0 @@
-plog(pdiv(F(sub(ARG2, F(ARG38))), sub(F(F(ARG56)), F(F(ARG56)))))

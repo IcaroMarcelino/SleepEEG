@@ -1,1 +1,0 @@
-pdiv(mul(cos(plog(ARG36)), plog(psqrt(mul(plog(ARG28), ARG11)))), pdiv(ARG57, sub(add(ARG13, cos(add(add(add(pdiv(ARG36, ARG28), psqrt(ARG57)), ARG36), plog(ARG13)))), add(add(add(ARG28, pdiv(ARG36, ARG57)), psqrt(mul(mul(plog(ARG28), ARG28), plog(add(plog(ARG28), pdiv(ARG28, ARG57)))))), ARG36))))

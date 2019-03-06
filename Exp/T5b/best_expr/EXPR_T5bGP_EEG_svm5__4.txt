@@ -1,1 +1,0 @@
-pdiv(ARG38, sub(sub(sub(ARG13, ARG38), pdiv(ARG31, psqrt(ARG13))), pdiv(ARG31, psqrt(ARG13))))

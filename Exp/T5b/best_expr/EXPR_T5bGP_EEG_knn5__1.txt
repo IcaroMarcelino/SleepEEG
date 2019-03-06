@@ -1,1 +1,0 @@
-sub(add(F(ARG38), psqrt(ARG72)), add(add(pdiv(F(ARG58), F(ARG60)), F(ARG72)), F(add(F(ARG72), F(ARG72)))))

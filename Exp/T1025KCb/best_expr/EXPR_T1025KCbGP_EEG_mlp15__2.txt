@@ -1,1 +1,0 @@
-plog(F(pdiv(mul(sub(sub(F(F(F(ARG22))), F(pdiv(pdiv(pdiv(ARG24, ARG3), psqrt(ARG18)), plog(ARG0)))), F(sub(ARG4, ARG0))), ARG0), sub(ARG3, F(sub(pdiv(F(sub(ARG4, ARG0)), ARG16), plog(plog(F(sub(ARG4, ARG0))))))))))

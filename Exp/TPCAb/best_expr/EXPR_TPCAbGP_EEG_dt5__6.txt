@@ -1,1 +1,0 @@
-add(add(psqrt(plog(sub(plog(plog(F(ARG4))), plog(ARG27)))), add(F(F(F(F(plog(plog(ARG27)))))), plog(F(ARG4)))), add(mul(plog(psqrt(plog(ARG17))), add(psqrt(plog(F(plog(ARG27)))), add(F(F(F(F(plog(ARG27))))), plog(F(ARG4))))), add(psqrt(plog(plog(ARG27))), add(F(F(F(plog(ARG27)))), add(mul(plog(psqrt(plog(ARG27))), ARG4), add(plog(F(plog(ARG27))), plog(ARG27)))))))

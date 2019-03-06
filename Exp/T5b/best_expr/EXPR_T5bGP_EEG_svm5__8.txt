@@ -1,1 +1,0 @@
-sub(sub(pdiv(psqrt(mul(ARG38, ARG28)), ARG28), ARG9), add(add(add(sub(ARG6, ARG36), sub(ARG6, ARG38)), add(ARG6, sub(ARG6, ARG36))), sub(sub(ARG6, ARG36), ARG10)))

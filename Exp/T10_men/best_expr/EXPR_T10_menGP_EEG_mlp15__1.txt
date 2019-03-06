@@ -1,1 +1,0 @@
-F(F(add(F(pdiv(sub(psqrt(sub(sub(ARG32, sub(ARG12, ARG1)), ARG58)), pdiv(ARG39, F(ARG32))), ARG12)), psqrt(sub(sub(pdiv(pdiv(ARG39, ARG12), mul(ARG58, F(F(ARG32)))), psqrt(F(ARG32))), sub(sub(ARG39, ARG1), F(F(F(ARG32)))))))))

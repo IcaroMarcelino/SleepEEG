@@ -1,1 +1,0 @@
-sub(pdiv(psqrt(sub(add(plog(psqrt(sub(ARG7, ARG7))), add(add(pdiv(ARG0, ARG1), pdiv(ARG0, ARG4)), mul(plog(ARG2), psqrt(ARG2)))), mul(add(pdiv(pdiv(psqrt(ARG0), pdiv(ARG2, ARG4)), ARG0), plog(add(ARG0, add(ARG5, add(ARG5, ARG9))))), plog(psqrt(ARG7))))), ARG2), ARG5)

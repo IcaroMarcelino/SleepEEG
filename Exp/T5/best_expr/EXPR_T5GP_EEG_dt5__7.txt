@@ -1,1 +1,0 @@
-plog(pdiv(F(psqrt(plog(ARG41))), F(mul(plog(ARG58), psqrt(ARG38)))))

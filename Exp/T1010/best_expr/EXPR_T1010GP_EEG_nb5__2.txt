@@ -1,1 +1,0 @@
-F(sub(mul(sub(mul(F(F(sub(ARG9, ARG8))), sub(pdiv(plog(psqrt(ARG8)), F(ARG8)), pdiv(ARG7, mul(ARG7, ARG9)))), mul(plog(pdiv(ARG9, plog(mul(ARG0, ARG5)))), F(mul(ARG7, plog(mul(ARG0, plog(ARG5))))))), pdiv(ARG7, plog(psqrt(ARG5)))), F(plog(mul(ARG6, ARG5)))))

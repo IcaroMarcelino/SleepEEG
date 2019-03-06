@@ -1,1 +1,0 @@
-pdiv(pdiv(ARG4, ARG2), plog(add(add(plog(ARG6), add(add(plog(plog(ARG4)), add(plog(ARG6), mul(ARG6, plog(ARG6)))), plog(ARG6))), plog(add(add(ARG4, ARG6), add(add(ARG4, plog(ARG6)), add(add(ARG4, add(plog(ARG6), add(ARG4, ARG4))), ARG4)))))))

@@ -1,1 +1,0 @@
-F(sub(sub(pdiv(mul(ARG68, psqrt(sub(F(sub(sub(ARG26, ARG26), ARG34)), ARG26))), psqrt(F(sub(ARG74, F(ARG34))))), mul(ARG68, psqrt(sub(F(sub(F(F(ARG34)), ARG34)), ARG74)))), plog(mul(ARG68, ARG58))))

@@ -1,1 +1,0 @@
-plog(pdiv(sub(psqrt(ARG13), pdiv(mul(ARG28, ARG28), mul(ARG16, ARG13))), mul(sub(psqrt(ARG16), sub(ARG13, ARG38)), psqrt(psqrt(ARG13)))))

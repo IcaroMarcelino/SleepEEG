@@ -1,1 +1,0 @@
-plog(pdiv(pdiv(pdiv(add(ARG3, ARG3), plog(pdiv(ARG3, plog(ARG3)))), plog(add(plog(add(ARG3, ARG3)), ARG3))), plog(pdiv(ARG3, plog(add(plog(add(psqrt(ARG1), plog(add(ARG1, ARG3)))), psqrt(ARG3)))))))

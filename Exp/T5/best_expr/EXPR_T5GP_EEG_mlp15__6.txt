@@ -1,1 +1,0 @@
-pdiv(ARG40, mul(ARG45, mul(mul(ARG50, ARG50), plog(ARG50))))

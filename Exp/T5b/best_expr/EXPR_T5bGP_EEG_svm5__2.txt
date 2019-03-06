@@ -1,1 +1,0 @@
-pdiv(add(add(ARG18, add(add(ARG18, ARG31), ARG16)), psqrt(add(ARG6, add(ARG18, ARG31)))), ARG16)

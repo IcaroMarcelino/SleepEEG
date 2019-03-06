@@ -1,1 +1,0 @@
-sub(add(add(ARG57, ARG57), add(ARG57, ARG57)), psqrt(psqrt(add(add(add(ARG57, ARG57), add(psqrt(add(add(add(ARG57, ARG57), ARG57), ARG57)), ARG57)), add(ARG57, psqrt(add(add(ARG57, ARG57), ARG57)))))))

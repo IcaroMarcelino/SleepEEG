@@ -1,1 +1,0 @@
-add(psqrt(sub(sub(plog(ARG13), sub(psqrt(sub(ARG0, sub(ARG13, sub(psqrt(ARG3), ARG13)))), sub(sub(plog(ARG13), psqrt(plog(ARG3))), ARG13))), ARG11)), ARG0)

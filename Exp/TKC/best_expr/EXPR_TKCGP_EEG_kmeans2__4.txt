@@ -1,1 +1,0 @@
-F(pdiv(ARG62, pdiv(psqrt(ARG62), plog(plog(ARG20)))))

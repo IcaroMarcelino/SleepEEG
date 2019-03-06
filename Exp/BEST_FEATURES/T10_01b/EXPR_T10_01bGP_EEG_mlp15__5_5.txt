@@ -1,1 +1,0 @@
-mul(pdiv(add(ARG36, psqrt(sub(add(add(add(psqrt(pdiv(ARG12, ARG64)), ARG64), pdiv(psqrt(pdiv(ARG67, ARG64)), add(ARG32, ARG32))), ARG64), psqrt(psqrt(add(ARG64, ARG67)))))), ARG28), plog(ARG12))
