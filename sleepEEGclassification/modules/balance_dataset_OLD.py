@@ -2,9 +2,6 @@
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from imblearn.under_sampling import RandomUnderSampler
-from imblearn.over_sampling import SMOTE
-from imblearn.over_sampling import ADASYN
 
 class input_output:
     
@@ -51,12 +48,36 @@ class input_output:
             X_train, y_train, X_test, y_test
         '''
         
-        X = df[df.columns[data_columns]].values
-        y = df[df.columns[label_column]].values
+        classes = df[label_column].unique()
+
+        # Split by class
+        df_splits = []
+        for cl in classes:
+            df_splits.append(df.drop(df.index[df[label_column] == cl]))
+
+        minor_class_len = min([x.shape[0] for x in df_splits])
+
+        df_splits_balanced = []
         
-        rus = RandomUnderSampler()
-        X, y = rus.fit_resample(X, y)
+        # Discover which is the class with less samples
+        for split in df_splits:
+            df_splits_balanced.append(split.sample(n = minor_class_len))
+    
+        df_splits = df_splits_balanced
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, shuffle = True)
+        df_train = []
+        df_test  = []
+    
+        # Split between train and test
+        for split in df_splits:
+            t1, t2 = train_test_split(split, test_size = test_size, shuffle = True)
+            df_train.append(t1)
+            df_test.append(t2)
+        
+        test  = pd.concat(df_test,   ignore_index = True)
+        train = pd.concat(df_train, ignore_index = True)
+        
+        test  = test.sample(frac=1).reset_index(drop=True)
+        train = train.sample(frac=1).reset_index(drop=True)
 
-        return X_train, y_train, X_test, y_test
+        return train[data_columns], train[label_column], test[data_columns], test[label_column]
