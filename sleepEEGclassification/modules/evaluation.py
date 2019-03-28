@@ -29,7 +29,7 @@ class fitness:
                 break
         return string[begin:end]
 
-    def feature_construction(individual, clf, param, X_train, y_train, X_test, pset):
+    def feature_construction(individual, clf, X_train, y_train, X_test, pset, param = [[],[]], return_proba = False, external = False):
         exp = gp.PrimitiveTree(individual)
         string = str(exp)
         ind = [i for i in range(len(string)) if string.startswith('F', i)]
@@ -60,12 +60,14 @@ class fitness:
                 X_train_new[i].append(feature(*x))
             i += 1
 
-        if clf == 'knn':
+        if external != False:
+            classifier = external
+        elif clf == 'knn':
             classifier = KNeighborsClassifier(n_neighbors=param[0])
         elif clf == 'mlp':
             classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 200)
         elif clf == 'svm':
-            classifier = SVC(kernel = param[1])
+            classifier = SVC(kernel = param[1], probability=True)
         elif clf == 'dt':
             classifier = DT()
         elif clf == 'nb':
@@ -80,6 +82,7 @@ class fitness:
             classifier.fit(X_train_new, y_train)
         except:
             return -1
+            
         X_test_new = []
         i = 0
         for x in X_test:
@@ -93,7 +96,11 @@ class fitness:
         y_pred = classifier.predict(X_test_new)
         y_pred = np.array([[j, int(not(j))] for j in y_pred])
 
-        return y_pred
+        if return_proba:
+                predict_proba = classifier.predict_proba(X_test_new)
+                return y_pred, predict_proba
+        else:
+            return y_pred
 
     def eval_function(opt_vars):
         # prf = precision_recall_fscore_support(y_true, y_pred)
@@ -152,8 +159,8 @@ class fitness:
         final_func = lambda y_true, y_pred: [f(y_true, y_pred) for f in funcs]
         return final_func
 
-    def eval_tree(individual, clf, param, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func):
-        y_pred = fitness.feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+    def eval_tree(individual, clf, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func, param = [[],[]], external = False):
+        y_pred = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param, external)
 
         if type(y_pred) == type(-1):
             ret = tuple([0]*len(opt_vars))
@@ -170,21 +177,26 @@ class fitness:
 
         return tuple(ret)
 
-    def performance(individual, clf, param, X_train, y_train, X_test, y_true, pset):
-        y_pred = fitness.feature_construction(individual, clf, param, X_train, y_train, X_test, pset)
+    def performance(individual, clf, X_train, y_train, X_test, y_true, pset, param = [[],[]], external = False):
+        ret = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param = param, return_proba = True, external = external)
+        if type(ret) == type(-1):
+            return [[0,0]]*4, 0, [0]*4, 0
+        
+        y_pred, predict_proba = ret[0], ret[1]
 
-        if type(y_pred) == type(-1):
-            return [0]*8, 0
+        # fpr = dict()
+        # tpr = dict()
+        # AUC = dict()
+        # for c in range(2):
+        #     fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
+        #     AUC[c] = auc(fpr[c], tpr[c])
+        # AUC = AUC[0]
 
-        fpr = dict()
-        tpr = dict()
-        AUC = dict()
-        for c in range(2):
-            fpr[c], tpr[c], _ = roc_curve(y_true[:, c], y_pred[:, c])
-            AUC[c] = auc(fpr[c], tpr[c])
-
-        if AUC[0] < 0.5:
-            AUC[0] = 1 - AUC[0]
+        AUC = roc_auc_score(y_true, predict_proba)
+        
+        if AUC < 0.5:
+            AUC = 1 - AUC
+            
         #	y_pred = [[i[1], i[0]] for i in y_pred]
         #	fpr = dict()
         #	tpr = dict()
@@ -198,5 +210,7 @@ class fitness:
         y_true = [i[0] for i in y_true]
         y_pred = [i[0] for i in y_pred]
 
+
+        
         cfm = confusion_matrix(y_true, y_pred).ravel()
-        return prf, acc, cfm, AUC[0]
+        return prf, acc, cfm, AUC
