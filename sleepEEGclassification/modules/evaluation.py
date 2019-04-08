@@ -10,6 +10,9 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 
+from scipy.stats import wasserstein_distance
+
+import pandas as pd
 import numpy as np
 from deap import gp
 
@@ -29,7 +32,7 @@ class fitness:
                 break
         return string[begin:end]
 
-    def feature_construction(individual, clf, X_train, y_train, X_test, pset, param = [[],[]], return_proba = False, external = False):
+    def create_reduced_dataset(individual, pset, X):
         exp = gp.PrimitiveTree(individual)
         string = str(exp)
         ind = [i for i in range(len(string)) if string.startswith('F', i)]
@@ -47,18 +50,18 @@ class fitness:
                 features.append(gp.compile(newtree, pset))
         if len(features) == 0:
             features.append(gp.compile(individual, pset))
-        X_train_new = []
+        X_new = []
         i = 0
-        #print(temp)
-        for x in X_train:
-            X_train_new.append([])
+        for x in X:
+            X_new.append([])
             for feature, t in zip(features,temp):
-                #print(t)
-                #print(t, feature(*x))
-                #print(x)
-                #str(features)
-                X_train_new[i].append(feature(*x))
+                X_new[i].append(feature(*x))
             i += 1
+        return X_new
+
+    
+    def feature_construction(individual, clf, X_train, y_train, X_test, pset, param = [[],[]], return_proba = False, external = False):
+        X_train_new = fitness.create_reduced_dataset(individual, pset, X_train)
 
         if external != False:
             classifier = external
@@ -83,14 +86,7 @@ class fitness:
         except:
             return -1
             
-        X_test_new = []
-        i = 0
-        for x in X_test:
-            X_test_new.append([])
-            for feature in features:
-                #print(x)
-                X_test_new[i].append(feature(*x))
-            i += 1
+        X_test_new = fitness.create_reduced_dataset(individual, pset, X_test)
 
         X_test_new = np.array(X_test_new).astype(np.float)
         y_pred = classifier.predict(X_test_new)
@@ -106,6 +102,10 @@ class fitness:
         # prf = precision_recall_fscore_support(y_true, y_pred)
         # acc = accuracy_score(y_true, y_pred)
         # cfm = confusion_matrix(y_true, y_pred)
+        
+        if 'wd' in opt_vars:
+            return lambda X, y: [[wasserstein_distance(X[y[0] == 1][i].values, X[y[0] == 0][i].values) for i in range(len(X.columns))]]
+        
         func = []
         metr1 = []
         metr2 = []
@@ -159,9 +159,22 @@ class fitness:
         final_func = lambda y_true, y_pred: [f(y_true, y_pred) for f in funcs]
         return final_func
 
+    
+    
+    
     def eval_tree(individual, clf, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func, param = [[],[]], external = False):
         y_pred = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param, external)
 
+        if 'wd' in opt_vars:
+            X = fitness.create_reduced_dataset(individual, pset, X_test)
+            if len(X[0]) < 2:
+                return 0,
+            res = eval_func(pd.DataFrame(X), pd.DataFrame(y_true))
+            print(res)
+            print()
+            ret = tuple([np.mean(res)])
+            return ret
+        
         if type(y_pred) == type(-1):
             ret = tuple([0]*len(opt_vars))
             return ret
@@ -192,11 +205,15 @@ class fitness:
         #     AUC[c] = auc(fpr[c], tpr[c])
         # AUC = AUC[0]
 
-        AUC = roc_auc_score(y_true, predict_proba)
         
+        try:
+            AUC = roc_auc_score(y_true, y_pred)
+        except:
+            AUC = 0
+    
         if AUC < 0.5:
-            AUC = 1 - AUC
-            
+            AUC = 1 - AUC            
+                
         #	y_pred = [[i[1], i[0]] for i in y_pred]
         #	fpr = dict()
         #	tpr = dict()
@@ -209,8 +226,6 @@ class fitness:
 
         y_true = [i[0] for i in y_true]
         y_pred = [i[0] for i in y_pred]
-
-
         
         cfm = confusion_matrix(y_true, y_pred).ravel()
         return prf, acc, cfm, AUC

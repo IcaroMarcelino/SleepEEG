@@ -1,4 +1,3 @@
-import pygraphviz as pgv
 from sympy import simplify, expand
 from deap import gp
 import operator
@@ -48,18 +47,6 @@ def txt_to_individual(file_path, pset):
     tree = gp.PrimitiveTree(expr)
     individual = tree.from_string(string, pset)
     return individual
-
-def individual_pdf(file_path, individual, pset):
-    nodes, edges, labels = gp.graph(individual)
-    g = pgv.AGraph()
-    g.add_nodes_from(nodes)
-    g.add_edges_from(edges)
-    g.layout(prog='dot')
-    for i in nodes:
-        n = g.get_node(i)
-        n.attr['label'] = labels[i]
-    g.draw(file_path + '.pdf')
-    return
 
 def convertFunct(string):
     ARG0 = 'ARG0'
@@ -176,3 +163,6 @@ def plot_tree(individual, save_file = True, path = 'tree.pdf'):
     
     plt.show()
     return
+
+
+    

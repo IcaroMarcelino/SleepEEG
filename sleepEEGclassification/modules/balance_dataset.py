@@ -55,6 +55,7 @@ class input_output:
         y = df[df.columns[label_column]].values
         
         rus = RandomUnderSampler()
+        #rus = SMOTE()
         X, y = rus.fit_resample(X, y)
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, shuffle = True)

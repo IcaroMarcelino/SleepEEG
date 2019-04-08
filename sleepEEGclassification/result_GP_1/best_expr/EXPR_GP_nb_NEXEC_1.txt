@@ -1,1 +1,1 @@
-F(ARG16)
+sub(plog(F(sub(ARG67, F(sub(ARG61, psqrt(psqrt(ARG13))))))), sub(mul(plog(pdiv(sub(ARG11, sub(sub(F(ARG16), ARG42), pdiv(ARG7, pdiv(F(ARG3), F(ARG18))))), plog(F(pdiv(ARG61, ARG16))))), sub(ARG56, ARG56)), F(F(ARG13))))
