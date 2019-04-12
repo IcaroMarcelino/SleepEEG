@@ -35,7 +35,7 @@ class input_output:
         return pd.concat(df_list, ignore_index = True)           
     
                 
-    def balance_dataset(df, data_columns, label_column, test_size):
+    def balance_dataset(df, data_columns, label_column, test_size, ratio = 1):
         '''
         Balance classes and split between train and test a pandas
         dataframe. All the classes will have the same amount of the
@@ -54,7 +54,7 @@ class input_output:
         X = df[df.columns[data_columns]].values
         y = df[df.columns[label_column]].values
         
-        rus = RandomUnderSampler()
+        rus = RandomUnderSampler(sampling_strategy = ratio)
         #rus = SMOTE()
         X, y = rus.fit_resample(X, y)
 
