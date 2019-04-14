@@ -60,23 +60,23 @@ class fitness:
         return X_new
 
     
-    def feature_construction(individual, clf, X_train, y_train, X_test, pset, param = [[],[]], return_proba = False, external = False):
+    def feature_construction(individual, clf, X_train, y_train, X_test, pset, param = [[],[]], return_proba = False, external = False, n_jobs = 4):
         X_train_new = fitness.create_reduced_dataset(individual, pset, X_train)
 
         if external != False:
             classifier = external
         elif clf == 'knn':
-            classifier = KNeighborsClassifier(n_neighbors=param[0])
+            classifier = KNeighborsClassifier(n_neighbors=param[0], n_jobs = n_jobs)
         elif clf == 'mlp':
-            classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 200)
+            classifier = MLP(hidden_layer_sizes=(param[0], ), activation=param[1], max_iter = 200, n_jobs = n_jobs)
         elif clf == 'svm':
-            classifier = SVC(kernel = param[1], probability=True)
+            classifier = SVC(kernel = param[1], probability=True, n_jobs = n_jobs)
         elif clf == 'dt':
-            classifier = DT()
+            classifier = DT(n_jobs = n_jobs)
         elif clf == 'nb':
-            classifier = GaussianNB()
+            classifier = GaussianNB(n_jobs = n_jobs)
         elif clf == 'kmeans':
-            classifier = KMeans(n_clusters=param[0])
+            classifier = KMeans(n_clusters=param[0], n_jobs = n_jobs)
 
         y_train = np.array([j[0] for j in y_train])
 
@@ -162,8 +162,8 @@ class fitness:
     
     
     
-    def eval_tree(individual, clf, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func, param = [[],[]], external = False):
-        y_pred = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param, external)
+    def eval_tree(individual, clf, X_train, y_train, X_test, y_true, pset, opt_vars, eval_func, param = [[],[]], external = False, n_jobs = 4):
+        y_pred = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param, external, n_jobs = n_jobs)
 
         if 'wd' in opt_vars:
             X = fitness.create_reduced_dataset(individual, pset, X_test)
@@ -190,8 +190,8 @@ class fitness:
 
         return tuple(ret)
 
-    def performance(individual, clf, X_train, y_train, X_test, y_true, pset, param = [[],[]], external = False):
-        ret = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param = param, return_proba = True, external = external)
+    def performance(individual, clf, X_train, y_train, X_test, y_true, pset, param = [[],[]], external = False, n_jobs = 4):
+        ret = fitness.feature_construction(individual, clf, X_train, y_train, X_test, pset, param = param, return_proba = True, external = external, n_jobs = n_jobs)
         if type(ret) == type(-1):
             return [[0,0]]*4, 0, [0]*4, 0
         
